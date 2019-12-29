@@ -1,0 +1,1 @@
+https://gitlab.com/CLIUtils/modern-cmake/blob/master/examples/extended-project

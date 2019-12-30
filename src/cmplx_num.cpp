@@ -84,7 +84,7 @@ bool Cmplx::operator != (const Cmplx& other) const
 std::ostream& operator << (std::ostream& os, const Cmplx& c)
 {
     os << "(" << c.Re() << (c.Im() > -Cmplx::CMP_EPSILON ? " + " : " ")
-       << c.Im() << "i)" << " at " << &c;
+       << c.Im() << "i sdklfjsdlkfjsdilkj)" << " at " << &c;
     return os;
 }
 

@@ -37,8 +37,3 @@ class FooTest : public ::testing::Test {
 TEST_F(FooTest, DoesXyz) {
   mabz::hw();
 }
-
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}

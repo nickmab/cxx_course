@@ -16,7 +16,7 @@ macro(package_add_test TESTNAME)
     add_executable(${TESTNAME} ${ARGN})
     # link the Google test infrastructure, mocking library, and a default main fuction to
     # the test executable.  
-    target_link_libraries(${TESTNAME} gtest gmock advanced_cxx_lib)
+    target_link_libraries(${TESTNAME} gtest gmock gtest_main advanced_cxx_lib)
     # gtest_discover_tests replaces gtest_add_tests,
     # see https://cmake.org/cmake/help/v3.10/module/GoogleTest.html for more options to pass to it
     gtest_discover_tests(${TESTNAME}
@@ -27,4 +27,9 @@ macro(package_add_test TESTNAME)
     set_target_properties(${TESTNAME} PROPERTIES FOLDER tests)
 endmacro()
 
-package_add_test(test1 test1.cpp)
+# CMake 3.12 or later:
+file(GLOB TEST_LIST "./*.cpp")
+foreach(FILE_NAME ${TEST_LIST})
+    get_filename_component(APP_NAME ${FILE_NAME} NAME_WLE)
+    package_add_test(${APP_NAME} "${APP_NAME}.cpp")
+endforeach()

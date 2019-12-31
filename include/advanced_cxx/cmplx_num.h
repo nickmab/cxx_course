@@ -33,10 +33,46 @@ public:
     static constexpr double CMP_EPSILON = 1e-10;
     static bool DoublesEqual(double, double);
 
-    bool operator ! () const;
-    operator bool();
+    explicit operator bool() const;
     bool operator == (const Cmplx&) const;
     bool operator != (const Cmplx&) const;
+
+    // unary minus operator
+    Cmplx operator - () const { return Cmplx(-_r, -_i); }
+    
+    // for use with arithmetic operations / operator overloads.
+    class Calculator;
+};
+
+// Private class used for calculating results of arithmetic operations
+// from operator overloeds of the Cmplx class. There will be many
+// different function signatures for the Cmplx class itself (below)
+class Cmplx::Calculator
+{
+// note that this macro gets undef'd in the cpp file.
+#define CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE \
+    double& outRe, double& outIm, \
+    double lhsRe, double lhsIm, \
+    double rhsRe, double rhsIm 
+
+public:
+    // calculations
+    static void add(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE) 
+        { outRe = lhsRe + rhsRe; outIm = lhsIm + rhsIm; }
+    
+    static void sub(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE) 
+        { outRe = lhsRe - rhsRe; outIm = lhsIm - rhsIm; }
+    
+    // will not inline as these two are more complex (geddit?)
+    static void mul(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE);
+    static void div(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE);
+
+    // getting the real and imaginary parts...
+    static void ToParts(double& outRe, double& outIm, double realScalar)
+        { outRe = realScalar; outIm = 0; }
+
+    static void ToParts(double& outRe, double& outIm, const Cmplx& c)
+        { outRe = c.Re(); outIm = c.Im(); }
 };
 
 // more operator overloads...

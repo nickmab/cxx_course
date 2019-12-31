@@ -49,14 +49,25 @@ public:
 // different function signatures for the Cmplx class itself (below)
 class Cmplx::Calculator
 {
-// note that this macro gets undef'd in the cpp file.
+// note that these macros get undef'd in the cpp file.
 #define CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE \
     double& outRe, double& outIm, \
     double lhsRe, double lhsIm, \
     double rhsRe, double rhsIm 
 
+#define CMPLX_NUM_H_CMPLX_CMP_SIGNATURE \
+    Cmplx::Calculator::CMP_OP op, double lhsRe, double lhsIm, \
+    double rhsRe, double rhsIm
+
 public:
-    // calculations
+    // getting the real and imaginary parts...
+    static void ToParts(double& outRe, double& outIm, double realScalar)
+        { outRe = realScalar; outIm = 0; }
+
+    static void ToParts(double& outRe, double& outIm, const Cmplx& c)
+        { outRe = c.Re(); outIm = c.Im(); }
+
+    // arithmetic calculations
     static void add(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE) 
         { outRe = lhsRe + rhsRe; outIm = lhsIm + rhsIm; }
     
@@ -67,12 +78,11 @@ public:
     static void mul(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE);
     static void div(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE);
 
-    // getting the real and imaginary parts...
-    static void ToParts(double& outRe, double& outIm, double realScalar)
-        { outRe = realScalar; outIm = 0; }
-
-    static void ToParts(double& outRe, double& outIm, const Cmplx& c)
-        { outRe = c.Re(); outIm = c.Im(); }
+    // comparison operators
+    // "ascending sort" would be from left-to-right, top-to-bottom.
+    // i.e. (-7 - 2i) considered L.T. (-7 + 2i), which is L.T. -6 (+0i) etc.
+    enum CMP_OP { GT, LT, GE, LE };
+    static bool cmp(CMPLX_NUM_H_CMPLX_CMP_SIGNATURE);
 };
 
 // more operator overloads...
@@ -87,9 +97,7 @@ std::ostream& operator << (std::ostream&, const Cmplx&);
     CMPLX_OP_COMBOS(-, Cmplx)
     CMPLX_OP_COMBOS(*, Cmplx)
     CMPLX_OP_COMBOS(/, Cmplx)
-
-    // // "ascending sort" would be from left-to-right, top-to-bottom.
-    // // i.e. (-7 - 2i) considered L.T. (-7 + 2i), which is L.T. -6 (+0i) etc.
+    
     CMPLX_OP_COMBOS(>, bool)
     CMPLX_OP_COMBOS(<, bool)
     CMPLX_OP_COMBOS(>=, bool)

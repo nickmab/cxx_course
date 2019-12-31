@@ -105,6 +105,25 @@ void Cmplx::Calculator::div(CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE)
     outIm = (lhsIm*rhsRe + lhsRe*rhsIm) / c2plusd2;
 }
 
+bool Cmplx::Calculator::cmp(CMPLX_NUM_H_CMPLX_CMP_SIGNATURE)
+{
+    switch (op)
+    {
+        case GT: 
+            return lhsRe > (rhsRe + Cmplx::CMP_EPSILON) || 
+                lhsIm > (rhsIm + Cmplx::CMP_EPSILON);
+        case GE:
+            return lhsRe > (rhsRe - Cmplx::CMP_EPSILON) || 
+                lhsIm > (rhsIm - Cmplx::CMP_EPSILON);
+        case LT: 
+            return lhsRe < (rhsRe - Cmplx::CMP_EPSILON) || 
+                lhsIm < (rhsIm - Cmplx::CMP_EPSILON);
+        case LE:
+            return lhsRe < (rhsRe + Cmplx::CMP_EPSILON) || 
+                lhsIm < (rhsIm + Cmplx::CMP_EPSILON);        
+    }
+}
+
 std::ostream& operator << (std::ostream& os, const Cmplx& c)
 {
     os << "(" << c.Re() << (c.Im() > -Cmplx::CMP_EPSILON ? " + " : " - ")
@@ -121,13 +140,13 @@ std::ostream& operator << (std::ostream& os, const Cmplx& c)
     double lhsIm; \
     double rhsRe; \
     double rhsIm; \
-    double outRe; \
-    double outIm; \
     Cmplx::Calculator::ToParts(lhsRe, lhsIm, lhs); \
     Cmplx::Calculator::ToParts(rhsRe, rhsIm, rhs); 
 
 #define CMPLX_ARITHMETIC_INNER_CODE(_func, _lhs_rval, _rhs_rval) \
     COMPLEX_ARGS_TO_PARTS \
+    double outRe; \
+    double outIm; \
     Cmplx::Calculator::_func(outRe, outIm, lhsRe, lhsIm, rhsRe, rhsIm); \
     return Cmplx(outRe, outIm);
 
@@ -153,34 +172,39 @@ std::ostream& operator << (std::ostream& os, const Cmplx& c)
     CMPLX_ARITHMETIC_MACRO(/, div)
 
 #undef CMPLX_ARITHMETIC_MACRO
-#undef COMPLEX_ARGS_TO_PARTS
 #undef CMPLX_ARITHMETIC_INNER_CODE
 #undef CMPLX_NUM_H_CMPLX_ARGS_SIGNATURE
 
+#define GT_LT_INNER_CODE(_enumval) \
+    COMPLEX_ARGS_TO_PARTS \
+    return Cmplx::Calculator::cmp( \
+        Cmplx::Calculator::CMP_OP::_enumval, lhsRe, lhsIm, rhsRe, rhsIm); 
+
 // This is terrible code; never ever do this.
-#define GT_LT(_op1, _op2) \
-    bool operator _op1 (const Cmplx& a, const Cmplx& b) \
+#define GT_LT(_op, _enumval) \
+    bool operator _op (const Cmplx& lhs, const Cmplx& rhs) \
     { \
-        const bool reIsDecisive = a.Re() _op1 (b.Re() _op2 Cmplx::CMP_EPSILON); \
-        return reIsDecisive ? true : a.Im() _op1 (b.Im() _op2 Cmplx::CMP_EPSILON); \
+        GT_LT_INNER_CODE(_enumval) \
     } \
 \
-    bool operator _op1 (const Cmplx& a, double b) \
+    bool operator _op (const Cmplx& lhs, double rhs) \
     { \
-        const bool reIsDecisive = a.Re() _op1 (b _op2 Cmplx::CMP_EPSILON); \
-        return reIsDecisive ? true : a.Im() _op1 _op2 Cmplx::CMP_EPSILON; \
+        GT_LT_INNER_CODE(_enumval) \
     } \
 \
-    bool operator _op1 (double a, const Cmplx& b) \
+    bool operator _op (double lhs, const Cmplx& rhs) \
     { \
-        const bool reIsDecisive = a _op1 (b.Re() _op2 Cmplx::CMP_EPSILON); \
-        return reIsDecisive ? true : 0. _op1 (b.Im() _op2 Cmplx::CMP_EPSILON); \
+        GT_LT_INNER_CODE(_enumval) \
     } 
 
-    GT_LT(>, +)
-    GT_LT(<, -)
-    GT_LT(>=, -)
-    GT_LT(<=, +)
+    GT_LT(>, GT)
+    GT_LT(<, LT)
+    GT_LT(>=, GE)
+    GT_LT(<=, LE)
+
 #undef GT_LT
+#undef COMPLEX_ARGS_TO_PARTS
+#undef GT_LT_INNER_CODE
+#undef CMPLX_NUM_H_CMPLX_CMP_SIGNATURE
 
 } // namespace mabz

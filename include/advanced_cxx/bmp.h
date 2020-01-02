@@ -78,7 +78,8 @@ public:
 	Bmp(Bmp&&) = delete;
 	~Bmp() = default; // unique_ptr will auto-clean-up the memory.
 
-	// void SetRGBPixel();
+	// Like an (x, y) plane with the origin at the bottom left of the image.
+	void SetRGBPixel(i32 x, i32 y, ui8 r, ui8 g, ui8 b);
 
 	bool WriteToFile(const char *filename) const;
 };

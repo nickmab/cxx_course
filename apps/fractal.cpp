@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "advanced_cxx/bmp.h"
+#include "advanced_cxx/img_scaler.h"
 
 int main()
 {
@@ -24,6 +25,18 @@ int main()
 		}	
 	}
 
+	const mabz::ImgScaler scaler(-1.0, 1.0, 0, width-1);
+	int scaledX = 0;
+	int maxScaledX = -9999999;
+	int minScaledX = 9999999;
+	for (double x = -1.0; x < 1.0; x += 0.1)
+	{
+		scaler.Convert(x, scaledX);
+		if (scaledX > maxScaledX) maxScaledX = scaledX;
+		if (scaledX < minScaledX) minScaledX = scaledX;
+	}
+
 	std::cout << bmp.WriteToFile("very_simple.bmp") << std::endl;
+	std::cout << minScaledX << ", " << maxScaledX << std::endl;
 	return 0;
 }

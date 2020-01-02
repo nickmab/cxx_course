@@ -58,7 +58,7 @@ private:
 	BmpFileHeader mFileHeader;
 	BmpDataHeader mDataHeader;
 
-	// Tthis will be an array of uint8_t containing 3 entries for each RGB
+	// This will be an array of uint8_t containing 3 entries for each RGB
 	// pixel. So it will have dimension width x height x 3.
 	// This 'agrees' with the mBitsPerPixel (== 24) property of the data header.
 	const std::size_t mDataSize{0};

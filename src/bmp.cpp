@@ -11,14 +11,22 @@ void Bmp::SetRGBPixel(i32 x, i32 y, ui8 r, ui8 g, ui8 b)
 {
 	/* The rows are written from the bottom to the top in the data array,
 	 * i.e. first pixel is bottom left, last pixel is top right of the image.
-	 * The 3 individual RGB bytes need to be written in reverse order because
-	 * bmp is a little endian file format where the least significant bytes
-	 * are written first - picture a hex number 0xRRGGBB - the blue byte is
-	 * the "least significant" (i.e. represents the smallest numeric value).
-	 * Overflow is ignored - will simply mod the number if out of range.
+	 * Overflow of x or y coordinates is ignored - simply mod the value if out of range.
 	 */
 	x %= mDataHeader.mWidth;
 	y %= mDataHeader.mHeight;
+
+	// go up by y rows and across by x columns...
+	const int startByte = 3 * (y * mDataHeader.mWidth + x);
+	
+	/* The 3 individual RGB bytes need to be written in reverse order because
+	 * bmp is a little endian file format where the least significant bytes
+	 * are written first - picture a hex number 0xRRGGBB - the blue byte is
+	 * the "least significant" (i.e. represents the smallest numeric value).
+	 */
+	mData[startByte] = b;
+	mData[startByte + 1] = g;
+	mData[startByte + 2] = r;
 }
 #undef i32
 #undef ui8

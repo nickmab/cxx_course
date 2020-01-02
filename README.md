@@ -1,1 +1,4 @@
-https://gitlab.com/CLIUtils/modern-cmake/blob/master/examples/extended-project
+Current version produces something like this...
+
+![Image of an example fractal]
+(very_simple.bmp)

@@ -1,6 +1,8 @@
+#include <cstdint>
 #include <iostream>
 
 #include "advanced_cxx/bmp.h"
+#include "advanced_cxx/color_map.h"
 #include "advanced_cxx/img_scaler.h"
 
 int main()
@@ -36,7 +38,24 @@ int main()
 		if (scaledX < minScaledX) minScaledX = scaledX;
 	}
 
+	mabz::color::BasicTable colors(4);
+	colors.AddEntry(10, 120, 40, 40);
+	colors.AddEntry(50, 120, 120, 40);
+	colors.AddEntry(125, 120, 200, 60);
+	colors.AddEntry(750, 230, 230, 230);
+
 	std::cout << bmp.WriteToFile("very_simple.bmp") << std::endl;
 	std::cout << minScaledX << ", " << maxScaledX << std::endl;
+	std::cout << colors << std::endl;
+
+	std::uint8_t r{0};
+	std::uint8_t g{0};
+	std::uint8_t b{0};
+	std::cout << "(" << colors.GetColor(0, r, g, b) << ") (" 
+		<< (int)r << ") (" << (int)g << ") (" << (int)b << ")" << std::endl;
+	std::cout << "(" << colors.GetColor(49, r, g, b) << ") (" 
+		<< (int)r << ") (" << (int)g << ") (" << (int)b << ")" << std::endl;
+	std::cout << "(" << colors.GetColor(900, r, g, b) << ") (" 
+		<< (int)r << ") (" << (int)g << ") (" << (int)b << ")" << std::endl;
 	return 0;
 }

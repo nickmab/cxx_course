@@ -81,6 +81,9 @@ public:
 	// Like an (x, y) plane with the origin at the bottom left of the image.
 	void SetRGBPixel(i32 x, i32 y, ui8 r, ui8 g, ui8 b);
 
+	i32 Width() const { return mDataHeader.mWidth; }
+	i32 Height() const { return mDataHeader.mHeight; }
+	
 	bool WriteToFile(const char *filename) const;
 };
 

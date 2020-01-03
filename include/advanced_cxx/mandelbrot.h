@@ -16,7 +16,7 @@ private:
 	static double abs(const Cmplx&);
 
 public:
-	static const unsigned MAX_ITERATIONS{5000};
+	static const unsigned MAX_ITERATIONS{1500};
 
 	// Tests a complex number by running up to calculator::MAX_ITERATIONS of the mandelbrot fractal
 	// calculation to see whether the result diverges / magnitude exceeds 2. 

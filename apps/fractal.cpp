@@ -11,38 +11,38 @@
 bool fillBmpWithColor(mabz::Bmp& bmp)
 {
 	mabz::color::BasicTable colors(8);
-	colors.AddEntry(10, 20, 20, 80);
-	colors.AddEntry(50, 60, 20, 120);
-	colors.AddEntry(125, 150, 60, 120);
-	colors.AddEntry(250, 60, 150, 60);
-	colors.AddEntry(500, 120, 200, 60);
-	colors.AddEntry(750, 140, 200, 150);
-	colors.AddEntry(1000, 200, 200, 200);
-	colors.AddEntry(2500, 245, 245, 245);
+	colors.AddEntry(3, 20, 20, 80);
+	colors.AddEntry(6, 60, 20, 120);
+	colors.AddEntry(9, 150, 60, 120);
+	colors.AddEntry(20, 60, 150, 60);
+	colors.AddEntry(50, 120, 200, 60);
+	colors.AddEntry(100, 140, 200, 150);
+	colors.AddEntry(500, 20, 200, 40);
+	colors.AddEntry(1500, 200, 200, 200);
 	std::cout << colors << std::endl;
 
 	// project from the -1:1 domain and range to the width:height domain and range.
-	const mabz::ImgScaler xScaler(-1.0, 1.0, 0, bmp.Width()-1);
-	const mabz::ImgScaler yScaler(-1.0, 1.0, 0, bmp.Height()-1);
+	const mabz::ImgScaler xScaler(0, bmp.Width()-1, -2.0, 0.75);
+	const mabz::ImgScaler yScaler(0, bmp.Height()-1, -1.5, 1.5);
 	
-	for (double x = -1.0; x < 1.0; x += 0.005)
+	for (int x = 0; x < bmp.Width(); ++x)
 	{
-		for (double y = -1.0; y < 1.0; y += 0.005)
+		for (int y = 0; y < bmp.Height(); ++y)
 		{
 			// determine which pixel we're working with...
-			int scaledX = 0;
-			int scaledY = 0;
+			double scaledX{0};
+			double scaledY{0};
 			xScaler.Convert(x, scaledX);
 			yScaler.Convert(y, scaledY);
 
 			// determine the mandelbrot iterations...
 			unsigned iterations = 0;
-			mabz::mandelbrot::calculator::IsDivergent(iterations, x, y);
+			mabz::mandelbrot::calculator::IsDivergent(iterations, scaledX, scaledY);
 			std::uint8_t r = 0;
 			std::uint8_t g = 0;
 			std::uint8_t b = 0;
 			colors.GetColor(iterations, r, g, b);
-			bmp.SetRGBPixel(scaledX, scaledY, r, g, b);
+			bmp.SetRGBPixel(x, y, r, g, b);
 		}
 	}
 

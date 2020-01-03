@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
+#include <iostream>
 
-#include <advanced_cxx/lib.h>
+#include <advanced_cxx/mandelbrot.h>
 
 // The fixture for testing class Foo.
 class FooTest : public ::testing::Test {
@@ -35,5 +36,5 @@ class FooTest : public ::testing::Test {
 
 // Tests that Foo does Xyz.
 TEST_F(FooTest, DoesXyz) {
-  mabz::hw();
+  std::cout << mabz::mandelbrot::calculator::MAX_ITERATIONS << std::endl;
 }

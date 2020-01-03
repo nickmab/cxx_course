@@ -22,8 +22,16 @@ bool fillBmpWithColor(mabz::Bmp& bmp)
 	std::cout << colors << std::endl;
 
 	// project from the -1:1 domain and range to the width:height domain and range.
-	const mabz::ImgScaler xScaler(0, bmp.Width()-1, -2.0, 0.75);
-	const mabz::ImgScaler yScaler(0, bmp.Height()-1, -1.5, 1.5);
+	// maintaining the same aspect ratio.
+	const double cartesianXMin{-2.2};
+	const double cartesianXMax{0.9};
+	const double aspectRatio = (double)bmp.Height() / bmp.Width();
+	const double cartesianYMidpt{0.0};
+	const double cartesianYMidptOffset = 0.5 * aspectRatio * (cartesianXMax - cartesianXMin);
+	const double cartesianYMin{cartesianYMidpt - cartesianYMidptOffset};
+	const double cartesianYMax{cartesianYMidpt + cartesianYMidptOffset};
+	const mabz::ImgScaler xScaler(0, bmp.Width()-1, cartesianXMin, cartesianXMax);
+	const mabz::ImgScaler yScaler(0, bmp.Height()-1, cartesianYMin, cartesianYMax);
 	
 	for (int x = 0; x < bmp.Width(); ++x)
 	{

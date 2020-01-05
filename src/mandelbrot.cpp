@@ -24,7 +24,7 @@ double calculator::abs(const Cmplx& z)
 	return sqrt(z.Re*z.Re + z.Im*z.Im);
 }
 
-bool calculator::IsDivergent(unsigned& outIterations, double real, double imaginary)
+bool calculator::IsDivergent(int& outIterations, double real, double imaginary)
 {
 	Cmplx z;
 	const Cmplx c{real, imaginary};

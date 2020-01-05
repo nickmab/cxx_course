@@ -16,13 +16,13 @@ private:
 	static double abs(const Cmplx&);
 
 public:
-	static const unsigned MAX_ITERATIONS{1500};
+	static const int MAX_ITERATIONS{1500};
 
 	// Tests a complex number by running up to calculator::MAX_ITERATIONS of the mandelbrot fractal
 	// calculation to see whether the result diverges / magnitude exceeds 2. 
 	// "out" variable indicates the number of iterations done until it crossed through the 2 barrier.
 	// Returning "false" indicates that divergence did not appear to occur within the max iterations.
-	static bool IsDivergent(unsigned& outIterations, double real, double imaginary);
+	static bool IsDivergent(int& outIterations, double real, double imaginary);
 };
 
 } /* namespace mandelbrot */

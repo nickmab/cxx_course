@@ -15,51 +15,117 @@ FractalBmp::FractalBmp(
 		int pixelHeight
 	)
 	: mBmp(pixelWidth, pixelHeight)
-	, mXMin(xCenter - 0.5*xDomainWidth)
-	, mXMax(xCenter + 0.5*xDomainWidth)
+	, mIterationPixelMap(pixelWidth*pixelHeight, 0)
 {
 	const double aspectRatio = static_cast<double>(pixelHeight) / pixelWidth;
-	const double yMidptOffset = 0.5*aspectRatio*xDomainWidth;
-	mYMin = yCenter - yMidptOffset;
-	mYMax = yCenter + yMidptOffset;
-	mXScaler.reset(new mabz::ImgScaler(0, pixelWidth - 1, mXMin, mXMax));
-	mYScaler.reset(new mabz::ImgScaler(0, pixelHeight - 1, mYMin, mYMax));
+	const double xMidptOffset = 0.5 * xDomainWidth;
+	const double yMidptOffset = aspectRatio * xMidptOffset;
+	
+	mXScaler.reset(new mabz::ImgScaler(
+		0, pixelWidth - 1, xCenter - xMidptOffset, xCenter + xMidptOffset));
+	mYScaler.reset(new mabz::ImgScaler(
+		0, pixelHeight - 1, yCenter - yMidptOffset, yCenter + yMidptOffset));
 }
 
-bool FractalBmp::Generate()
+// calls the Mandelbrot function and populates mIterationPixelMap
+// and mIterationsToPixelCount.
+void FractalBmp::IterationsFirstPass()
 {
-	mabz::color::BasicTable colors(8);
-	colors.AddEntry(3, 20, 20, 80);
-	colors.AddEntry(6, 60, 20, 120);
-	colors.AddEntry(9, 150, 60, 120);
-	colors.AddEntry(20, 60, 150, 60);
-	colors.AddEntry(50, 120, 200, 60);
-	colors.AddEntry(100, 140, 200, 150);
-	colors.AddEntry(500, 20, 200, 40);
-	colors.AddEntry(1500, 200, 200, 200);
+	const int width = mBmp.Width();
+	const int height = mBmp.Height();
+	
+	std::cout << "Running IterationsFirstPass on " 
+			  << width * height << " pixels." << std::endl;
 
-	for (int x = 0; x < mBmp.Width(); ++x)
+	int pixelsInMandelbrotSet{0};
+	for (int x = 0; x < width; ++x)
 	{
-		for (int y = 0; y < mBmp.Height(); ++y)
+		for (int y = 0; y < height; ++y)
 		{
-			// determine which pixel we're working with...
+			// determine real and imaginary parts corresponding to the pixel we're working with...
 			double scaledX{0};
 			double scaledY{0};
 			mXScaler->Convert(x, scaledX);
 			mYScaler->Convert(y, scaledY);
 
 			// determine the mandelbrot iterations...
-			unsigned iterations = 0;
-			calculator::IsDivergent(iterations, scaledX, scaledY);
-			std::uint8_t r = 0;
-			std::uint8_t g = 0;
-			std::uint8_t b = 0;
-			colors.GetColor(iterations, r, g, b);
-			mBmp.SetRGBPixel(x, y, r, g, b);
+			int iterations = 0;
+			if (calculator::IsDivergent(iterations, scaledX, scaledY))
+			{
+				// only store statistics about frequency if it diverges,
+				// i.e. if it's not actually in the set (color for in-the-set is hard-coded).
+				mIterationsToPixelCount[iterations]++;
+			}
+			else
+			{
+				pixelsInMandelbrotSet++;
+			}
+			mIterationPixelMap[y*width + x] = iterations;
 		}
 	}
 
-	return true;
+	std::cout << "Found " << pixelsInMandelbrotSet << " pixels in the Mandelbrot set." << std::endl;
+}
+
+// Must only call after IterationsFirstPass. Uses mIterationPixelMap
+// and mIterationsToPixelCount to populate mIterationsCumulativeDensity.
+void FractalBmp::IterationsSecondPass()
+{
+	std::cout << "Running IterationsSecondPass." << std::endl;
+	const double numPixels = static_cast<double>(mBmp.Width() * mBmp.Height());
+	double pixelsCumSum{0};
+	for (auto iterAndPixel : mIterationsToPixelCount)
+	{
+		mIterationsCumulativeDensity[iterAndPixel.first] = pixelsCumSum/numPixels;
+		pixelsCumSum += iterAndPixel.second;
+	}
+	std::cout << "Sanity check on pixelsCumSum: " << pixelsCumSum << std::endl;
+	std::cout << "Must mean there are " << numPixels - pixelsCumSum 
+		      << " pixels in the Mandelbrot set." << std::endl;
+}
+
+// Must only run after the IterationsFirst/SecondPass functions. 
+// Uses the data there to colorize according to how frequent the
+// iteration counts are. 
+void FractalBmp::Colorize()
+{
+	const int width = mBmp.Width();
+	const int height = mBmp.Height();
+	const int pixelMapSize = mIterationPixelMap.size();
+
+	std::cout << "colorizing..." << std::endl;
+	std::cout << "mIterationPixelMap has " << pixelMapSize
+			  << " elements." << std::endl;
+
+	mabz::color::HistogramBased histColor(40, 210, 95);
+	histColor.AddColorZone(180, 10, 10);
+	histColor.AddColorZone(90, 23, 185);
+
+	for (int x = 0; x < width; ++x)
+	{
+		for (int y = 0; y < height; ++y)
+		{
+			const int iterations = mIterationPixelMap[y*width + x];
+			if (iterations == mabz::mandelbrot::calculator::MAX_ITERATIONS)
+			{
+				mBmp.SetRGBPixel(x, y, 
+					histColor.mMandelbrotSetColor.mRed,
+					histColor.mMandelbrotSetColor.mGreen,
+					histColor.mMandelbrotSetColor.mBlue);
+			}
+			else
+			{
+				const mabz::color::RGB rgb = histColor.GetColor(mIterationsCumulativeDensity[iterations]);
+				mBmp.SetRGBPixel(x, y, rgb.mRed, rgb.mGreen, rgb.mBlue);
+			}
+		}
+	}
+}
+
+void FractalBmp::Generate()
+{
+	IterationsFirstPass();
+	IterationsSecondPass();
 }
 
 bool FractalBmp::WriteToFile(const char* filename) const

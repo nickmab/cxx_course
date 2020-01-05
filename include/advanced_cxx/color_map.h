@@ -3,52 +3,55 @@
 
 #include <cstdint>
 #include <iostream>
+#include <utility>
 #include <vector>
 
 namespace mabz { namespace color {
 
 #define ui8 std::uint8_t
 
-// Just getting started here, let's have a kind of lookup table where we define the 
-// "score" that gets you into a certain colour zone and the corresponding colour of that zone.
-class BasicTable
+struct RGB
+{
+	ui8 mRed{0};
+	ui8 mGreen{0};
+	ui8 mBlue{0};
+
+	RGB(ui8 r, ui8 g, ui8 b) : mRed(r), mGreen(g), mBlue(b) {}
+	RGB(const RGB&) = default;
+	RGB(RGB&& rgb) : mRed(rgb.mRed), mGreen(rgb.mGreen), mBlue(rgb.mBlue) {}
+};
+
+RGB operator * (double x, const RGB& rgb)
+{
+	return std::move(RGB(x*rgb.mRed, x*rgb.mGreen, x*rgb.mBlue));
+}
+
+RGB operator * (const RGB& rgb, double x)
+{
+	return std::move(RGB(x*rgb.mRed, x*rgb.mGreen, x*rgb.mBlue));
+}
+
+class HistogramBased
 {
 private:
-	struct LookupTableEntry
-	{
-		unsigned mLowerBound{0};
-		ui8 mRed{0};
-		ui8 mGreen{0};
-		ui8 mBlue{0};
-
-		bool operator < (const LookupTableEntry& other) const { return mLowerBound < other.mLowerBound; }
-	};
-
-	const int mMaxNumberOfEntries{0};
-	int mCurrentNumberOfEntries{0};
-	std::vector<LookupTableEntry> mLookupTable{};
-
-	// Once the table is fully populated with the colour zones, sort ascending for easy lookup.
-	// returning false indicates invalidity of the table; only current invalidity is duplicate lower bounds.
-	bool SortTable();
-	bool mInitialised{false};
+	std::vector<RGB> mColorZones;
+	std::vector<double> mColorZoneCutoffs;
+	double mZoneCutoffStepSize;
+	int mNumColorZones{0};
 
 public:
-	BasicTable() = delete;
-	BasicTable(int size) 
-		: mMaxNumberOfEntries(size)
-		, mLookupTable(size)
+	RGB mMandelbrotSetColor;
+	
+	HistogramBased() = delete;
+	HistogramBased(ui8 mbsR, ui8 mbsG, ui8 mbsB)
+		: mMandelbrotSetColor(mbsR, mbsG, mbsB)
 	{}
-	BasicTable(const BasicTable&) = delete;
-	~BasicTable() = default;
+	HistogramBased(const HistogramBased&) = delete;
+	HistogramBased(HistogramBased&&) = delete;
+	~HistogramBased() = default;
 
-	// false indicates failure - the table is already full.
-	bool AddEntry(unsigned lowerBound, ui8 r, ui8 g, ui8 b);
-	// false indicates failure - the table is not yet correctly initialised.
-	// automatically returns black if the input value is below the min lower bound defined.
-	bool GetColor(unsigned input, ui8& rOut, ui8& gOut, ui8& bOut) const;
-
-	friend std::ostream& operator << (std::ostream&, const BasicTable&);
+	void AddColorZone(ui8 r, ui8 g, ui8 b);
+	RGB GetColor(double percentageBelowThisColor) const;
 };
 
 #undef ui8

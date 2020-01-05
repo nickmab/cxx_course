@@ -4,8 +4,9 @@
 
 int main()
 {
-	mabz::mandelbrot::FractalBmp frac(-0.7, 0.0, 3.0, 800, 600);
-	std::cout << frac.Generate() << std::endl;
+	mabz::mandelbrot::FractalBmp frac(-1.0, 0.2, 1.25, 800, 600);
+	frac.Generate();
+	frac.Colorize();
 	std::cout << frac.WriteToFile("very_simple.bmp") << std::endl;
 	
 	return 0;

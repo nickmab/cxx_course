@@ -30,7 +30,7 @@ FractalBmp::FractalBmp(
 
 void FractalBmp::Generate()
 {
-	const mabz::color::RGB baseColor(10, 150, 20);
+	const mabz::color::RGB baseColor(240, 240, 240);
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
 	
@@ -55,13 +55,15 @@ void FractalBmp::Generate()
 				const double intensity = sqrt(static_cast<double>(iterations) / mabz::mandelbrot::calculator::MAX_ITERATIONS);
 				mabz::color::HSV hsv = baseColor.ToHSV();
 				hsv.mHue *= intensity;
+				hsv.mSaturation *= intensity;
+				hsv.mValue *= intensity;
 				const mabz::color::RGB rgb = hsv.ToRGB();
 				mBmp.SetRGBPixel(x, y, rgb.mRed, rgb.mGreen, rgb.mBlue);
 			}
 			else
 			{
 				pixelsInMandelbrotSet++;
-				mBmp.SetRGBPixel(x, y, 80, 10, 80); 
+				mBmp.SetRGBPixel(x, y, 0, 0, 0); 
 			}
 		}
 	}

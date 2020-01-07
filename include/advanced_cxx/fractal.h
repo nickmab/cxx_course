@@ -9,7 +9,6 @@
 #include <advanced_cxx/bmp.h>
 #include <advanced_cxx/color_utils.h>
 #include <advanced_cxx/fractal.pb.h>
-#include <advanced_cxx/img_scaler.h>
 
 namespace mabz { namespace mandelbrot {
 
@@ -17,24 +16,24 @@ class FractalBmp
 {
 private:
 	mabz::Bmp mBmp;
-	// use unique_ptr to get the initialization sequence right - 
-	// it has no default constructor and we need to calculate some properties on the fly.
-	std::unique_ptr<mabz::ImgScaler> mXScaler;
-	std::unique_ptr<mabz::ImgScaler> mYScaler;
+	mabz::PixelXYMapper mPixelXYMapper;
 
 	std::vector<int> mIterations;
 
 	bool mHasBeenGenerated{false};
 
 public:
-	FractalBmp() = delete;
 	FractalBmp(
 		double xCenter, 
 		double yCenter, 
 		double xDomainWidth, 
 		int pixelWidth,
-		int pixelHeight
-	);
+		int pixelHeight)
+
+		: mBmp(pixelWidth, pixelHeight)
+		, mPixelXYMapper(xCenter, yCenter, xDomainWidth, pixelWidth, pixelHeight)
+		, mIterations(pixelWidth*pixelHeight, 0)
+	{}
 	FractalBmp(const FractalBmp&) = delete;
 
 	bool HasBeenGenerated() const { return mHasBeenGenerated; }

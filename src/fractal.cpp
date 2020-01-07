@@ -15,26 +15,6 @@
 
 namespace mabz { namespace mandelbrot {
 
-FractalBmp::FractalBmp(
-		double xCenter, 
-		double yCenter, 
-		double xDomainWidth, 
-		int pixelWidth,
-		int pixelHeight
-	)
-	: mBmp(pixelWidth, pixelHeight)
-	, mIterations(pixelWidth*pixelHeight, 0)
-{
-	const double aspectRatio = static_cast<double>(pixelHeight) / pixelWidth;
-	const double xMidptOffset = 0.5 * xDomainWidth;
-	const double yMidptOffset = aspectRatio * xMidptOffset;
-	
-	mXScaler.reset(new mabz::ImgScaler(
-		0, pixelWidth - 1, xCenter - xMidptOffset, xCenter + xMidptOffset));
-	mYScaler.reset(new mabz::ImgScaler(
-		0, pixelHeight - 1, yCenter - yMidptOffset, yCenter + yMidptOffset));
-}
-
 void FractalBmp::Generate()
 {
 	const int width = mBmp.Width();
@@ -51,8 +31,7 @@ void FractalBmp::Generate()
 			// determine real and imaginary parts corresponding to the pixel we're working with...
 			double scaledX{0};
 			double scaledY{0};
-			mXScaler->Convert(x, scaledX);
-			mYScaler->Convert(y, scaledY);
+			mPixelXYMapper.Convert(x, y, scaledX, scaledY);
 
 			// determine the mandelbrot iterations...
 			int iterations = 0;

@@ -57,4 +57,26 @@ bool Bmp::WriteToFile(const char *filename) const
 	}
 }
 
+PixelXYMapper::PixelXYMapper(
+	double xCenter, 
+	double yCenter, 
+	double xDomainWidth, 
+	int pixelWidth,
+	int pixelHeight)
+
+	: mPixelWidth(static_cast<double>(pixelWidth))
+	, mPixelHeight(static_cast<double>(pixelHeight))
+	, mXMinimum(xCenter - 0.5 * xDomainWidth)
+	, mXDomainWidth(xDomainWidth)
+	, mYMinimum(yCenter - 0.5 * xDomainWidth * mPixelHeight / mPixelWidth)
+	, mYRangeHeight(xDomainWidth * mPixelHeight / mPixelWidth)
+{}
+
+// Does not check for X or Y out of range. So just don't make mistakes.
+void PixelXYMapper::Convert(int xPixel, int yPixel, double& outXCoordinate, double& outYCoordinate) const
+{
+	outXCoordinate = mXMinimum + xPixel * mXDomainWidth / mPixelWidth;
+	outYCoordinate = mYMinimum + yPixel * mYRangeHeight / mPixelHeight;
+}
+
 } /* namespace mabz */

@@ -90,4 +90,35 @@ public:
 #undef i16
 #undef ui8
 
+// Given an int (X, Y) pixel coordinate in a (W x H) bitmap, 
+// map each pixel to an arbitrary cartesian (x, y) coordinate (e.g. for use
+// plotting functions with arbitrary domain and range).
+// Current implementation automatically keeps same scale/aspect ratio as the bitmap.
+class PixelXYMapper
+{
+private:
+	// cast on construction for easy division.
+	const double mPixelWidth{0}; 
+	const double mPixelHeight{0};
+
+	// e.g. if going from (-1, 1) to (1, 4)
+	// these would be calculated as -1, 2, 1, 3.
+	const double mXMinimum{0};
+	const double mXDomainWidth{0};
+	const double mYMinimum{0};
+	const double mYRangeHeight{0};
+
+public:
+	PixelXYMapper(
+		double xCenter, 
+		double yCenter, 
+		double xDomainWidth, 
+		int pixelWidth,
+		int pixelHeight);
+
+	// Simply a linear extrapolation based on distance from the midpoint of 
+	// the range; does not bother to check whether the provided 'in' value is within source range!!
+	void Convert(int xPixel, int yPixel, double& outXCoordinate, double& outYCoordinate) const;
+};
+
 } /* namespace mabz */

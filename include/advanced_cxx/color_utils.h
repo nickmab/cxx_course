@@ -38,19 +38,6 @@ struct HSV
 	static RGB ToRGB(double h, double s, double v);
 };
 
-class SingleColorScheme
-{
-private:
-	int mMaxIterations{0};
-	RGB mMandelbrotColor;
-	HSV mIterBaseColor;
-
-public:
-	// maxIterations, RGB of mMandelbrotColor, RGB of mIterBaseColor.
-	SingleColorScheme(int, ui8, ui8, ui8, ui8, ui8, ui8);
-	RGB GetColor(int iterations) const;
-};
-
 #undef ui8
 
 } /* namespace color */

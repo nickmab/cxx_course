@@ -1,5 +1,4 @@
 #include <cmath>
-#include <cstdint>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -14,6 +13,36 @@
 #include <google/protobuf/util/json_util.h>
 
 namespace mabz { namespace mandelbrot {
+
+#define ui8 std::uint8_t
+SingleColorScheme::SingleColorScheme(
+	int scalingDenominator, 
+	ui8 rFull, ui8 gFull, ui8 bFull, 
+	ui8 rBase, ui8 gBase, ui8 bBase)
+	
+	: mScalingDenominator(scalingDenominator)
+	, mHundredPerCentColor(rFull, gFull, bFull)
+	, mScalingBaseColor(std::move(mabz::color::RGB::ToHSV(rBase, gBase, bBase)))
+{}
+#undef ui8
+
+mabz::color::RGB SingleColorScheme::GetColor(int score) const
+{
+	if (score == mScalingDenominator)
+	{
+		// makes / returns a copy obviously.
+		return mHundredPerCentColor;
+	}
+	else
+	{
+		const double intensity = sqrt(static_cast<double>(score) / mScalingDenominator);
+		mabz::color::HSV hsv(mScalingBaseColor);
+		hsv.mHue *= intensity;
+		hsv.mSaturation *= intensity;
+		hsv.mValue *= intensity;
+		return std::move(hsv.ToRGB());
+	}
+}
 
 void FractalBmp::Generate()
 {
@@ -45,7 +74,7 @@ void FractalBmp::Generate()
 	mHasBeenGenerated = true;
 }
 
-void FractalBmp::Colorize(const mabz::color::SingleColorScheme& colors)
+void FractalBmp::Colorize(const ColorScheme& colors)
 {
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
@@ -116,7 +145,7 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 				for (int j = 0; j < bmpConfig.color_schemes_size(); j++)
 				{
 					const fractal_proto::SingleColorScheme& colorConfig = bmpConfig.color_schemes(j);
-					auto colors = std::make_unique<const mabz::color::SingleColorScheme>(
+					auto colors = std::make_unique<const SingleColorScheme>(
 						mabz::mandelbrot::calculator::MAX_ITERATIONS,
 						colorConfig.mandelbrot_color().red(),
 						colorConfig.mandelbrot_color().green(),
@@ -133,6 +162,14 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 					factory->mBmps.push_back(std::move(tup));
 				}
 
+				// make a dodgy one just to test the code out...
+				auto colors = std::make_unique<const DodgyColorScheme>();
+				auto tup = std::make_tuple(
+					fractalBmp, 
+					std::move(colors),
+					std::move(std::string("flat_color.bmp")));
+
+				factory->mBmps.push_back(std::move(tup));
 			}
 			return factory;
 		}

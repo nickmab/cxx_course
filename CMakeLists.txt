@@ -37,12 +37,3 @@ add_subdirectory(src)
 
 # The executable code is here
 add_subdirectory(apps)
-
-option(PACKAGE_TESTS "Build the tests" ON)
-# Testing only available if this is the main app / current project.
-if(PACKAGE_TESTS AND (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME))
-    enable_testing()
-    include(GoogleTest)
-    add_subdirectory(tests)
-endif()
-

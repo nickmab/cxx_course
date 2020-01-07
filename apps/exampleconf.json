@@ -1,0 +1,64 @@
+{
+ "bitmaps": [
+  {
+   "x_center": -1,
+   "y_center": 0,
+   "x_domain_width": 3,
+   "pixel_width": 800,
+   "pixel_height": 600,
+   "color_schemes": [
+    {
+     "iter_base_color": {
+      "red": 240,
+      "green": 240,
+      "blue": 240
+     },
+     "out_filename": "black_and_white.bmp"
+    },
+    {
+     "mandelbrot_color": {
+      "red": 0,
+      "green": 0,
+      "blue": 40
+     },
+     "iter_base_color": {
+      "red": 240,
+      "green": 0,
+      "blue": 30
+     },
+     "out_filename": "red_and_blue.bmp"
+    }
+   ]
+  },
+  {
+   "x_center": -0.5,
+   "y_center": 0.5,
+   "x_domain_width": 1,
+   "pixel_width": 600,
+   "pixel_height": 800,
+   "color_schemes": [
+    {
+     "iter_base_color": {
+      "red": 240,
+      "green": 240,
+      "blue": 240
+     },
+     "out_filename": "black_and_white_2.bmp"
+    },
+    {
+     "mandelbrot_color": {
+      "red": 0,
+      "green": 0,
+      "blue": 40
+     },
+     "iter_base_color": {
+      "red": 240,
+      "green": 0,
+      "blue": 30
+     },
+     "out_filename": "red_and_blue_2.bmp"
+    }
+   ]
+  }
+ ]
+}

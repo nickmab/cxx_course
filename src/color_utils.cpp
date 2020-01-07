@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <utility>
 
 namespace mabz { namespace color {
 
@@ -152,6 +153,33 @@ RGB HSV::ToRGB(double h, double s, double v)
 RGB HSV::ToRGB() const
 {
 	return std::move(HSV::ToRGB(mHue, mSaturation, mValue));
+}
+
+SingleColorScheme::SingleColorScheme(
+	int maxIterations, 
+	ui8 rMan, ui8 gMan, ui8 bMan, 
+	ui8 rBase, ui8 gBase, ui8 bBase)
+	: mMaxIterations(maxIterations)
+	, mMandelbrotColor(rMan, gMan, bMan)
+	, mIterBaseColor(std::move(RGB::ToHSV(rBase, gBase, bBase)))
+{}
+
+RGB SingleColorScheme::GetColor(int iterations) const
+{
+	if (iterations == mMaxIterations)
+	{
+		// makes / returns a copy obviously.
+		return mMandelbrotColor;
+	}
+	else
+	{
+		const double intensity = sqrt(static_cast<double>(iterations) / mMaxIterations);
+		HSV hsv(mIterBaseColor);
+		hsv.mHue *= intensity;
+		hsv.mSaturation *= intensity;
+		hsv.mValue *= intensity;
+		return std::move(hsv.ToRGB());
+	}
 }
 
 #undef ui8

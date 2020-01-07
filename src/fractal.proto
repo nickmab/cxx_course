@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package fractal_proto;
+
+message RGB {
+  int32 red = 1;
+  int32 green = 2;
+  int32 blue = 3;
+}
+
+message SingleColorScheme {
+  RGB mandelbrot_color = 1;
+  RGB iter_base_color = 2;
+  string out_filename = 3;
+}
+
+message MandelbrotBmp {
+  double x_center = 1;
+  double y_center = 2;
+  double x_domain_width = 3;
+  int32 pixel_width = 4;
+  int32 pixel_height = 5;
+
+  repeated SingleColorScheme color_schemes = 6;
+}
+
+message FractalBmpFactory {
+  repeated MandelbrotBmp bitmaps = 1;
+}

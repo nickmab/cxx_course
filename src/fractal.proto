@@ -14,7 +14,7 @@ message SingleColorScheme {
   string out_filename = 3;
 }
 
-message MandelbrotBmp {
+message BmpGrapher {
   double x_center = 1;
   double y_center = 2;
   double x_domain_width = 3;
@@ -24,6 +24,6 @@ message MandelbrotBmp {
   repeated SingleColorScheme color_schemes = 6;
 }
 
-message FractalBmpFactory {
-  repeated MandelbrotBmp bitmaps = 1;
+message BmpGrapherFactory {
+  repeated BmpGrapher bitmaps = 1;
 }

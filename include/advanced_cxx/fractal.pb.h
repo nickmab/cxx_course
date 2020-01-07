@@ -55,12 +55,12 @@ struct TableStruct_fractal_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_fractal_2eproto;
 namespace fractal_proto {
-class FractalBmpFactory;
-class FractalBmpFactoryDefaultTypeInternal;
-extern FractalBmpFactoryDefaultTypeInternal _FractalBmpFactory_default_instance_;
-class MandelbrotBmp;
-class MandelbrotBmpDefaultTypeInternal;
-extern MandelbrotBmpDefaultTypeInternal _MandelbrotBmp_default_instance_;
+class BmpGrapher;
+class BmpGrapherDefaultTypeInternal;
+extern BmpGrapherDefaultTypeInternal _BmpGrapher_default_instance_;
+class BmpGrapherFactory;
+class BmpGrapherFactoryDefaultTypeInternal;
+extern BmpGrapherFactoryDefaultTypeInternal _BmpGrapherFactory_default_instance_;
 class RGB;
 class RGBDefaultTypeInternal;
 extern RGBDefaultTypeInternal _RGB_default_instance_;
@@ -69,8 +69,8 @@ class SingleColorSchemeDefaultTypeInternal;
 extern SingleColorSchemeDefaultTypeInternal _SingleColorScheme_default_instance_;
 }  // namespace fractal_proto
 PROTOBUF_NAMESPACE_OPEN
-template<> ::fractal_proto::FractalBmpFactory* Arena::CreateMaybeMessage<::fractal_proto::FractalBmpFactory>(Arena*);
-template<> ::fractal_proto::MandelbrotBmp* Arena::CreateMaybeMessage<::fractal_proto::MandelbrotBmp>(Arena*);
+template<> ::fractal_proto::BmpGrapher* Arena::CreateMaybeMessage<::fractal_proto::BmpGrapher>(Arena*);
+template<> ::fractal_proto::BmpGrapherFactory* Arena::CreateMaybeMessage<::fractal_proto::BmpGrapherFactory>(Arena*);
 template<> ::fractal_proto::RGB* Arena::CreateMaybeMessage<::fractal_proto::RGB>(Arena*);
 template<> ::fractal_proto::SingleColorScheme* Arena::CreateMaybeMessage<::fractal_proto::SingleColorScheme>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
@@ -397,23 +397,23 @@ class SingleColorScheme :
 };
 // -------------------------------------------------------------------
 
-class MandelbrotBmp :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:fractal_proto.MandelbrotBmp) */ {
+class BmpGrapher :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:fractal_proto.BmpGrapher) */ {
  public:
-  MandelbrotBmp();
-  virtual ~MandelbrotBmp();
+  BmpGrapher();
+  virtual ~BmpGrapher();
 
-  MandelbrotBmp(const MandelbrotBmp& from);
-  MandelbrotBmp(MandelbrotBmp&& from) noexcept
-    : MandelbrotBmp() {
+  BmpGrapher(const BmpGrapher& from);
+  BmpGrapher(BmpGrapher&& from) noexcept
+    : BmpGrapher() {
     *this = ::std::move(from);
   }
 
-  inline MandelbrotBmp& operator=(const MandelbrotBmp& from) {
+  inline BmpGrapher& operator=(const BmpGrapher& from) {
     CopyFrom(from);
     return *this;
   }
-  inline MandelbrotBmp& operator=(MandelbrotBmp&& from) noexcept {
+  inline BmpGrapher& operator=(BmpGrapher&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -431,37 +431,37 @@ class MandelbrotBmp :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const MandelbrotBmp& default_instance();
+  static const BmpGrapher& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const MandelbrotBmp* internal_default_instance() {
-    return reinterpret_cast<const MandelbrotBmp*>(
-               &_MandelbrotBmp_default_instance_);
+  static inline const BmpGrapher* internal_default_instance() {
+    return reinterpret_cast<const BmpGrapher*>(
+               &_BmpGrapher_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     2;
 
-  friend void swap(MandelbrotBmp& a, MandelbrotBmp& b) {
+  friend void swap(BmpGrapher& a, BmpGrapher& b) {
     a.Swap(&b);
   }
-  inline void Swap(MandelbrotBmp* other) {
+  inline void Swap(BmpGrapher* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline MandelbrotBmp* New() const final {
-    return CreateMaybeMessage<MandelbrotBmp>(nullptr);
+  inline BmpGrapher* New() const final {
+    return CreateMaybeMessage<BmpGrapher>(nullptr);
   }
 
-  MandelbrotBmp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<MandelbrotBmp>(arena);
+  BmpGrapher* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BmpGrapher>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const MandelbrotBmp& from);
-  void MergeFrom(const MandelbrotBmp& from);
+  void CopyFrom(const BmpGrapher& from);
+  void MergeFrom(const BmpGrapher& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -475,10 +475,10 @@ class MandelbrotBmp :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(MandelbrotBmp* other);
+  void InternalSwap(BmpGrapher* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "fractal_proto.MandelbrotBmp";
+    return "fractal_proto.BmpGrapher";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -573,7 +573,7 @@ class MandelbrotBmp :
   void _internal_set_pixel_height(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:fractal_proto.MandelbrotBmp)
+  // @@protoc_insertion_point(class_scope:fractal_proto.BmpGrapher)
  private:
   class _Internal;
 
@@ -589,23 +589,23 @@ class MandelbrotBmp :
 };
 // -------------------------------------------------------------------
 
-class FractalBmpFactory :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:fractal_proto.FractalBmpFactory) */ {
+class BmpGrapherFactory :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:fractal_proto.BmpGrapherFactory) */ {
  public:
-  FractalBmpFactory();
-  virtual ~FractalBmpFactory();
+  BmpGrapherFactory();
+  virtual ~BmpGrapherFactory();
 
-  FractalBmpFactory(const FractalBmpFactory& from);
-  FractalBmpFactory(FractalBmpFactory&& from) noexcept
-    : FractalBmpFactory() {
+  BmpGrapherFactory(const BmpGrapherFactory& from);
+  BmpGrapherFactory(BmpGrapherFactory&& from) noexcept
+    : BmpGrapherFactory() {
     *this = ::std::move(from);
   }
 
-  inline FractalBmpFactory& operator=(const FractalBmpFactory& from) {
+  inline BmpGrapherFactory& operator=(const BmpGrapherFactory& from) {
     CopyFrom(from);
     return *this;
   }
-  inline FractalBmpFactory& operator=(FractalBmpFactory&& from) noexcept {
+  inline BmpGrapherFactory& operator=(BmpGrapherFactory&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -623,37 +623,37 @@ class FractalBmpFactory :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const FractalBmpFactory& default_instance();
+  static const BmpGrapherFactory& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const FractalBmpFactory* internal_default_instance() {
-    return reinterpret_cast<const FractalBmpFactory*>(
-               &_FractalBmpFactory_default_instance_);
+  static inline const BmpGrapherFactory* internal_default_instance() {
+    return reinterpret_cast<const BmpGrapherFactory*>(
+               &_BmpGrapherFactory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     3;
 
-  friend void swap(FractalBmpFactory& a, FractalBmpFactory& b) {
+  friend void swap(BmpGrapherFactory& a, BmpGrapherFactory& b) {
     a.Swap(&b);
   }
-  inline void Swap(FractalBmpFactory* other) {
+  inline void Swap(BmpGrapherFactory* other) {
     if (other == this) return;
     InternalSwap(other);
   }
 
   // implements Message ----------------------------------------------
 
-  inline FractalBmpFactory* New() const final {
-    return CreateMaybeMessage<FractalBmpFactory>(nullptr);
+  inline BmpGrapherFactory* New() const final {
+    return CreateMaybeMessage<BmpGrapherFactory>(nullptr);
   }
 
-  FractalBmpFactory* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<FractalBmpFactory>(arena);
+  BmpGrapherFactory* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<BmpGrapherFactory>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const FractalBmpFactory& from);
-  void MergeFrom(const FractalBmpFactory& from);
+  void CopyFrom(const BmpGrapherFactory& from);
+  void MergeFrom(const BmpGrapherFactory& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -667,10 +667,10 @@ class FractalBmpFactory :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(FractalBmpFactory* other);
+  void InternalSwap(BmpGrapherFactory* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "fractal_proto.FractalBmpFactory";
+    return "fractal_proto.BmpGrapherFactory";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -697,30 +697,30 @@ class FractalBmpFactory :
   enum : int {
     kBitmapsFieldNumber = 1,
   };
-  // repeated .fractal_proto.MandelbrotBmp bitmaps = 1;
+  // repeated .fractal_proto.BmpGrapher bitmaps = 1;
   int bitmaps_size() const;
   private:
   int _internal_bitmaps_size() const;
   public:
   void clear_bitmaps();
-  ::fractal_proto::MandelbrotBmp* mutable_bitmaps(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::MandelbrotBmp >*
+  ::fractal_proto::BmpGrapher* mutable_bitmaps(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::BmpGrapher >*
       mutable_bitmaps();
   private:
-  const ::fractal_proto::MandelbrotBmp& _internal_bitmaps(int index) const;
-  ::fractal_proto::MandelbrotBmp* _internal_add_bitmaps();
+  const ::fractal_proto::BmpGrapher& _internal_bitmaps(int index) const;
+  ::fractal_proto::BmpGrapher* _internal_add_bitmaps();
   public:
-  const ::fractal_proto::MandelbrotBmp& bitmaps(int index) const;
-  ::fractal_proto::MandelbrotBmp* add_bitmaps();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::MandelbrotBmp >&
+  const ::fractal_proto::BmpGrapher& bitmaps(int index) const;
+  ::fractal_proto::BmpGrapher* add_bitmaps();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::BmpGrapher >&
       bitmaps() const;
 
-  // @@protoc_insertion_point(class_scope:fractal_proto.FractalBmpFactory)
+  // @@protoc_insertion_point(class_scope:fractal_proto.BmpGrapherFactory)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::MandelbrotBmp > bitmaps_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::BmpGrapher > bitmaps_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_fractal_2eproto;
 };
@@ -981,187 +981,187 @@ inline void SingleColorScheme::set_allocated_out_filename(std::string* out_filen
 
 // -------------------------------------------------------------------
 
-// MandelbrotBmp
+// BmpGrapher
 
 // double x_center = 1;
-inline void MandelbrotBmp::clear_x_center() {
+inline void BmpGrapher::clear_x_center() {
   x_center_ = 0;
 }
-inline double MandelbrotBmp::_internal_x_center() const {
+inline double BmpGrapher::_internal_x_center() const {
   return x_center_;
 }
-inline double MandelbrotBmp::x_center() const {
-  // @@protoc_insertion_point(field_get:fractal_proto.MandelbrotBmp.x_center)
+inline double BmpGrapher::x_center() const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapher.x_center)
   return _internal_x_center();
 }
-inline void MandelbrotBmp::_internal_set_x_center(double value) {
+inline void BmpGrapher::_internal_set_x_center(double value) {
   
   x_center_ = value;
 }
-inline void MandelbrotBmp::set_x_center(double value) {
+inline void BmpGrapher::set_x_center(double value) {
   _internal_set_x_center(value);
-  // @@protoc_insertion_point(field_set:fractal_proto.MandelbrotBmp.x_center)
+  // @@protoc_insertion_point(field_set:fractal_proto.BmpGrapher.x_center)
 }
 
 // double y_center = 2;
-inline void MandelbrotBmp::clear_y_center() {
+inline void BmpGrapher::clear_y_center() {
   y_center_ = 0;
 }
-inline double MandelbrotBmp::_internal_y_center() const {
+inline double BmpGrapher::_internal_y_center() const {
   return y_center_;
 }
-inline double MandelbrotBmp::y_center() const {
-  // @@protoc_insertion_point(field_get:fractal_proto.MandelbrotBmp.y_center)
+inline double BmpGrapher::y_center() const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapher.y_center)
   return _internal_y_center();
 }
-inline void MandelbrotBmp::_internal_set_y_center(double value) {
+inline void BmpGrapher::_internal_set_y_center(double value) {
   
   y_center_ = value;
 }
-inline void MandelbrotBmp::set_y_center(double value) {
+inline void BmpGrapher::set_y_center(double value) {
   _internal_set_y_center(value);
-  // @@protoc_insertion_point(field_set:fractal_proto.MandelbrotBmp.y_center)
+  // @@protoc_insertion_point(field_set:fractal_proto.BmpGrapher.y_center)
 }
 
 // double x_domain_width = 3;
-inline void MandelbrotBmp::clear_x_domain_width() {
+inline void BmpGrapher::clear_x_domain_width() {
   x_domain_width_ = 0;
 }
-inline double MandelbrotBmp::_internal_x_domain_width() const {
+inline double BmpGrapher::_internal_x_domain_width() const {
   return x_domain_width_;
 }
-inline double MandelbrotBmp::x_domain_width() const {
-  // @@protoc_insertion_point(field_get:fractal_proto.MandelbrotBmp.x_domain_width)
+inline double BmpGrapher::x_domain_width() const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapher.x_domain_width)
   return _internal_x_domain_width();
 }
-inline void MandelbrotBmp::_internal_set_x_domain_width(double value) {
+inline void BmpGrapher::_internal_set_x_domain_width(double value) {
   
   x_domain_width_ = value;
 }
-inline void MandelbrotBmp::set_x_domain_width(double value) {
+inline void BmpGrapher::set_x_domain_width(double value) {
   _internal_set_x_domain_width(value);
-  // @@protoc_insertion_point(field_set:fractal_proto.MandelbrotBmp.x_domain_width)
+  // @@protoc_insertion_point(field_set:fractal_proto.BmpGrapher.x_domain_width)
 }
 
 // int32 pixel_width = 4;
-inline void MandelbrotBmp::clear_pixel_width() {
+inline void BmpGrapher::clear_pixel_width() {
   pixel_width_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 MandelbrotBmp::_internal_pixel_width() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 BmpGrapher::_internal_pixel_width() const {
   return pixel_width_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 MandelbrotBmp::pixel_width() const {
-  // @@protoc_insertion_point(field_get:fractal_proto.MandelbrotBmp.pixel_width)
+inline ::PROTOBUF_NAMESPACE_ID::int32 BmpGrapher::pixel_width() const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapher.pixel_width)
   return _internal_pixel_width();
 }
-inline void MandelbrotBmp::_internal_set_pixel_width(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void BmpGrapher::_internal_set_pixel_width(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   pixel_width_ = value;
 }
-inline void MandelbrotBmp::set_pixel_width(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void BmpGrapher::set_pixel_width(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_pixel_width(value);
-  // @@protoc_insertion_point(field_set:fractal_proto.MandelbrotBmp.pixel_width)
+  // @@protoc_insertion_point(field_set:fractal_proto.BmpGrapher.pixel_width)
 }
 
 // int32 pixel_height = 5;
-inline void MandelbrotBmp::clear_pixel_height() {
+inline void BmpGrapher::clear_pixel_height() {
   pixel_height_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 MandelbrotBmp::_internal_pixel_height() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 BmpGrapher::_internal_pixel_height() const {
   return pixel_height_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 MandelbrotBmp::pixel_height() const {
-  // @@protoc_insertion_point(field_get:fractal_proto.MandelbrotBmp.pixel_height)
+inline ::PROTOBUF_NAMESPACE_ID::int32 BmpGrapher::pixel_height() const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapher.pixel_height)
   return _internal_pixel_height();
 }
-inline void MandelbrotBmp::_internal_set_pixel_height(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void BmpGrapher::_internal_set_pixel_height(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   pixel_height_ = value;
 }
-inline void MandelbrotBmp::set_pixel_height(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void BmpGrapher::set_pixel_height(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_pixel_height(value);
-  // @@protoc_insertion_point(field_set:fractal_proto.MandelbrotBmp.pixel_height)
+  // @@protoc_insertion_point(field_set:fractal_proto.BmpGrapher.pixel_height)
 }
 
 // repeated .fractal_proto.SingleColorScheme color_schemes = 6;
-inline int MandelbrotBmp::_internal_color_schemes_size() const {
+inline int BmpGrapher::_internal_color_schemes_size() const {
   return color_schemes_.size();
 }
-inline int MandelbrotBmp::color_schemes_size() const {
+inline int BmpGrapher::color_schemes_size() const {
   return _internal_color_schemes_size();
 }
-inline void MandelbrotBmp::clear_color_schemes() {
+inline void BmpGrapher::clear_color_schemes() {
   color_schemes_.Clear();
 }
-inline ::fractal_proto::SingleColorScheme* MandelbrotBmp::mutable_color_schemes(int index) {
-  // @@protoc_insertion_point(field_mutable:fractal_proto.MandelbrotBmp.color_schemes)
+inline ::fractal_proto::SingleColorScheme* BmpGrapher::mutable_color_schemes(int index) {
+  // @@protoc_insertion_point(field_mutable:fractal_proto.BmpGrapher.color_schemes)
   return color_schemes_.Mutable(index);
 }
 inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::SingleColorScheme >*
-MandelbrotBmp::mutable_color_schemes() {
-  // @@protoc_insertion_point(field_mutable_list:fractal_proto.MandelbrotBmp.color_schemes)
+BmpGrapher::mutable_color_schemes() {
+  // @@protoc_insertion_point(field_mutable_list:fractal_proto.BmpGrapher.color_schemes)
   return &color_schemes_;
 }
-inline const ::fractal_proto::SingleColorScheme& MandelbrotBmp::_internal_color_schemes(int index) const {
+inline const ::fractal_proto::SingleColorScheme& BmpGrapher::_internal_color_schemes(int index) const {
   return color_schemes_.Get(index);
 }
-inline const ::fractal_proto::SingleColorScheme& MandelbrotBmp::color_schemes(int index) const {
-  // @@protoc_insertion_point(field_get:fractal_proto.MandelbrotBmp.color_schemes)
+inline const ::fractal_proto::SingleColorScheme& BmpGrapher::color_schemes(int index) const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapher.color_schemes)
   return _internal_color_schemes(index);
 }
-inline ::fractal_proto::SingleColorScheme* MandelbrotBmp::_internal_add_color_schemes() {
+inline ::fractal_proto::SingleColorScheme* BmpGrapher::_internal_add_color_schemes() {
   return color_schemes_.Add();
 }
-inline ::fractal_proto::SingleColorScheme* MandelbrotBmp::add_color_schemes() {
-  // @@protoc_insertion_point(field_add:fractal_proto.MandelbrotBmp.color_schemes)
+inline ::fractal_proto::SingleColorScheme* BmpGrapher::add_color_schemes() {
+  // @@protoc_insertion_point(field_add:fractal_proto.BmpGrapher.color_schemes)
   return _internal_add_color_schemes();
 }
 inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::SingleColorScheme >&
-MandelbrotBmp::color_schemes() const {
-  // @@protoc_insertion_point(field_list:fractal_proto.MandelbrotBmp.color_schemes)
+BmpGrapher::color_schemes() const {
+  // @@protoc_insertion_point(field_list:fractal_proto.BmpGrapher.color_schemes)
   return color_schemes_;
 }
 
 // -------------------------------------------------------------------
 
-// FractalBmpFactory
+// BmpGrapherFactory
 
-// repeated .fractal_proto.MandelbrotBmp bitmaps = 1;
-inline int FractalBmpFactory::_internal_bitmaps_size() const {
+// repeated .fractal_proto.BmpGrapher bitmaps = 1;
+inline int BmpGrapherFactory::_internal_bitmaps_size() const {
   return bitmaps_.size();
 }
-inline int FractalBmpFactory::bitmaps_size() const {
+inline int BmpGrapherFactory::bitmaps_size() const {
   return _internal_bitmaps_size();
 }
-inline void FractalBmpFactory::clear_bitmaps() {
+inline void BmpGrapherFactory::clear_bitmaps() {
   bitmaps_.Clear();
 }
-inline ::fractal_proto::MandelbrotBmp* FractalBmpFactory::mutable_bitmaps(int index) {
-  // @@protoc_insertion_point(field_mutable:fractal_proto.FractalBmpFactory.bitmaps)
+inline ::fractal_proto::BmpGrapher* BmpGrapherFactory::mutable_bitmaps(int index) {
+  // @@protoc_insertion_point(field_mutable:fractal_proto.BmpGrapherFactory.bitmaps)
   return bitmaps_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::MandelbrotBmp >*
-FractalBmpFactory::mutable_bitmaps() {
-  // @@protoc_insertion_point(field_mutable_list:fractal_proto.FractalBmpFactory.bitmaps)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::BmpGrapher >*
+BmpGrapherFactory::mutable_bitmaps() {
+  // @@protoc_insertion_point(field_mutable_list:fractal_proto.BmpGrapherFactory.bitmaps)
   return &bitmaps_;
 }
-inline const ::fractal_proto::MandelbrotBmp& FractalBmpFactory::_internal_bitmaps(int index) const {
+inline const ::fractal_proto::BmpGrapher& BmpGrapherFactory::_internal_bitmaps(int index) const {
   return bitmaps_.Get(index);
 }
-inline const ::fractal_proto::MandelbrotBmp& FractalBmpFactory::bitmaps(int index) const {
-  // @@protoc_insertion_point(field_get:fractal_proto.FractalBmpFactory.bitmaps)
+inline const ::fractal_proto::BmpGrapher& BmpGrapherFactory::bitmaps(int index) const {
+  // @@protoc_insertion_point(field_get:fractal_proto.BmpGrapherFactory.bitmaps)
   return _internal_bitmaps(index);
 }
-inline ::fractal_proto::MandelbrotBmp* FractalBmpFactory::_internal_add_bitmaps() {
+inline ::fractal_proto::BmpGrapher* BmpGrapherFactory::_internal_add_bitmaps() {
   return bitmaps_.Add();
 }
-inline ::fractal_proto::MandelbrotBmp* FractalBmpFactory::add_bitmaps() {
-  // @@protoc_insertion_point(field_add:fractal_proto.FractalBmpFactory.bitmaps)
+inline ::fractal_proto::BmpGrapher* BmpGrapherFactory::add_bitmaps() {
+  // @@protoc_insertion_point(field_add:fractal_proto.BmpGrapherFactory.bitmaps)
   return _internal_add_bitmaps();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::MandelbrotBmp >&
-FractalBmpFactory::bitmaps() const {
-  // @@protoc_insertion_point(field_list:fractal_proto.FractalBmpFactory.bitmaps)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::fractal_proto::BmpGrapher >&
+BmpGrapherFactory::bitmaps() const {
+  // @@protoc_insertion_point(field_list:fractal_proto.BmpGrapherFactory.bitmaps)
   return bitmaps_;
 }
 

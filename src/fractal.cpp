@@ -44,37 +44,32 @@ mabz::color::RGB SingleColorScheme::GetColor(int score) const
 	}
 }
 
-void FractalBmp::Generate()
+void BmpGrapher::Generate()
 {
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
 	
-	std::cout << "Generating mandelbrot iteration counts for " 
+	std::cout << "Generating pixel scores for " 
 			  << width * height << " pixels." << std::endl;
 
-	int pixelsInMandelbrotSet{0};
 	for (int x = 0; x < width; ++x)
 	{
 		for (int y = 0; y < height; ++y)
 		{
-			// determine real and imaginary parts corresponding to the pixel we're working with...
 			double scaledX{0};
 			double scaledY{0};
 			mPixelXYMapper.Convert(x, y, scaledX, scaledY);
 
-			// determine the mandelbrot iterations...
 			int iterations = 0;
-			pixelsInMandelbrotSet += !calculator::IsDivergent(iterations, scaledX, scaledY);
+			calculator::IsDivergent(iterations, scaledX, scaledY);
 			mIterations[y*width + x] = iterations;
 		}
 	}
 
-	std::cout << "Found " << pixelsInMandelbrotSet << " pixels in the Mandelbrot set." << std::endl;
-
 	mHasBeenGenerated = true;
 }
 
-void FractalBmp::Colorize(const ColorScheme& colors)
+void BmpGrapher::Colorize(const ColorScheme& colors)
 {
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
@@ -88,12 +83,12 @@ void FractalBmp::Colorize(const ColorScheme& colors)
 	}
 }
 
-bool FractalBmp::WriteToFile(const char* filename) const
+bool BmpGrapher::WriteToFile(const char* filename) const
 {
 	return mBmp.WriteToFile(filename);
 }
 
-FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, std::string& outErrorStr)
+BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, std::string& outErrorStr)
 {
 	using namespace google::protobuf::util;
 
@@ -118,8 +113,8 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 	}
 	else
 	{
-		FractalBmpFactory* factory = new FractalBmpFactory();
-		fractal_proto::FractalBmpFactory config;
+		BmpGrapherFactory* factory = new BmpGrapherFactory();
+		fractal_proto::BmpGrapherFactory config;
 		Status status = JsonStringToMessage(ss.str(), &config);
 		// Status status = JsonStringToMessage("buttocks", &config);
 		
@@ -133,9 +128,9 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 		{
 			for (int i = 0; i < config.bitmaps_size(); ++i)
 			{
-				const fractal_proto::MandelbrotBmp& bmpConfig = config.bitmaps(i);
+				const fractal_proto::BmpGrapher& bmpConfig = config.bitmaps(i);
 				
-				auto fractalBmp = std::make_shared<FractalBmp>(
+				auto bmpGrapher = std::make_shared<BmpGrapher>(
 					bmpConfig.x_center(),
 					bmpConfig.y_center(),
 					bmpConfig.x_domain_width(),
@@ -155,7 +150,7 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 						colorConfig.iter_base_color().blue());
 					
 					auto tup = std::make_tuple(
-						fractalBmp, 
+						bmpGrapher, 
 						std::move(colors),
 						std::move(std::string(colorConfig.out_filename())));
 
@@ -165,7 +160,7 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 				// make a dodgy one just to test the code out...
 				auto colors = std::make_unique<const DodgyColorScheme>();
 				auto tup = std::make_tuple(
-					fractalBmp, 
+					bmpGrapher, 
 					std::move(colors),
 					std::move(std::string("flat_color.bmp")));
 
@@ -176,7 +171,7 @@ FractalBmpFactory* FractalBmpFactory::NewFromPbufJsonFile(const char* filename, 
 	}
 }
 
-void FractalBmpFactory::Run()
+void BmpGrapherFactory::Run()
 {
 	for (auto& t : mBmps)
 	{

@@ -51,7 +51,7 @@ public:
 	}
 };
 
-class FractalBmp
+class BmpGrapher
 {
 private:
 	mabz::Bmp mBmp;
@@ -62,7 +62,7 @@ private:
 	bool mHasBeenGenerated{false};
 
 public:
-	FractalBmp(
+	BmpGrapher(
 		double xCenter, 
 		double yCenter, 
 		double xDomainWidth, 
@@ -73,7 +73,7 @@ public:
 		, mPixelXYMapper(xCenter, yCenter, xDomainWidth, pixelWidth, pixelHeight)
 		, mIterations(pixelWidth*pixelHeight, 0)
 	{}
-	FractalBmp(const FractalBmp&) = delete;
+	BmpGrapher(const BmpGrapher&) = delete;
 
 	bool HasBeenGenerated() const { return mHasBeenGenerated; }
 	void Generate();
@@ -81,22 +81,22 @@ public:
 	bool WriteToFile(const char* filename) const;
 };
 
-class FractalBmpFactory
+class BmpGrapherFactory
 {
 private:
 	// Pre-cached runs to generate fractals (just add water by calling the combos of args).
-	// Note that FractalBmp instances can be re-used, hence the unique ptr.
+	// Note that BmpGrapher instances can be re-used, hence the unique ptr.
 	// the string represents the output filename of the bmp.
 	std::vector<
-		std::tuple< std::shared_ptr<FractalBmp>, 
+		std::tuple< std::shared_ptr<BmpGrapher>, 
 		std::unique_ptr<const ColorScheme>, 
 		const std::string> > mBmps;
 	
 	// must use a static method to create. Constructor is private.
-	FractalBmpFactory() {}
+	BmpGrapherFactory() {}
 
 public:
-	static FractalBmpFactory* NewFromPbufJsonFile(const char* filename, std::string& outErrorStr);
+	static BmpGrapherFactory* NewFromPbufJsonFile(const char* filename, std::string& outErrorStr);
 
 	// I am really not doing much error checking at the moment lol.
 	void Run();

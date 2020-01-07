@@ -1,5 +1,4 @@
-#ifndef ADVANCED_CXX_COLOR_UTILS_H
-#define ADVANCED_CXX_COLOR_UTILS_H
+#pragma once
 
 #include <cstdint>
 
@@ -56,5 +55,3 @@ public:
 
 } /* namespace color */
 } /* namespace mabz */
-
-#endif /* ADVANCED_CXX_COLOR_UTILS_H */

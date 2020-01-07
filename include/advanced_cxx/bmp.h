@@ -1,5 +1,4 @@
-#ifndef ADVANCED_CXX_BMP_H
-#define ADVANCED_CXX_BMP_H
+#pragma once
 
 #include <cstdint>
 #include <memory>
@@ -92,5 +91,3 @@ public:
 #undef ui8
 
 } /* namespace mabz */
-
-#endif /* ADVANCED_CXX_BMP_H */

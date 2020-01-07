@@ -1,5 +1,4 @@
-#ifndef ADVANCED_CXX_MANDELBROT_H
-#define ADVANCED_CXX_MANDELBROT_H
+#pragma once
 
 namespace mabz { namespace mandelbrot {
 
@@ -27,5 +26,3 @@ public:
 
 } /* namespace mandelbrot */
 } /* namespace mabz */
-
-#endif /* ADVANCED_CXX_MANDELBROT_H */

@@ -1,5 +1,4 @@
-#ifndef ADVANCED_CXX_IMG_SCALER_H
-#define ADVANCED_CXX_IMG_SCALER_H
+#pragma once
 
 #include <cassert>
 
@@ -36,5 +35,3 @@ public:
 };
 
 } /* namespace mabz */
-
-#endif /* ADVANCED_CXX_IMG_SCALER_H */

@@ -1,5 +1,4 @@
-#ifndef ADVANCED_CXX_FRACTAL_H
-#define ADVANCED_CXX_FRACTAL_H
+#pragma once
 
 #include <map>
 #include <memory>
@@ -67,5 +66,3 @@ public:
 
 } /* namespace mandelbrot */
 } /* namespace mabz */
-
-#endif /* ADVANCED_CXX_FRACTAL_H */

@@ -1,9 +1,12 @@
 # Note that headers are optional, and do not affect add_library, but they will not
 # show up in IDEs unless they are listed in add_library.
 
+add_subdirectory(calculators)
+add_subdirectory(colors)
+
 # CMake 3.12 or later:
-file(GLOB IMPL_LIST "./*.cpp")
-file(GLOB HEADER_LIST CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/include/advanced_cxx/*.h")
+file(GLOB_RECURSE IMPL_LIST "./*.cpp")
+file(GLOB_RECURSE HEADER_LIST CONFIGURE_DEPENDS "${PROJECT_SOURCE_DIR}/include/advanced_cxx/*.h")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(advanced_cxx_lib ${IMPL_LIST} ${HEADER_LIST})

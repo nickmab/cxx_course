@@ -6,9 +6,9 @@
 
 #include "advanced_cxx/fractal.h"
 
-#include "advanced_cxx/color_utils.h"
+#include "advanced_cxx/calculators/mandelbrot.h"
+#include "advanced_cxx/colors/color_utils.h"
 #include "advanced_cxx/fractal.pb.h"
-#include "advanced_cxx/mandelbrot.h"
 
 #include <google/protobuf/util/json_util.h>
 

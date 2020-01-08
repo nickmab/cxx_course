@@ -8,7 +8,7 @@
 #include <vector>
 
 #include <advanced_cxx/bmp.h>
-#include <advanced_cxx/color_utils.h>
+#include <advanced_cxx/colors/color_utils.h>
 #include <advanced_cxx/fractal.pb.h>
 
 namespace mabz { namespace mandelbrot {

@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "advanced_cxx/color_utils.h"
 #include "advanced_cxx/fractal.h"
-#include "advanced_cxx/mandelbrot.h"
 
 int main(int argc, char* argv[])
 {

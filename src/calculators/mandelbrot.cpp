@@ -1,6 +1,6 @@
 #include <cmath>
 
-#include "advanced_cxx/mandelbrot.h"
+#include "advanced_cxx/calculators/mandelbrot.h"
 
 namespace mabz { namespace mandelbrot {
 

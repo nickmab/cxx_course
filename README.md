@@ -10,4 +10,4 @@ Current version capable of producing these...
 
 ![Image 4 of an example fractal](/red_and_blue_2.bmp?raw=true "Red and blue portrait orientation.")
 
-![Image 5 of exemplary modern art](/flat_color.bmp?raw=true "Solid red.")
+![Image 5 of exemplary modern art](/solid_red.bmp?raw=true "Solid red.")

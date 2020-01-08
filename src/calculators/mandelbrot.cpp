@@ -2,7 +2,7 @@
 
 #include "advanced_cxx/calculators/mandelbrot.h"
 
-namespace mabz { namespace mandelbrot {
+namespace mabz { namespace calculators {
 
 void MandelbrotCalc::add(const Cmplx& left, const Cmplx& right, Cmplx& out)
 {
@@ -30,7 +30,7 @@ void MandelbrotCalc::GetPixelScore(int& outResult, double x, double y) const
 	const Cmplx c{x, y};
 
 	outResult = 0;
-	while (outResult < MandelbrotCalc::MAX_ITERATIONS)
+	while (outResult < mMaxIterations)
 	{
 		if (MandelbrotCalc::abs(z) > 2.0)
 		{
@@ -44,5 +44,5 @@ void MandelbrotCalc::GetPixelScore(int& outResult, double x, double y) const
 	}
 }
 
-} /* namespace mandelbrot */
+} /* namespace calculators */
 } /* namespace mabz */

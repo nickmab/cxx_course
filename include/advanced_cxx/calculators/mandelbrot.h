@@ -1,8 +1,8 @@
 #pragma once
 
-#include <advanced_cxx/fractal.h>
+#include <advanced_cxx/calculators/pixel_score_calculator.h>
 
-namespace mabz { namespace mandelbrot {
+namespace mabz { namespace calculators {
 
 class MandelbrotCalc : public PixelScoreCalculator
 {
@@ -16,8 +16,12 @@ private:
 	static void square(const Cmplx& in, Cmplx& out);
 	static double abs(const Cmplx&);
 
+	const int mMaxIterations{0};
+
 public:
-	static const int MAX_ITERATIONS{750};
+	MandelbrotCalc(int maxIterations) : mMaxIterations(maxIterations) {}
+
+	int MaxIterations() const { return mMaxIterations; }
 
 	// Tests a complex number by running up to calculator::MAX_ITERATIONS of the mandelbrot fractal
 	// calculation to see whether the result diverges / magnitude exceeds 2. 
@@ -25,5 +29,5 @@ public:
 	virtual void GetPixelScore(int& outResult, double x, double y) const override;
 };
 
-} /* namespace mandelbrot */
+} /* namespace calculators */
 } /* namespace mabz */

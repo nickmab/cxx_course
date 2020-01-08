@@ -4,47 +4,17 @@
 #include <sstream>
 #include <utility>
 
-#include "advanced_cxx/fractal.h"
+#include "advanced_cxx/bmp_grapher.h"
 
 #include "advanced_cxx/calculators/mandelbrot.h"
 #include "advanced_cxx/colors/color_utils.h"
-#include "advanced_cxx/fractal.pb.h"
+#include "advanced_cxx/bmp_grapher.pb.h"
 
 #include <google/protobuf/util/json_util.h>
 
-namespace mabz { namespace mandelbrot {
+namespace mabz {
 
-#define ui8 std::uint8_t
-SingleColorScheme::SingleColorScheme(
-	int scalingDenominator, 
-	ui8 rFull, ui8 gFull, ui8 bFull, 
-	ui8 rBase, ui8 gBase, ui8 bBase)
-	
-	: mScalingDenominator(scalingDenominator)
-	, mHundredPerCentColor(rFull, gFull, bFull)
-	, mScalingBaseColor(std::move(mabz::color::RGB::ToHSV(rBase, gBase, bBase)))
-{}
-#undef ui8
-
-mabz::color::RGB SingleColorScheme::GetColor(int score) const
-{
-	if (score == mScalingDenominator)
-	{
-		// makes / returns a copy obviously.
-		return mHundredPerCentColor;
-	}
-	else
-	{
-		const double intensity = sqrt(static_cast<double>(score) / mScalingDenominator);
-		mabz::color::HSV hsv(mScalingBaseColor);
-		hsv.mHue *= intensity;
-		hsv.mSaturation *= intensity;
-		hsv.mValue *= intensity;
-		return std::move(hsv.ToRGB());
-	}
-}
-
-void BmpGrapher::GenerateColorScores(const PixelScoreCalculator& calc)
+void BmpGrapher::GenerateColorScores(const calculators::PixelScoreCalculator& calc)
 {
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
@@ -69,7 +39,7 @@ void BmpGrapher::GenerateColorScores(const PixelScoreCalculator& calc)
 	mColorScoresGenerated = true;
 }
 
-void BmpGrapher::Colorize(const ColorScheme& colors)
+void BmpGrapher::Colorize(const color::ColorScheme& colors)
 {
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
@@ -77,7 +47,7 @@ void BmpGrapher::Colorize(const ColorScheme& colors)
 	{
 		for (int y = 0; y < height; ++y)
 		{
-			const mabz::color::RGB rgb = colors.GetColor(mPixelScores[y*width + x]);
+			const color::RGB rgb = colors.GetColor(mPixelScores[y*width + x]);
 			mBmp.SetRGBPixel(x, y, rgb.mRed, rgb.mGreen, rgb.mBlue);
 		}
 	}
@@ -114,7 +84,7 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 	else
 	{
 		BmpGrapherFactory* factory = new BmpGrapherFactory();
-		fractal_proto::BmpGrapherFactory config;
+		bmp_grapher_proto::BmpGrapherFactory config;
 		Status status = JsonStringToMessage(ss.str(), &config);
 		// Status status = JsonStringToMessage("buttocks", &config);
 		
@@ -128,8 +98,20 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 		{
 			for (int i = 0; i < config.bitmaps_size(); ++i)
 			{
-				const fractal_proto::BmpGrapher& bmpConfig = config.bitmaps(i);
+				const bmp_grapher_proto::BmpGrapher& bmpConfig = config.bitmaps(i);
 				
+				std::shared_ptr<const calculators::PixelScoreCalculator> calc{nullptr};
+				if (bmpConfig.has_mandelbrot_calc())
+				{
+					calc.reset(new calculators::MandelbrotCalc(bmpConfig.mandelbrot_calc().max_iterations()));
+				}
+				else
+				{
+					delete factory;
+					outErrorStr = "Must specify a calculation method in BmpGrapher config!";
+					return nullptr;
+				}
+
 				auto bmpGrapher = std::make_shared<BmpGrapher>(
 					bmpConfig.x_center(),
 					bmpConfig.y_center(),
@@ -137,34 +119,46 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 					bmpConfig.pixel_width(),
 					bmpConfig.pixel_height());
 				
-				for (int j = 0; j < bmpConfig.color_schemes_size(); j++)
-				{
-					const fractal_proto::SingleColorScheme& colorConfig = bmpConfig.color_schemes(j);
-					auto colors = std::make_unique<const SingleColorScheme>(
-						MandelbrotCalc::MAX_ITERATIONS,
-						colorConfig.mandelbrot_color().red(),
-						colorConfig.mandelbrot_color().green(),
-						colorConfig.mandelbrot_color().blue(),
-						colorConfig.iter_base_color().red(),
-						colorConfig.iter_base_color().green(),
-						colorConfig.iter_base_color().blue());
+				for (int j = 0; j < bmpConfig.color_configs_size(); j++)
+				{			
+					const bmp_grapher_proto::ColorConfig& colorConfig = bmpConfig.color_configs(j);
+
+					std::unique_ptr<const color::ColorScheme> colors{nullptr};
+					if (colorConfig.has_single_color_scheme())
+					{
+						auto csdata = colorConfig.single_color_scheme();
+						colors.reset(new color::SingleColorScheme(
+							csdata.scaling_denominator(),
+							csdata.hundred_per_cent_color().red(),
+							csdata.hundred_per_cent_color().green(),
+							csdata.hundred_per_cent_color().blue(),
+							csdata.scaling_base_color().red(),
+							csdata.scaling_base_color().green(),
+							csdata.scaling_base_color().blue()));
+					}
+					else if (colorConfig.has_dodgy_color_scheme())
+					{
+						auto csdata = colorConfig.dodgy_color_scheme();
+						colors.reset(new color::DodgyColorScheme(
+							csdata.solid_color().red(),
+							csdata.solid_color().green(),
+							csdata.solid_color().blue()));
+					}
+					else
+					{
+						delete factory;
+						outErrorStr = "Must specify a color scheme in ColorConfig config!";
+						return nullptr;
+					}
 					
 					auto tup = std::make_tuple(
 						bmpGrapher, 
+						calc,
 						std::move(colors),
 						std::move(std::string(colorConfig.out_filename())));
 
 					factory->mBmps.push_back(std::move(tup));
 				}
-
-				// make a dodgy one just to test the code out...
-				auto colors = std::make_unique<const DodgyColorScheme>();
-				auto tup = std::make_tuple(
-					bmpGrapher, 
-					std::move(colors),
-					std::move(std::string("flat_color.bmp")));
-
-				factory->mBmps.push_back(std::move(tup));
 			}
 			return factory;
 		}
@@ -173,23 +167,21 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 
 void BmpGrapherFactory::Run()
 {
-	MandelbrotCalc calc;
-
 	for (auto& t : mBmps)
 	{
-		auto& frac = std::get<0>(t);
-		auto& colors = std::get<1>(t);
-		auto& filename = std::get<2>(t);
+		auto& grapher = std::get<0>(t);
+		auto& colors = std::get<2>(t);
+		auto& filename = std::get<3>(t);
 
-		if (!frac->ColorScoresGenerated())
+		if (!grapher->ColorScoresGenerated())
 		{
-			frac->GenerateColorScores(calc);
+			auto& calc = std::get<1>(t);
+			grapher->GenerateColorScores(*calc);
 		}
 
-		frac->Colorize(*colors);
-		frac->WriteToFile(filename.c_str());
+		grapher->Colorize(*colors);
+		grapher->WriteToFile(filename.c_str());
 	}
 }
 
-} /* namespace mandelbrot */
 } /* namespace mabz */

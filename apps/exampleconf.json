@@ -6,27 +6,44 @@
    "x_domain_width": 3,
    "pixel_width": 800,
    "pixel_height": 600,
-   "color_schemes": [
+   "mandelbrot_calc": {
+    "max_iterations": 1000
+   },
+   "color_configs": [
     {
-     "iter_base_color": {
-      "red": 240,
-      "green": 240,
-      "blue": 240
-     },
-     "out_filename": "black_and_white.bmp"
+     "out_filename": "red_and_blue.bmp",
+     "single_color_scheme": {
+      "scaling_denominator": 1000,
+      "hundred_per_cent_color": {
+        "red": 0,
+        "green": 0,
+        "blue": 40
+       },
+       "scaling_base_color": {
+        "red": 240,
+        "green": 0,
+        "blue": 30
+       }
+      }
     },
     {
-     "mandelbrot_color": {
-      "red": 0,
-      "green": 0,
-      "blue": 40
-     },
-     "iter_base_color": {
-      "red": 240,
-      "green": 0,
-      "blue": 30
-     },
-     "out_filename": "red_and_blue.bmp"
+     "out_filename": "black_and_white.bmp",
+     "single_color_scheme": {
+      "scaling_denominator": 1000,
+       "scaling_base_color": {
+        "red": 240,
+        "green": 240,
+        "blue": 240
+       }
+      }
+    },
+    {
+     "out_filename": "solid_red.bmp",
+     "dodgy_color_scheme": {
+       "solid_color": {
+        "red": 200
+       }
+      }
     }
    ]
   },
@@ -36,27 +53,36 @@
    "x_domain_width": 1,
    "pixel_width": 600,
    "pixel_height": 800,
-   "color_schemes": [
+   "mandelbrot_calc": {
+    "max_iterations": 750
+   },
+   "color_configs": [
     {
-     "iter_base_color": {
-      "red": 240,
-      "green": 240,
-      "blue": 240
-     },
-     "out_filename": "black_and_white_2.bmp"
+     "out_filename": "red_and_blue_2.bmp",
+     "single_color_scheme": {
+      "scaling_denominator": 750,
+      "hundred_per_cent_color": {
+        "red": 0,
+        "green": 0,
+        "blue": 40
+       },
+       "scaling_base_color": {
+        "red": 240,
+        "green": 0,
+        "blue": 30
+       }
+      }
     },
     {
-     "mandelbrot_color": {
-      "red": 0,
-      "green": 0,
-      "blue": 40
-     },
-     "iter_base_color": {
-      "red": 240,
-      "green": 0,
-      "blue": 30
-     },
-     "out_filename": "red_and_blue_2.bmp"
+     "out_filename": "black_and_white_2.bmp",
+     "single_color_scheme": {
+      "scaling_denominator": 750,
+       "scaling_base_color": {
+        "red": 240,
+        "green": 240,
+        "blue": 240
+       }
+      }
     }
    ]
   }

@@ -13,6 +13,15 @@
 
 namespace mabz { namespace mandelbrot {
 
+// abstract base class for going from (x, y) cartesian coordinates
+// to a pixel "score" according to a function (e.g. mandelbrot iterations)
+// which can then be used to colorize the pixel in a bmp (for example).
+class PixelScoreCalculator
+{
+public:
+	virtual void GetPixelScore(int& outResult, double x, double y) const = 0;
+};
+
 // abstract base class for going from a "score" for a pixel (e.g. something
 // representing what intensity/style of color it should have) to an actual RGB.
 class ColorScheme
@@ -57,9 +66,12 @@ private:
 	mabz::Bmp mBmp;
 	const mabz::PixelXYMapper mPixelXYMapper;
 
-	std::vector<int> mIterations;
+	// each pixel gets a "score" (e.g. result from calling a function with
+	// arguments X,Y corresponding to the values of the pixels) representing
+	// its color intensity (for example).
+	std::vector<int> mPixelScores;
 
-	bool mHasBeenGenerated{false};
+	bool mColorScoresGenerated{false};
 
 public:
 	BmpGrapher(
@@ -71,12 +83,12 @@ public:
 
 		: mBmp(pixelWidth, pixelHeight)
 		, mPixelXYMapper(xCenter, yCenter, xDomainWidth, pixelWidth, pixelHeight)
-		, mIterations(pixelWidth*pixelHeight, 0)
+		, mPixelScores(pixelWidth*pixelHeight, 0)
 	{}
 	BmpGrapher(const BmpGrapher&) = delete;
 
-	bool HasBeenGenerated() const { return mHasBeenGenerated; }
-	void Generate();
+	bool ColorScoresGenerated() const { return mColorScoresGenerated; }
+	void GenerateColorScores(const PixelScoreCalculator&);
 	void Colorize(const ColorScheme&);
 	bool WriteToFile(const char* filename) const;
 };

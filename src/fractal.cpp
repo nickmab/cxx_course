@@ -44,12 +44,12 @@ mabz::color::RGB SingleColorScheme::GetColor(int score) const
 	}
 }
 
-void BmpGrapher::Generate()
+void BmpGrapher::GenerateColorScores(const PixelScoreCalculator& calc)
 {
 	const int width = mBmp.Width();
 	const int height = mBmp.Height();
 	
-	std::cout << "Generating pixel scores for " 
+	std::cout << "Generating pixel color scores for " 
 			  << width * height << " pixels." << std::endl;
 
 	for (int x = 0; x < width; ++x)
@@ -61,12 +61,12 @@ void BmpGrapher::Generate()
 			mPixelXYMapper.Convert(x, y, scaledX, scaledY);
 
 			int iterations = 0;
-			calculator::IsDivergent(iterations, scaledX, scaledY);
-			mIterations[y*width + x] = iterations;
+			calc.GetPixelScore(iterations, scaledX, scaledY);
+			mPixelScores[y*width + x] = iterations;
 		}
 	}
 
-	mHasBeenGenerated = true;
+	mColorScoresGenerated = true;
 }
 
 void BmpGrapher::Colorize(const ColorScheme& colors)
@@ -77,7 +77,7 @@ void BmpGrapher::Colorize(const ColorScheme& colors)
 	{
 		for (int y = 0; y < height; ++y)
 		{
-			const mabz::color::RGB rgb = colors.GetColor(mIterations[y*width + x]);
+			const mabz::color::RGB rgb = colors.GetColor(mPixelScores[y*width + x]);
 			mBmp.SetRGBPixel(x, y, rgb.mRed, rgb.mGreen, rgb.mBlue);
 		}
 	}
@@ -141,7 +141,7 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 				{
 					const fractal_proto::SingleColorScheme& colorConfig = bmpConfig.color_schemes(j);
 					auto colors = std::make_unique<const SingleColorScheme>(
-						mabz::mandelbrot::calculator::MAX_ITERATIONS,
+						MandelbrotCalc::MAX_ITERATIONS,
 						colorConfig.mandelbrot_color().red(),
 						colorConfig.mandelbrot_color().green(),
 						colorConfig.mandelbrot_color().blue(),
@@ -173,15 +173,17 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 
 void BmpGrapherFactory::Run()
 {
+	MandelbrotCalc calc;
+
 	for (auto& t : mBmps)
 	{
 		auto& frac = std::get<0>(t);
 		auto& colors = std::get<1>(t);
 		auto& filename = std::get<2>(t);
 
-		if (!frac->HasBeenGenerated())
+		if (!frac->ColorScoresGenerated())
 		{
-			frac->Generate();
+			frac->GenerateColorScores(calc);
 		}
 
 		frac->Colorize(*colors);

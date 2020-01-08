@@ -4,13 +4,13 @@
 
 namespace mabz { namespace mandelbrot {
 
-void calculator::add(const Cmplx& left, const Cmplx& right, Cmplx& out)
+void MandelbrotCalc::add(const Cmplx& left, const Cmplx& right, Cmplx& out)
 {
 	out.Re = left.Re + right.Re;
 	out.Im = left.Im + right.Im;
 }
 
-void calculator::square(const Cmplx& in, Cmplx& out)
+void MandelbrotCalc::square(const Cmplx& in, Cmplx& out)
 {
 	// introduce tmp variables in case in and out are the same object.
 	const double outRe = in.Re*in.Re - in.Im*in.Im;
@@ -19,31 +19,29 @@ void calculator::square(const Cmplx& in, Cmplx& out)
 	out.Im = outIm;
 }
 
-double calculator::abs(const Cmplx& z)
+double MandelbrotCalc::abs(const Cmplx& z)
 {
 	return sqrt(z.Re*z.Re + z.Im*z.Im);
 }
 
-bool calculator::IsDivergent(int& outIterations, double real, double imaginary)
+void MandelbrotCalc::GetPixelScore(int& outResult, double x, double y) const
 {
 	Cmplx z;
-	const Cmplx c{real, imaginary};
+	const Cmplx c{x, y};
 
-	outIterations = 0;
-	while (outIterations < calculator::MAX_ITERATIONS)
+	outResult = 0;
+	while (outResult < MandelbrotCalc::MAX_ITERATIONS)
 	{
-		if (calculator::abs(z) > 2.0)
+		if (MandelbrotCalc::abs(z) > 2.0)
 		{
-			return true;
+			return;
 		}
 
 		// z = z^2 + c;
-		calculator::square(z, z);
-		calculator::add(z, c, z);
-		outIterations++;
+		MandelbrotCalc::square(z, z);
+		MandelbrotCalc::add(z, c, z);
+		outResult++;
 	}
-
-	return false;
 }
 
 } /* namespace mandelbrot */

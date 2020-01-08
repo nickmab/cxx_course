@@ -1,8 +1,10 @@
 #pragma once
 
+#include <advanced_cxx/fractal.h>
+
 namespace mabz { namespace mandelbrot {
 
-class calculator
+class MandelbrotCalc : public PixelScoreCalculator
 {
 private:
 	struct Cmplx {
@@ -20,8 +22,7 @@ public:
 	// Tests a complex number by running up to calculator::MAX_ITERATIONS of the mandelbrot fractal
 	// calculation to see whether the result diverges / magnitude exceeds 2. 
 	// "out" variable indicates the number of iterations done until it crossed through the 2 barrier.
-	// Returning "false" indicates that divergence did not appear to occur within the max iterations.
-	static bool IsDivergent(int& outIterations, double real, double imaginary);
+	virtual void GetPixelScore(int& outResult, double x, double y) const override;
 };
 
 } /* namespace mandelbrot */

@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	std::cout << "Will attempt to load config from file: " << configFilename << std::endl; 
 	
 	std::string s;
-	auto ptr = mabz::BmpGrapherFactory::NewFromPbufJsonFile(configFilename, s);
+	auto ptr = mabz::graphers::BmpGrapherFactory::NewFromPbufJsonFile(configFilename, s);
 	
 	if (ptr == nullptr)
 	{
@@ -26,8 +26,6 @@ int main(int argc, char* argv[])
 	}
 
 	ptr->Run();
-	
-	std::cout << "Done!" << std::endl;
 
 	return 0;
 }

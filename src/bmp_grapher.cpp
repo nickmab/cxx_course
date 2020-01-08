@@ -6,52 +6,13 @@
 
 #include "advanced_cxx/bmp_grapher.h"
 
-#include "advanced_cxx/calculators/mandelbrot.h"
+#include "advanced_cxx/graphers/mandelbrot.h"
 #include "advanced_cxx/colors/color_utils.h"
 #include "advanced_cxx/bmp_grapher.pb.h"
 
 #include <google/protobuf/util/json_util.h>
 
-namespace mabz {
-
-void BmpGrapher::GenerateColorScores(const calculators::PixelScoreCalculator& calc)
-{
-	const int width = mBmp.Width();
-	const int height = mBmp.Height();
-	
-	std::cout << "Generating pixel color scores for " 
-			  << width * height << " pixels." << std::endl;
-
-	for (int x = 0; x < width; ++x)
-	{
-		for (int y = 0; y < height; ++y)
-		{
-			double scaledX{0};
-			double scaledY{0};
-			mPixelXYMapper.Convert(x, y, scaledX, scaledY);
-
-			int iterations = 0;
-			calc.GetPixelScore(iterations, scaledX, scaledY);
-			mPixelScores[y*width + x] = iterations;
-		}
-	}
-
-	mColorScoresGenerated = true;
-}
-
-void BmpGrapher::Colorize(const color::ColorScheme& colors)
-{
-	const int width = mBmp.Width();
-	const int height = mBmp.Height();
-	for (int x = 0; x < width; ++x)
-	{
-		for (int y = 0; y < height; ++y)
-		{
-			const color::RGB rgb = colors.GetColor(mPixelScores[y*width + x]);
-			mBmp.SetRGBPixel(x, y, rgb.mRed, rgb.mGreen, rgb.mBlue);
-		}
-	}
-}
+namespace mabz { namespace graphers {
 
 bool BmpGrapher::WriteToFile(const char* filename) const
 {
@@ -99,11 +60,17 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 			for (int i = 0; i < config.bitmaps_size(); ++i)
 			{
 				const bmp_grapher_proto::BmpGrapher& bmpConfig = config.bitmaps(i);
-				
-				std::shared_ptr<const calculators::PixelScoreCalculator> calc{nullptr};
+				std::shared_ptr<BmpGrapher> bmpGrapher{nullptr};
+
 				if (bmpConfig.has_mandelbrot_calc())
 				{
-					calc.reset(new calculators::MandelbrotCalc(bmpConfig.mandelbrot_calc().max_iterations()));
+					bmpGrapher.reset(new mabz::graphers::MandelbrotCalc(
+						bmpConfig.x_center(),
+						bmpConfig.y_center(),
+						bmpConfig.x_domain_width(),
+						bmpConfig.pixel_width(),
+						bmpConfig.pixel_height(),
+						bmpConfig.mandelbrot_calc().max_iterations()));
 				}
 				else
 				{
@@ -112,23 +79,16 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 					return nullptr;
 				}
 
-				auto bmpGrapher = std::make_shared<BmpGrapher>(
-					bmpConfig.x_center(),
-					bmpConfig.y_center(),
-					bmpConfig.x_domain_width(),
-					bmpConfig.pixel_width(),
-					bmpConfig.pixel_height());
-				
 				for (int j = 0; j < bmpConfig.color_configs_size(); j++)
 				{			
 					const bmp_grapher_proto::ColorConfig& colorConfig = bmpConfig.color_configs(j);
 
-					std::unique_ptr<const color::ColorScheme> colors{nullptr};
+					std::unique_ptr<const BmpGrapher::RunArgs> runArgs{nullptr};
 					if (colorConfig.has_single_color_scheme())
 					{
 						auto csdata = colorConfig.single_color_scheme();
-						colors.reset(new color::SingleColorScheme(
-							csdata.scaling_denominator(),
+						runArgs.reset(new mabz::graphers::MandelbrotCalc::RunSingleColorSchemeArgs(
+							std::string(colorConfig.out_filename()),
 							csdata.hundred_per_cent_color().red(),
 							csdata.hundred_per_cent_color().green(),
 							csdata.hundred_per_cent_color().blue(),
@@ -138,11 +98,9 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 					}
 					else if (colorConfig.has_dodgy_color_scheme())
 					{
-						auto csdata = colorConfig.dodgy_color_scheme();
-						colors.reset(new color::DodgyColorScheme(
-							csdata.solid_color().red(),
-							csdata.solid_color().green(),
-							csdata.solid_color().blue()));
+						delete factory;
+						outErrorStr = "Dodgy color scheme currently unsupported!";
+						return nullptr;
 					}
 					else
 					{
@@ -151,13 +109,7 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 						return nullptr;
 					}
 					
-					auto tup = std::make_tuple(
-						bmpGrapher, 
-						calc,
-						std::move(colors),
-						std::move(std::string(colorConfig.out_filename())));
-
-					factory->mBmps.push_back(std::move(tup));
+					factory->mPendingGraphs.push_back(std::make_pair(bmpGrapher, std::move(runArgs)));
 				}
 			}
 			return factory;
@@ -167,21 +119,11 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 
 void BmpGrapherFactory::Run()
 {
-	for (auto& t : mBmps)
+	for (auto& t : mPendingGraphs)
 	{
-		auto& grapher = std::get<0>(t);
-		auto& colors = std::get<2>(t);
-		auto& filename = std::get<3>(t);
-
-		if (!grapher->ColorScoresGenerated())
-		{
-			auto& calc = std::get<1>(t);
-			grapher->GenerateColorScores(*calc);
-		}
-
-		grapher->Colorize(*colors);
-		grapher->WriteToFile(filename.c_str());
+		t.first->Run(t.second.get());
 	}
 }
 
+} /* namespace graphers */
 } /* namespace mabz */

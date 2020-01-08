@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <iostream>
 #include <map>
 #include <memory>
 #include <string>
@@ -8,24 +9,16 @@
 #include <vector>
 
 #include <advanced_cxx/bmp.h>
-#include <advanced_cxx/calculators/pixel_score_calculator.h>
 #include <advanced_cxx/colors/color_scheme.h>
 #include <advanced_cxx/bmp_grapher.pb.h>
 
-namespace mabz {
+namespace mabz { namespace graphers {
 
 class BmpGrapher
 {
-private:
+protected:
 	mabz::Bmp mBmp;
 	const mabz::PixelXYMapper mPixelXYMapper;
-
-	// each pixel gets a "score" (e.g. result from calling a function with
-	// arguments X,Y corresponding to the values of the pixels) representing
-	// its color intensity (for example).
-	std::vector<int> mPixelScores;
-
-	bool mColorScoresGenerated{false};
 
 public:
 	BmpGrapher(
@@ -37,13 +30,17 @@ public:
 
 		: mBmp(pixelWidth, pixelHeight)
 		, mPixelXYMapper(xCenter, yCenter, xDomainWidth, pixelWidth, pixelHeight)
-		, mPixelScores(pixelWidth*pixelHeight, 0)
 	{}
 	BmpGrapher(const BmpGrapher&) = delete;
+	virtual ~BmpGrapher() {}
 
-	bool ColorScoresGenerated() const { return mColorScoresGenerated; }
-	void GenerateColorScores(const calculators::PixelScoreCalculator&);
-	void Colorize(const color::ColorScheme&);
+	class RunArgs
+	{
+	public:
+		virtual ~RunArgs() {}
+	};
+	virtual void Run(const BmpGrapher::RunArgs*) = 0;
+
 	bool WriteToFile(const char* filename) const;
 };
 
@@ -53,11 +50,7 @@ private:
 	// Pre-cached runs to generate fractals (just add water by calling the combos of args).
 	// Note that BmpGrapher instances can be re-used, hence the unique ptr.
 	// the string represents the output filename of the bmp.
-	std::vector<
-		std::tuple< std::shared_ptr<BmpGrapher>, 
-		std::shared_ptr<const calculators::PixelScoreCalculator>, 
-		std::unique_ptr<const color::ColorScheme>, 
-		const std::string> > mBmps;
+	std::vector<std::pair<std::shared_ptr<BmpGrapher>,std::unique_ptr<const BmpGrapher::RunArgs> > > mPendingGraphs;
 	
 	// must use a static method to create. Constructor is private.
 	BmpGrapherFactory() {}
@@ -69,4 +62,5 @@ public:
 	void Run();
 };
 
+} /* namespace graphers */
 } /* namespace mabz */

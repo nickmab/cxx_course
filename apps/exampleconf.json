@@ -36,14 +36,6 @@
         "blue": 240
        }
       }
-    },
-    {
-     "out_filename": "solid_red.bmp",
-     "dodgy_color_scheme": {
-       "solid_color": {
-        "red": 200
-       }
-      }
     }
    ]
   },

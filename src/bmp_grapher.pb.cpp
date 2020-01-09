@@ -14,10 +14,13 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BmpGrapher_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BmpGrapher_bmp_5fgrapher_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QuadraticConfig_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RGB_bmp_5fgrapher_2eproto;
 namespace bmp_grapher_proto {
 class RGBDefaultTypeInternal {
@@ -37,10 +40,24 @@ class MandelbrotConfigDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MandelbrotConfig> _instance;
 } _MandelbrotConfig_default_instance_;
+class QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgsDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs> _instance;
+} _QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_default_instance_;
+class QuadraticConfig_QuadraticRunArgsDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QuadraticConfig_QuadraticRunArgs> _instance;
+  const ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* dual_color_scheme_args_;
+} _QuadraticConfig_QuadraticRunArgs_default_instance_;
+class QuadraticConfigDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<QuadraticConfig> _instance;
+} _QuadraticConfig_default_instance_;
 class BmpGrapherDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BmpGrapher> _instance;
   const ::bmp_grapher_proto::MandelbrotConfig* mandelbrot_config_;
+  const ::bmp_grapher_proto::QuadraticConfig* quadratic_config_;
 } _BmpGrapher_default_instance_;
 class BmpGrapherFactoryDefaultTypeInternal {
  public:
@@ -58,9 +75,10 @@ static void InitDefaultsscc_info_BmpGrapher_bmp_5fgrapher_2eproto() {
   ::bmp_grapher_proto::BmpGrapher::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BmpGrapher_bmp_5fgrapher_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BmpGrapher_bmp_5fgrapher_2eproto}, {
-      &scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BmpGrapher_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_BmpGrapher_bmp_5fgrapher_2eproto}, {
+      &scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base,
+      &scc_info_QuadraticConfig_bmp_5fgrapher_2eproto.base,}};
 
 static void InitDefaultsscc_info_BmpGrapherFactory_bmp_5fgrapher_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -122,6 +140,51 @@ static void InitDefaultsscc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorS
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto}, {
       &scc_info_RGB_bmp_5fgrapher_2eproto.base,}};
 
+static void InitDefaultsscc_info_QuadraticConfig_bmp_5fgrapher_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::bmp_grapher_proto::_QuadraticConfig_default_instance_;
+    new (ptr) ::bmp_grapher_proto::QuadraticConfig();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::bmp_grapher_proto::QuadraticConfig::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QuadraticConfig_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QuadraticConfig_bmp_5fgrapher_2eproto}, {
+      &scc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto.base,}};
+
+static void InitDefaultsscc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_default_instance_;
+    new (ptr) ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto}, {
+      &scc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto.base,}};
+
+static void InitDefaultsscc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_default_instance_;
+    new (ptr) ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto}, {
+      &scc_info_RGB_bmp_5fgrapher_2eproto.base,}};
+
 static void InitDefaultsscc_info_RGB_bmp_5fgrapher_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -136,8 +199,8 @@ static void InitDefaultsscc_info_RGB_bmp_5fgrapher_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RGB_bmp_5fgrapher_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RGB_bmp_5fgrapher_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bmp_5fgrapher_2eproto[6];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_bmp_5fgrapher_2eproto[1];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bmp_5fgrapher_2eproto[9];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_bmp_5fgrapher_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_bmp_5fgrapher_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -173,6 +236,32 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig, max_iterations_),
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig, run_args_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs, max_distance_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs, background_color_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs, curve_color_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs, out_filename_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs, color_scheme_),
+  offsetof(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgsDefaultTypeInternal, dual_color_scheme_args_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs, color_scheme_args_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig, param_a_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig, param_b_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig, param_c_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::QuadraticConfig, run_args_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, _internal_metadata_),
   ~0u,  // no _extensions_
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, _oneof_case_[0]),
@@ -183,6 +272,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, pixel_width_),
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, pixel_height_),
   offsetof(::bmp_grapher_proto::BmpGrapherDefaultTypeInternal, mandelbrot_config_),
+  offsetof(::bmp_grapher_proto::BmpGrapherDefaultTypeInternal, quadratic_config_),
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, bmp_grapher_config_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapherFactory, _internal_metadata_),
@@ -196,8 +286,11 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 8, -1, sizeof(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs)},
   { 15, -1, sizeof(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs)},
   { 24, -1, sizeof(::bmp_grapher_proto::MandelbrotConfig)},
-  { 31, -1, sizeof(::bmp_grapher_proto::BmpGrapher)},
-  { 43, -1, sizeof(::bmp_grapher_proto::BmpGrapherFactory)},
+  { 31, -1, sizeof(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs)},
+  { 39, -1, sizeof(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs)},
+  { 48, -1, sizeof(::bmp_grapher_proto::QuadraticConfig)},
+  { 57, -1, sizeof(::bmp_grapher_proto::BmpGrapher)},
+  { 70, -1, sizeof(::bmp_grapher_proto::BmpGrapherFactory)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -205,6 +298,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotConfig_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_QuadraticConfig_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_BmpGrapher_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_BmpGrapherFactory_default_instance_),
 };
@@ -225,33 +321,52 @@ const char descriptor_table_protodef_bmp_5fgrapher_2eproto[] PROTOBUF_SECTION_VA
   "meArgs\0220\n\020mandelbrot_color\030\001 \001(\0132\026.bmp_g"
   "rapher_proto.RGB\022*\n\nbase_color\030\002 \001(\0132\026.b"
   "mp_grapher_proto.RGB\"#\n\025MandelbrotColorS"
-  "cheme\022\n\n\006SINGLE\020\000B\023\n\021color_scheme_args\"\313"
-  "\001\n\nBmpGrapher\022\020\n\010x_center\030\001 \001(\001\022\020\n\010y_cen"
-  "ter\030\002 \001(\001\022\026\n\016x_domain_width\030\003 \001(\001\022\023\n\013pix"
-  "el_width\030\004 \001(\005\022\024\n\014pixel_height\030\005 \001(\005\022@\n\021"
-  "mandelbrot_config\030\006 \001(\0132#.bmp_grapher_pr"
-  "oto.MandelbrotConfigH\000B\024\n\022bmp_grapher_co"
-  "nfig\"C\n\021BmpGrapherFactory\022.\n\007bitmaps\030\001 \003"
-  "(\0132\035.bmp_grapher_proto.BmpGrapherb\006proto"
-  "3"
+  "cheme\022\n\n\006SINGLE\020\000B\023\n\021color_scheme_args\"\305"
+  "\004\n\017QuadraticConfig\022\017\n\007param_a\030\001 \001(\001\022\017\n\007p"
+  "aram_b\030\002 \001(\001\022\017\n\007param_c\030\003 \001(\001\022E\n\010run_arg"
+  "s\030\004 \003(\01323.bmp_grapher_proto.QuadraticCon"
+  "fig.QuadraticRunArgs\032\267\003\n\020QuadraticRunArg"
+  "s\022\024\n\014out_filename\030\001 \001(\t\022^\n\014color_scheme\030"
+  "\002 \001(\0162H.bmp_grapher_proto.QuadraticConfi"
+  "g.QuadraticRunArgs.QuadraticColorScheme\022"
+  "i\n\026dual_color_scheme_args\030\003 \001(\0132G.bmp_gr"
+  "apher_proto.QuadraticConfig.QuadraticRun"
+  "Args.DualColorSchemeArgsH\000\032\212\001\n\023DualColor"
+  "SchemeArgs\022\024\n\014max_distance\030\001 \001(\001\0220\n\020back"
+  "ground_color\030\002 \001(\0132\026.bmp_grapher_proto.R"
+  "GB\022+\n\013curve_color\030\003 \001(\0132\026.bmp_grapher_pr"
+  "oto.RGB\" \n\024QuadraticColorScheme\022\010\n\004DUAL\020"
+  "\000B\023\n\021color_scheme_args\"\213\002\n\nBmpGrapher\022\020\n"
+  "\010x_center\030\001 \001(\001\022\020\n\010y_center\030\002 \001(\001\022\026\n\016x_d"
+  "omain_width\030\003 \001(\001\022\023\n\013pixel_width\030\004 \001(\005\022\024"
+  "\n\014pixel_height\030\005 \001(\005\022@\n\021mandelbrot_confi"
+  "g\030\006 \001(\0132#.bmp_grapher_proto.MandelbrotCo"
+  "nfigH\000\022>\n\020quadratic_config\030\007 \001(\0132\".bmp_g"
+  "rapher_proto.QuadraticConfigH\000B\024\n\022bmp_gr"
+  "apher_config\"C\n\021BmpGrapherFactory\022.\n\007bit"
+  "maps\030\001 \003(\0132\035.bmp_grapher_proto.BmpGraphe"
+  "rb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_bmp_5fgrapher_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bmp_5fgrapher_2eproto_sccs[6] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bmp_5fgrapher_2eproto_sccs[9] = {
   &scc_info_BmpGrapher_bmp_5fgrapher_2eproto.base,
   &scc_info_BmpGrapherFactory_bmp_5fgrapher_2eproto.base,
   &scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base,
   &scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto.base,
   &scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto.base,
+  &scc_info_QuadraticConfig_bmp_5fgrapher_2eproto.base,
+  &scc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto.base,
+  &scc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto.base,
   &scc_info_RGB_bmp_5fgrapher_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_bmp_5fgrapher_2eproto_once;
 static bool descriptor_table_bmp_5fgrapher_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_bmp_5fgrapher_2eproto = {
-  &descriptor_table_bmp_5fgrapher_2eproto_initialized, descriptor_table_protodef_bmp_5fgrapher_2eproto, "bmp_grapher.proto", 921,
-  &descriptor_table_bmp_5fgrapher_2eproto_once, descriptor_table_bmp_5fgrapher_2eproto_sccs, descriptor_table_bmp_5fgrapher_2eproto_deps, 6, 0,
+  &descriptor_table_bmp_5fgrapher_2eproto_initialized, descriptor_table_protodef_bmp_5fgrapher_2eproto, "bmp_grapher.proto", 1569,
+  &descriptor_table_bmp_5fgrapher_2eproto_once, descriptor_table_bmp_5fgrapher_2eproto_sccs, descriptor_table_bmp_5fgrapher_2eproto_deps, 9, 0,
   schemas, file_default_instances, TableStruct_bmp_5fgrapher_2eproto::offsets,
-  file_level_metadata_bmp_5fgrapher_2eproto, 6, file_level_enum_descriptors_bmp_5fgrapher_2eproto, file_level_service_descriptors_bmp_5fgrapher_2eproto,
+  file_level_metadata_bmp_5fgrapher_2eproto, 9, file_level_enum_descriptors_bmp_5fgrapher_2eproto, file_level_service_descriptors_bmp_5fgrapher_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -275,6 +390,25 @@ constexpr MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme MandelbrotCon
 constexpr MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme MandelbrotConfig_MandelbrotRunArgs::MandelbrotColorScheme_MIN;
 constexpr MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme MandelbrotConfig_MandelbrotRunArgs::MandelbrotColorScheme_MAX;
 constexpr int MandelbrotConfig_MandelbrotRunArgs::MandelbrotColorScheme_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* QuadraticConfig_QuadraticRunArgs_QuadraticColorScheme_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_bmp_5fgrapher_2eproto);
+  return file_level_enum_descriptors_bmp_5fgrapher_2eproto[1];
+}
+bool QuadraticConfig_QuadraticRunArgs_QuadraticColorScheme_IsValid(int value) {
+  switch (value) {
+    case 0:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr QuadraticConfig_QuadraticRunArgs_QuadraticColorScheme QuadraticConfig_QuadraticRunArgs::DUAL;
+constexpr QuadraticConfig_QuadraticRunArgs_QuadraticColorScheme QuadraticConfig_QuadraticRunArgs::QuadraticColorScheme_MIN;
+constexpr QuadraticConfig_QuadraticRunArgs_QuadraticColorScheme QuadraticConfig_QuadraticRunArgs::QuadraticColorScheme_MAX;
+constexpr int QuadraticConfig_QuadraticRunArgs::QuadraticColorScheme_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
@@ -1302,18 +1436,880 @@ void MandelbrotConfig::InternalSwap(MandelbrotConfig* other) {
 
 // ===================================================================
 
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::InitAsDefaultInstance() {
+  ::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_default_instance_._instance.get_mutable()->background_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
+      ::bmp_grapher_proto::RGB::internal_default_instance());
+  ::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_default_instance_._instance.get_mutable()->curve_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
+      ::bmp_grapher_proto::RGB::internal_default_instance());
+}
+class QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::_Internal {
+ public:
+  static const ::bmp_grapher_proto::RGB& background_color(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* msg);
+  static const ::bmp_grapher_proto::RGB& curve_color(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* msg);
+};
+
+const ::bmp_grapher_proto::RGB&
+QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::_Internal::background_color(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* msg) {
+  return *msg->background_color_;
+}
+const ::bmp_grapher_proto::RGB&
+QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::_Internal::curve_color(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* msg) {
+  return *msg->curve_color_;
+}
+QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+}
+QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from._internal_has_background_color()) {
+    background_color_ = new ::bmp_grapher_proto::RGB(*from.background_color_);
+  } else {
+    background_color_ = nullptr;
+  }
+  if (from._internal_has_curve_color()) {
+    curve_color_ = new ::bmp_grapher_proto::RGB(*from.curve_color_);
+  } else {
+    curve_color_ = nullptr;
+  }
+  max_distance_ = from.max_distance_;
+  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto.base);
+  ::memset(&background_color_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&max_distance_) -
+      reinterpret_cast<char*>(&background_color_)) + sizeof(max_distance_));
+}
+
+QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::~QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs() {
+  // @@protoc_insertion_point(destructor:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  SharedDtor();
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::SharedDtor() {
+  if (this != internal_default_instance()) delete background_color_;
+  if (this != internal_default_instance()) delete curve_color_;
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs& QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs_bmp_5fgrapher_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::Clear() {
+// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == nullptr && background_color_ != nullptr) {
+    delete background_color_;
+  }
+  background_color_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && curve_color_ != nullptr) {
+    delete curve_color_;
+  }
+  curve_color_ = nullptr;
+  max_distance_ = 0;
+  _internal_metadata_.Clear();
+}
+
+const char* QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double max_distance = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          max_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // .bmp_grapher_proto.RGB background_color = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_background_color(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .bmp_grapher_proto.RGB curve_color = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_curve_color(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double max_distance = 1;
+  if (!(this->max_distance() <= 0 && this->max_distance() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_max_distance(), target);
+  }
+
+  // .bmp_grapher_proto.RGB background_color = 2;
+  if (this->has_background_color()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::background_color(this), target, stream);
+  }
+
+  // .bmp_grapher_proto.RGB curve_color = 3;
+  if (this->has_curve_color()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::curve_color(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  return target;
+}
+
+size_t QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .bmp_grapher_proto.RGB background_color = 2;
+  if (this->has_background_color()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *background_color_);
+  }
+
+  // .bmp_grapher_proto.RGB curve_color = 3;
+  if (this->has_curve_color()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *curve_color_);
+  }
+
+  // double max_distance = 1;
+  if (!(this->max_distance() <= 0 && this->max_distance() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+    MergeFrom(*source);
+  }
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::MergeFrom(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_background_color()) {
+    _internal_mutable_background_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_background_color());
+  }
+  if (from.has_curve_color()) {
+    _internal_mutable_curve_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_curve_color());
+  }
+  if (!(from.max_distance() <= 0 && from.max_distance() >= 0)) {
+    _internal_set_max_distance(from._internal_max_distance());
+  }
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::CopyFrom(const QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::IsInitialized() const {
+  return true;
+}
+
+void QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::InternalSwap(QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(background_color_, other->background_color_);
+  swap(curve_color_, other->curve_color_);
+  swap(max_distance_, other->max_distance_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void QuadraticConfig_QuadraticRunArgs::InitAsDefaultInstance() {
+  ::bmp_grapher_proto::_QuadraticConfig_QuadraticRunArgs_default_instance_.dual_color_scheme_args_ = const_cast< ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs*>(
+      ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::internal_default_instance());
+}
+class QuadraticConfig_QuadraticRunArgs::_Internal {
+ public:
+  static const ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs& dual_color_scheme_args(const QuadraticConfig_QuadraticRunArgs* msg);
+};
+
+const ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs&
+QuadraticConfig_QuadraticRunArgs::_Internal::dual_color_scheme_args(const QuadraticConfig_QuadraticRunArgs* msg) {
+  return *msg->color_scheme_args_.dual_color_scheme_args_;
+}
+void QuadraticConfig_QuadraticRunArgs::set_allocated_dual_color_scheme_args(::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* dual_color_scheme_args) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_color_scheme_args();
+  if (dual_color_scheme_args) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      dual_color_scheme_args = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, dual_color_scheme_args, submessage_arena);
+    }
+    set_has_dual_color_scheme_args();
+    color_scheme_args_.dual_color_scheme_args_ = dual_color_scheme_args;
+  }
+  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.dual_color_scheme_args)
+}
+QuadraticConfig_QuadraticRunArgs::QuadraticConfig_QuadraticRunArgs()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+}
+QuadraticConfig_QuadraticRunArgs::QuadraticConfig_QuadraticRunArgs(const QuadraticConfig_QuadraticRunArgs& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  out_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_out_filename().empty()) {
+    out_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.out_filename_);
+  }
+  color_scheme_ = from.color_scheme_;
+  clear_has_color_scheme_args();
+  switch (from.color_scheme_args_case()) {
+    case kDualColorSchemeArgs: {
+      _internal_mutable_dual_color_scheme_args()->::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::MergeFrom(from._internal_dual_color_scheme_args());
+      break;
+    }
+    case COLOR_SCHEME_ARGS_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+}
+
+void QuadraticConfig_QuadraticRunArgs::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto.base);
+  out_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  color_scheme_ = 0;
+  clear_has_color_scheme_args();
+}
+
+QuadraticConfig_QuadraticRunArgs::~QuadraticConfig_QuadraticRunArgs() {
+  // @@protoc_insertion_point(destructor:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  SharedDtor();
+}
+
+void QuadraticConfig_QuadraticRunArgs::SharedDtor() {
+  out_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (has_color_scheme_args()) {
+    clear_color_scheme_args();
+  }
+}
+
+void QuadraticConfig_QuadraticRunArgs::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QuadraticConfig_QuadraticRunArgs& QuadraticConfig_QuadraticRunArgs::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_QuadraticConfig_QuadraticRunArgs_bmp_5fgrapher_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QuadraticConfig_QuadraticRunArgs::clear_color_scheme_args() {
+// @@protoc_insertion_point(one_of_clear_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  switch (color_scheme_args_case()) {
+    case kDualColorSchemeArgs: {
+      delete color_scheme_args_.dual_color_scheme_args_;
+      break;
+    }
+    case COLOR_SCHEME_ARGS_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = COLOR_SCHEME_ARGS_NOT_SET;
+}
+
+
+void QuadraticConfig_QuadraticRunArgs::Clear() {
+// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  out_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  color_scheme_ = 0;
+  clear_color_scheme_args();
+  _internal_metadata_.Clear();
+}
+
+const char* QuadraticConfig_QuadraticRunArgs::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string out_filename = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_out_filename();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.out_filename"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.QuadraticColorScheme color_scheme = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_color_scheme(static_cast<::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_QuadraticColorScheme>(val));
+        } else goto handle_unusual;
+        continue;
+      // .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs dual_color_scheme_args = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ctx->ParseMessage(_internal_mutable_dual_color_scheme_args(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* QuadraticConfig_QuadraticRunArgs::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string out_filename = 1;
+  if (this->out_filename().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_out_filename().data(), static_cast<int>(this->_internal_out_filename().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.out_filename");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_out_filename(), target);
+  }
+
+  // .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.QuadraticColorScheme color_scheme = 2;
+  if (this->color_scheme() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_color_scheme(), target);
+  }
+
+  // .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs dual_color_scheme_args = 3;
+  if (_internal_has_dual_color_scheme_args()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        3, _Internal::dual_color_scheme_args(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  return target;
+}
+
+size_t QuadraticConfig_QuadraticRunArgs::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string out_filename = 1;
+  if (this->out_filename().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_out_filename());
+  }
+
+  // .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.QuadraticColorScheme color_scheme = 2;
+  if (this->color_scheme() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_color_scheme());
+  }
+
+  switch (color_scheme_args_case()) {
+    // .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs.DualColorSchemeArgs dual_color_scheme_args = 3;
+    case kDualColorSchemeArgs: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *color_scheme_args_.dual_color_scheme_args_);
+      break;
+    }
+    case COLOR_SCHEME_ARGS_NOT_SET: {
+      break;
+    }
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QuadraticConfig_QuadraticRunArgs::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QuadraticConfig_QuadraticRunArgs* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<QuadraticConfig_QuadraticRunArgs>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+    MergeFrom(*source);
+  }
+}
+
+void QuadraticConfig_QuadraticRunArgs::MergeFrom(const QuadraticConfig_QuadraticRunArgs& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.out_filename().size() > 0) {
+
+    out_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.out_filename_);
+  }
+  if (from.color_scheme() != 0) {
+    _internal_set_color_scheme(from._internal_color_scheme());
+  }
+  switch (from.color_scheme_args_case()) {
+    case kDualColorSchemeArgs: {
+      _internal_mutable_dual_color_scheme_args()->::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs::MergeFrom(from._internal_dual_color_scheme_args());
+      break;
+    }
+    case COLOR_SCHEME_ARGS_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void QuadraticConfig_QuadraticRunArgs::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QuadraticConfig_QuadraticRunArgs::CopyFrom(const QuadraticConfig_QuadraticRunArgs& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QuadraticConfig_QuadraticRunArgs::IsInitialized() const {
+  return true;
+}
+
+void QuadraticConfig_QuadraticRunArgs::InternalSwap(QuadraticConfig_QuadraticRunArgs* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  out_filename_.Swap(&other->out_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(color_scheme_, other->color_scheme_);
+  swap(color_scheme_args_, other->color_scheme_args_);
+  swap(_oneof_case_[0], other->_oneof_case_[0]);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata QuadraticConfig_QuadraticRunArgs::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void QuadraticConfig::InitAsDefaultInstance() {
+}
+class QuadraticConfig::_Internal {
+ public:
+};
+
+QuadraticConfig::QuadraticConfig()
+  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:bmp_grapher_proto.QuadraticConfig)
+}
+QuadraticConfig::QuadraticConfig(const QuadraticConfig& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _internal_metadata_(nullptr),
+      run_args_(from.run_args_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&param_a_, &from.param_a_,
+    static_cast<size_t>(reinterpret_cast<char*>(&param_c_) -
+    reinterpret_cast<char*>(&param_a_)) + sizeof(param_c_));
+  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.QuadraticConfig)
+}
+
+void QuadraticConfig::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_QuadraticConfig_bmp_5fgrapher_2eproto.base);
+  ::memset(&param_a_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&param_c_) -
+      reinterpret_cast<char*>(&param_a_)) + sizeof(param_c_));
+}
+
+QuadraticConfig::~QuadraticConfig() {
+  // @@protoc_insertion_point(destructor:bmp_grapher_proto.QuadraticConfig)
+  SharedDtor();
+}
+
+void QuadraticConfig::SharedDtor() {
+}
+
+void QuadraticConfig::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const QuadraticConfig& QuadraticConfig::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_QuadraticConfig_bmp_5fgrapher_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void QuadraticConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.QuadraticConfig)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  run_args_.Clear();
+  ::memset(&param_a_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&param_c_) -
+      reinterpret_cast<char*>(&param_a_)) + sizeof(param_c_));
+  _internal_metadata_.Clear();
+}
+
+const char* QuadraticConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // double param_a = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          param_a_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double param_b = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
+          param_b_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // double param_c = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
+          param_c_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else goto handle_unusual;
+        continue;
+      // repeated .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs run_args = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_run_args(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* QuadraticConfig::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.QuadraticConfig)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // double param_a = 1;
+  if (!(this->param_a() <= 0 && this->param_a() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(1, this->_internal_param_a(), target);
+  }
+
+  // double param_b = 2;
+  if (!(this->param_b() <= 0 && this->param_b() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_param_b(), target);
+  }
+
+  // double param_c = 3;
+  if (!(this->param_c() <= 0 && this->param_c() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(3, this->_internal_param_c(), target);
+  }
+
+  // repeated .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs run_args = 4;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_run_args_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, this->_internal_run_args(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.QuadraticConfig)
+  return target;
+}
+
+size_t QuadraticConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.QuadraticConfig)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .bmp_grapher_proto.QuadraticConfig.QuadraticRunArgs run_args = 4;
+  total_size += 1UL * this->_internal_run_args_size();
+  for (const auto& msg : this->run_args_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // double param_a = 1;
+  if (!(this->param_a() <= 0 && this->param_a() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double param_b = 2;
+  if (!(this->param_b() <= 0 && this->param_b() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  // double param_c = 3;
+  if (!(this->param_c() <= 0 && this->param_c() >= 0)) {
+    total_size += 1 + 8;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void QuadraticConfig::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.QuadraticConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  const QuadraticConfig* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<QuadraticConfig>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.QuadraticConfig)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.QuadraticConfig)
+    MergeFrom(*source);
+  }
+}
+
+void QuadraticConfig::MergeFrom(const QuadraticConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.QuadraticConfig)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  run_args_.MergeFrom(from.run_args_);
+  if (!(from.param_a() <= 0 && from.param_a() >= 0)) {
+    _internal_set_param_a(from._internal_param_a());
+  }
+  if (!(from.param_b() <= 0 && from.param_b() >= 0)) {
+    _internal_set_param_b(from._internal_param_b());
+  }
+  if (!(from.param_c() <= 0 && from.param_c() >= 0)) {
+    _internal_set_param_c(from._internal_param_c());
+  }
+}
+
+void QuadraticConfig::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.QuadraticConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void QuadraticConfig::CopyFrom(const QuadraticConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.QuadraticConfig)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool QuadraticConfig::IsInitialized() const {
+  return true;
+}
+
+void QuadraticConfig::InternalSwap(QuadraticConfig* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  run_args_.InternalSwap(&other->run_args_);
+  swap(param_a_, other->param_a_);
+  swap(param_b_, other->param_b_);
+  swap(param_c_, other->param_c_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata QuadraticConfig::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 void BmpGrapher::InitAsDefaultInstance() {
   ::bmp_grapher_proto::_BmpGrapher_default_instance_.mandelbrot_config_ = const_cast< ::bmp_grapher_proto::MandelbrotConfig*>(
       ::bmp_grapher_proto::MandelbrotConfig::internal_default_instance());
+  ::bmp_grapher_proto::_BmpGrapher_default_instance_.quadratic_config_ = const_cast< ::bmp_grapher_proto::QuadraticConfig*>(
+      ::bmp_grapher_proto::QuadraticConfig::internal_default_instance());
 }
 class BmpGrapher::_Internal {
  public:
   static const ::bmp_grapher_proto::MandelbrotConfig& mandelbrot_config(const BmpGrapher* msg);
+  static const ::bmp_grapher_proto::QuadraticConfig& quadratic_config(const BmpGrapher* msg);
 };
 
 const ::bmp_grapher_proto::MandelbrotConfig&
 BmpGrapher::_Internal::mandelbrot_config(const BmpGrapher* msg) {
   return *msg->bmp_grapher_config_.mandelbrot_config_;
+}
+const ::bmp_grapher_proto::QuadraticConfig&
+BmpGrapher::_Internal::quadratic_config(const BmpGrapher* msg) {
+  return *msg->bmp_grapher_config_.quadratic_config_;
 }
 void BmpGrapher::set_allocated_mandelbrot_config(::bmp_grapher_proto::MandelbrotConfig* mandelbrot_config) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
@@ -1328,6 +2324,20 @@ void BmpGrapher::set_allocated_mandelbrot_config(::bmp_grapher_proto::Mandelbrot
     bmp_grapher_config_.mandelbrot_config_ = mandelbrot_config;
   }
   // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.BmpGrapher.mandelbrot_config)
+}
+void BmpGrapher::set_allocated_quadratic_config(::bmp_grapher_proto::QuadraticConfig* quadratic_config) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  clear_bmp_grapher_config();
+  if (quadratic_config) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      quadratic_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, quadratic_config, submessage_arena);
+    }
+    set_has_quadratic_config();
+    bmp_grapher_config_.quadratic_config_ = quadratic_config;
+  }
+  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.BmpGrapher.quadratic_config)
 }
 BmpGrapher::BmpGrapher()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
@@ -1345,6 +2355,10 @@ BmpGrapher::BmpGrapher(const BmpGrapher& from)
   switch (from.bmp_grapher_config_case()) {
     case kMandelbrotConfig: {
       _internal_mutable_mandelbrot_config()->::bmp_grapher_proto::MandelbrotConfig::MergeFrom(from._internal_mandelbrot_config());
+      break;
+    }
+    case kQuadraticConfig: {
+      _internal_mutable_quadratic_config()->::bmp_grapher_proto::QuadraticConfig::MergeFrom(from._internal_quadratic_config());
       break;
     }
     case BMP_GRAPHER_CONFIG_NOT_SET: {
@@ -1387,6 +2401,10 @@ void BmpGrapher::clear_bmp_grapher_config() {
   switch (bmp_grapher_config_case()) {
     case kMandelbrotConfig: {
       delete bmp_grapher_config_.mandelbrot_config_;
+      break;
+    }
+    case kQuadraticConfig: {
+      delete bmp_grapher_config_.quadratic_config_;
       break;
     }
     case BMP_GRAPHER_CONFIG_NOT_SET: {
@@ -1459,6 +2477,13 @@ const char* BmpGrapher::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // .bmp_grapher_proto.QuadraticConfig quadratic_config = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_quadratic_config(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1523,6 +2548,14 @@ failure:
         6, _Internal::mandelbrot_config(this), target, stream);
   }
 
+  // .bmp_grapher_proto.QuadraticConfig quadratic_config = 7;
+  if (_internal_has_quadratic_config()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        7, _Internal::quadratic_config(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
@@ -1574,6 +2607,13 @@ size_t BmpGrapher::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *bmp_grapher_config_.mandelbrot_config_);
+      break;
+    }
+    // .bmp_grapher_proto.QuadraticConfig quadratic_config = 7;
+    case kQuadraticConfig: {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *bmp_grapher_config_.quadratic_config_);
       break;
     }
     case BMP_GRAPHER_CONFIG_NOT_SET: {
@@ -1629,6 +2669,10 @@ void BmpGrapher::MergeFrom(const BmpGrapher& from) {
   switch (from.bmp_grapher_config_case()) {
     case kMandelbrotConfig: {
       _internal_mutable_mandelbrot_config()->::bmp_grapher_proto::MandelbrotConfig::MergeFrom(from._internal_mandelbrot_config());
+      break;
+    }
+    case kQuadraticConfig: {
+      _internal_mutable_quadratic_config()->::bmp_grapher_proto::QuadraticConfig::MergeFrom(from._internal_quadratic_config());
       break;
     }
     case BMP_GRAPHER_CONFIG_NOT_SET: {
@@ -1877,6 +2921,15 @@ template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRun
 }
 template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::MandelbrotConfig* Arena::CreateMaybeMessage< ::bmp_grapher_proto::MandelbrotConfig >(Arena* arena) {
   return Arena::CreateInternal< ::bmp_grapher_proto::MandelbrotConfig >(arena);
+}
+template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs* Arena::CreateMaybeMessage< ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs >(Arena* arena) {
+  return Arena::CreateInternal< ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs_DualColorSchemeArgs >(arena);
+}
+template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs* Arena::CreateMaybeMessage< ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs >(Arena* arena) {
+  return Arena::CreateInternal< ::bmp_grapher_proto::QuadraticConfig_QuadraticRunArgs >(arena);
+}
+template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::QuadraticConfig* Arena::CreateMaybeMessage< ::bmp_grapher_proto::QuadraticConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::bmp_grapher_proto::QuadraticConfig >(arena);
 }
 template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::BmpGrapher* Arena::CreateMaybeMessage< ::bmp_grapher_proto::BmpGrapher >(Arena* arena) {
   return Arena::CreateInternal< ::bmp_grapher_proto::BmpGrapher >(arena);

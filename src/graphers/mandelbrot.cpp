@@ -39,24 +39,25 @@ MandelbrotCalc::MandelbrotCalc(
 	, mIterations(pixelWidth * pixelHeight, 0)
 {}
 
-void MandelbrotCalc::CalcPixelIterations(int& outResult, const double x, const double y)
+int MandelbrotCalc::CalcPixelIterations(const double x, const double y) const
 {
 	Cmplx z;
 	const Cmplx c{x, y};
 
-	outResult = 0;
-	while (outResult < mMaxIterations)
+	int result = 0;
+	while (result < mMaxIterations)
 	{
 		if (MandelbrotCalc::abs(z) > 2.0)
 		{
-			return;
+			break;
 		}
 
 		// z = z^2 + c;
 		MandelbrotCalc::square(z, z);
 		MandelbrotCalc::add(z, c, z);
-		outResult++;
-	}	
+		result++;
+	}
+	return result;
 }
 
 void MandelbrotCalc::CacheAllPixelIterations()
@@ -74,9 +75,7 @@ void MandelbrotCalc::CacheAllPixelIterations()
 			double scaledX{0};
 			double scaledY{0};
 			mPixelXYMapper.Convert(x, y, scaledX, scaledY);
-			int result;
-			CalcPixelIterations(result, scaledX, scaledY);
-			mIterations[y*mBmp.Width() + x] = result;
+			mIterations[y*mBmp.Width() + x] = CalcPixelIterations(scaledX, scaledY);
 		}
 	}
 
@@ -119,7 +118,7 @@ void MandelbrotCalc::Run(std::shared_ptr<const BmpGrapher::RunArgs> runArgs)
 
 		if (colorSchemeArgs == nullptr)
 		{
-			throw "Invalid MandelbrotCalc::SingleColorScheme::ConstructorArgs, could not cast.";
+			throw "Invalid SingleColorScheme::ConstructorArgs, could not cast.";
 		}
 
 		SingleColorScheme colorizer(mMaxIterations, *colorSchemeArgs);

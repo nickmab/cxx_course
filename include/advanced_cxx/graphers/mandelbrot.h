@@ -34,7 +34,7 @@ private:
 	// Tests a complex number by running up to calculator::MAX_ITERATIONS of the mandelbrot fractal
 	// calculation to see whether the result diverges / magnitude exceeds 2. 
 	// "out" variable indicates the number of iterations done until it crossed through the 2 barrier.
-	void CalcPixelIterations(int& outResult, const double x, const double y);
+	int CalcPixelIterations(const double x, const double y) const;
 	void CacheAllPixelIterations();
 	void Colorize(const MandelbrotColorizer&);
 
@@ -69,7 +69,7 @@ struct RunArgs : public BmpGrapher::RunArgs
 class SingleColorScheme : public MandelbrotColorizer
 {
 private:
-	int mMaxIterations;
+	int mMaxIterations{0};
 	color::RGB mMandelbrotColor;
 	color::HSV mBaseColor;
 
@@ -86,12 +86,12 @@ public:
 #define ui8 std::uint8_t
 struct SingleColorScheme::ConstructorArgs : public BmpGrapher::RunArgs
 {
-	ui8 mMandelbrotRed;
-	ui8 mMandelbrotGreen;
-	ui8 mMandelbrotBlue;
-	ui8 mBaseRed;
-	ui8 mBaseGreen;
-	ui8 mBaseBlue;
+	ui8 mMandelbrotRed{0};
+	ui8 mMandelbrotGreen{0};
+	ui8 mMandelbrotBlue{0};
+	ui8 mBaseRed{0};
+	ui8 mBaseGreen{0};
+	ui8 mBaseBlue{0};
 
 	ConstructorArgs(ui8 a, ui8 b, ui8 c, ui8 d, ui8 e, ui8 f)
 		: mMandelbrotRed(a), mMandelbrotGreen(b), mMandelbrotBlue(c), mBaseRed(d), mBaseGreen(e), mBaseBlue(f)

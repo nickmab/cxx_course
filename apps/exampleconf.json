@@ -1,6 +1,60 @@
 {
  "bitmaps": [
   {
+   "x_center": 0,
+   "y_center": 0,
+   "x_domain_width": 1,
+   "pixel_width": 200,
+   "pixel_height": 200,
+   "quadratic_config": {
+    "param_b": 1.0,
+    "run_args": [
+     {
+      "out_filename": "y_equals_x.bmp",
+      "color_scheme": 0,
+      "dual_color_scheme_args": {
+       "max_distance": 0.1,
+       "curve_color": {
+         "red": 240,
+         "green": 0,
+         "blue": 30
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "x_center": 0.0,
+   "y_center": 1.5,
+   "x_domain_width": 3,
+   "pixel_width": 900,
+   "pixel_height": 900,
+   "quadratic_config": {
+    "param_a": 1.0,
+    "param_c": 1.0,
+    "run_args": [
+     {
+      "out_filename": "y_equals_x_squared_plus_one.bmp",
+      "color_scheme": 0,
+      "dual_color_scheme_args": {
+       "max_distance": 0.03,
+       "background_color": {
+         "red": 80,
+         "green": 0,
+         "blue": 30
+       },
+       "curve_color": {
+         "red": 40,
+         "green": 30,
+         "blue": 190
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
    "x_center": -1,
    "y_center": 0,
    "x_domain_width": 3,

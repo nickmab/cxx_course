@@ -9,3 +9,7 @@ Current version capable of producing these...
 ![Image 3 of an example fractal](/red_and_blue.bmp?raw=true "Red and blue landscape orientation.")
 
 ![Image 4 of an example fractal](/red_and_blue_2.bmp?raw=true "Red and blue portrait orientation.")
+
+![Image 5 of an example line](/y_equals_x.bmp?raw=true "A straight line.")
+
+![Image 6 of an example quadratic](/y_equals_x_squared_plus_one.bmp?raw=true "A quadratic.")

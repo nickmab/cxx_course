@@ -7,6 +7,7 @@
 #include "advanced_cxx/bmp_grapher.h"
 
 #include "advanced_cxx/graphers/mandelbrot.h"
+#include "advanced_cxx/graphers/quadratic.h"
 #include "advanced_cxx/bmp_grapher.pb.h"
 
 #include <google/protobuf/util/json_util.h>
@@ -14,6 +15,7 @@
 namespace mabz { namespace graphers {
 
 namespace nsmandel = mabz::graphers::mandelbrot;
+namespace nsquadratic = mabz::graphers::quadratic;
 
 bool BmpGrapher::WriteToFile(const char* filename) const
 {
@@ -62,8 +64,7 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 			{
 				const bmp_grapher_proto::BmpGrapher& bmpConfig = config.bitmaps(i);
 				std::shared_ptr<BmpGrapher> bmpGrapher{nullptr};
-				nsmandel::ColorScheme colorSchemeName;
-
+				
 				if (bmpConfig.has_mandelbrot_config())
 				{
 					bmpGrapher.reset(new nsmandel::MandelbrotCalc(
@@ -80,6 +81,7 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 						auto runConfig = mbConfig.run_args(j);
 						std::shared_ptr<const BmpGrapher::RunArgs> bmpRunArgs{nullptr};
 						std::shared_ptr<const BmpGrapher::RunArgs> colorRunArgs{nullptr};
+						nsmandel::ColorScheme colorSchemeName;
 						if (runConfig.has_single_color_scheme_args())
 						{
 							colorSchemeName = nsmandel::ColorScheme::SINGLE;
@@ -109,10 +111,60 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 						factory->mPendingGraphs.push_back(std::move(pair));
 					}
 				}
+				else if (bmpConfig.has_quadratic_config())
+				{
+					auto qConfig = bmpConfig.quadratic_config();
+
+					bmpGrapher.reset(new nsquadratic::QuadraticCalc(
+						bmpConfig.x_center(),
+						bmpConfig.y_center(),
+						bmpConfig.x_domain_width(),
+						bmpConfig.pixel_width(),
+						bmpConfig.pixel_height(),
+						qConfig.param_a(),
+						qConfig.param_b(),
+						qConfig.param_c()));
+
+					for (int j = 0; j < qConfig.run_args_size(); j++)
+					{
+						auto runConfig = qConfig.run_args(j);
+						std::shared_ptr<const BmpGrapher::RunArgs> bmpRunArgs{nullptr};
+						std::shared_ptr<const BmpGrapher::RunArgs> colorRunArgs{nullptr};
+						nsquadratic::ColorScheme colorSchemeName;
+						if (runConfig.has_dual_color_scheme_args())
+						{
+							colorSchemeName = nsquadratic::ColorScheme::DUAL;
+							
+							auto csdata = runConfig.dual_color_scheme_args();
+							colorRunArgs.reset(new nsquadratic::DualColorScheme::ConstructorArgs(
+								csdata.max_distance(),
+								csdata.background_color().red(),
+								csdata.background_color().green(),
+								csdata.background_color().blue(),
+								csdata.curve_color().red(),
+								csdata.curve_color().green(),
+								csdata.curve_color().blue()));
+						}
+						else
+						{
+							delete factory;
+							outErrorStr = "Must specify a color scheme in Quadratic config!";
+							return nullptr;
+						}
+
+						bmpRunArgs.reset(new nsquadratic::RunArgs(
+							std::string(runConfig.out_filename()),
+							colorSchemeName,
+							colorRunArgs));
+
+						RunPair pair{bmpGrapher, bmpRunArgs};
+						factory->mPendingGraphs.push_back(std::move(pair));
+					}
+				}
 				else
 				{
 					delete factory;
-					outErrorStr = "Must specify a grapher (e.g. Mandelbrot) BmpGrapher config!";
+					outErrorStr = "Must specify a grapher (e.g. Mandelbrot or Quadratic) BmpGrapher config!";
 					return nullptr;
 				}
 			}

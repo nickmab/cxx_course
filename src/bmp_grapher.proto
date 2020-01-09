@@ -34,6 +34,36 @@ message MandelbrotConfig {
   repeated MandelbrotRunArgs run_args = 2;
 }
 
+message QuadraticConfig {
+  double param_a = 1;
+  double param_b = 2;
+  double param_c = 3;
+
+  // each run defines a different colour scheme and output filename
+  // to be generated from the same cached fractal calculation. 
+  message QuadraticRunArgs {
+    string out_filename = 1;
+
+    enum QuadraticColorScheme {
+      DUAL = 0;
+    }
+    QuadraticColorScheme color_scheme = 2;
+
+    message DualColorSchemeArgs {
+      
+      double max_distance = 1;
+      RGB background_color = 2;
+      RGB curve_color = 3;
+    }
+
+    oneof color_scheme_args {
+      DualColorSchemeArgs dual_color_scheme_args = 3;
+    }
+  }
+
+  repeated QuadraticRunArgs run_args = 4;
+}
+
 message BmpGrapher {
   double x_center = 1;
   double y_center = 2;
@@ -43,6 +73,7 @@ message BmpGrapher {
 
   oneof bmp_grapher_config {
     MandelbrotConfig mandelbrot_config = 6;
+    QuadraticConfig quadratic_config = 7;
   }
 }
 

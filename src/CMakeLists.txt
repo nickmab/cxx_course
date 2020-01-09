@@ -2,7 +2,6 @@
 # show up in IDEs unless they are listed in add_library.
 
 add_subdirectory(graphers)
-add_subdirectory(colors)
 
 # CMake 3.12 or later:
 file(GLOB_RECURSE IMPL_LIST "./*.cpp")

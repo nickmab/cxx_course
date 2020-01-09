@@ -1,6 +1,5 @@
 #include <cmath>
 
-#include "advanced_cxx/colors/color_scheme.h"
 #include "advanced_cxx/graphers/mandelbrot.h"
 
 namespace mabz { namespace graphers {
@@ -84,29 +83,65 @@ void MandelbrotCalc::CacheAllPixelIterations()
 	mIterationsCalculated = true;
 }
 
-void MandelbrotCalc::Run(const BmpGrapher::RunArgs* runArgs)
+void MandelbrotCalc::Run(std::shared_ptr<const BmpGrapher::RunArgs> runArgs)
 {
-	// currently only one color scheme supported...
-	auto args = dynamic_cast<const MandelbrotCalc::RunSingleColorSchemeArgs*>(runArgs);
-	if (args == nullptr)
-	{
-		throw "Invalid args passed to MandelbrotCalc::Run";
-	}
-
 	if (!mIterationsCalculated)
 	{
 		std::cout << "Generating..." << std::endl;
 		CacheAllPixelIterations();
 	}
 
-	std::cout << "Colorizing..." << std::endl;
-	Colorize<mabz::color::SingleColorScheme>(
-		mMaxIterations, 
-		args->mHundredPerCentRed, args->mHundredPerCentGreen, args->mHundredPerCentBlue,
-		args->mScalingBaseRed, args->mScalingBaseGreen, args->mScalingBaseBlue);
+	// currently only one color scheme supported...
+	auto args = dynamic_cast<const MandelbrotCalc::RunArgs*>(runArgs.get());
+	if (args == nullptr)
+	{
+		throw "Invalid args passed to MandelbrotCalc::Run";
+	}
 
+	if (args->mColorScheme == MandelbrotColorScheme::SINGLE)
+	{
+		auto colorSchemeArgs = dynamic_cast<const MandelbrotCalc::SingleColorScheme::ConstructorArgs*>(
+			args->mColorSchemeArgs.get());
+
+		if (colorSchemeArgs == nullptr)
+		{
+			throw "Invalid MandelbrotCalc::SingleColorScheme::ConstructorArgs, could not cast.";
+		}
+
+		std::cout << "Colorizing..." << std::endl;
+		Colorize<MandelbrotCalc::SingleColorScheme>(mMaxIterations, *colorSchemeArgs);
+	}
+	else
+	{
+		throw "Invalid mandelbrot color scheme chosen - this must be impossible";	
+	}
+	
 	std::cout << "Writing..." << std::endl;
 	WriteToFile(args->mOutFilename.c_str());
+}
+
+MandelbrotCalc::SingleColorScheme::SingleColorScheme(int maxIterations, const ConstructorArgs& args)
+	: mMaxIterations(maxIterations)
+	, mMandelbrotColor(args.mMandelbrotRed, args.mMandelbrotGreen, args.mMandelbrotBlue)
+	, mBaseColor(std::move(mabz::color::RGB::ToHSV(args.mBaseRed, args.mBaseGreen, args.mBaseBlue)))
+{}
+
+mabz::color::RGB MandelbrotCalc::SingleColorScheme::GetColor(int iterations) const
+{
+	if (iterations == mMaxIterations)
+	{
+		// makes / returns a copy obviously.
+		return mMandelbrotColor;
+	}
+	else
+	{
+		const double intensity = sqrt(static_cast<double>(iterations) / mMaxIterations);
+		mabz::color::HSV hsv(mBaseColor);
+		hsv.mHue *= intensity;
+		hsv.mSaturation *= intensity;
+		hsv.mValue *= intensity;
+		return std::move(hsv.ToRGB());
+	}
 }
 
 } /* namespace graphers */

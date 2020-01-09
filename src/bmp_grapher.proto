@@ -8,27 +8,30 @@ message RGB {
   int32 blue = 3;
 }
 
-message SingleColorScheme {
-  int32 scaling_denominator = 1;
-  RGB hundred_per_cent_color = 2;
-  RGB scaling_base_color = 3;
-}
-
-message DodgyColorScheme {
-  RGB solid_color = 1;
-}
-
-message ColorConfig {
-  string out_filename = 1;
-
-  oneof color_scheme {
-    SingleColorScheme single_color_scheme = 2;
-    DodgyColorScheme dodgy_color_scheme = 3;
-  }
-}
-
-message MandelbrotCalc {
+message MandelbrotConfig {
   int32 max_iterations = 1;
+
+  // each run defines a different colour scheme and output filename
+  // to be generated from the same cached fractal calculation. 
+  message MandelbrotRunArgs {
+    string out_filename = 1;
+
+    enum MandelbrotColorScheme {
+      SINGLE = 0;
+    }
+    MandelbrotColorScheme color_scheme = 2;
+
+    message SingleColorSchemeArgs {
+      RGB mandelbrot_color = 1;
+      RGB base_color = 2;
+    }
+
+    oneof color_scheme_args {
+      SingleColorSchemeArgs single_color_scheme_args = 3;
+    }
+  }
+
+  repeated MandelbrotRunArgs run_args = 2;
 }
 
 message BmpGrapher {
@@ -38,13 +41,9 @@ message BmpGrapher {
   int32 pixel_width = 4;
   int32 pixel_height = 5;
 
-  // you must choose one and only one calculator per bitmap...
-  oneof pixel_score_calculator {
-    MandelbrotCalc mandelbrot_calc = 6;
+  oneof bmp_grapher_config {
+    MandelbrotConfig mandelbrot_config = 6;
   }
-  
-  // but you can generate as many re-colorizations as you like.
-  repeated ColorConfig color_configs = 7;
 }
 
 message BmpGrapherFactory {

@@ -14,39 +14,33 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BmpGrapher_bmp_5fgrapher_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ColorConfig_bmp_5fgrapher_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DodgyColorScheme_bmp_5fgrapher_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MandelbrotCalc_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BmpGrapher_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RGB_bmp_5fgrapher_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_bmp_5fgrapher_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SingleColorScheme_bmp_5fgrapher_2eproto;
 namespace bmp_grapher_proto {
 class RGBDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RGB> _instance;
 } _RGB_default_instance_;
-class SingleColorSchemeDefaultTypeInternal {
+class MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgsDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SingleColorScheme> _instance;
-} _SingleColorScheme_default_instance_;
-class DodgyColorSchemeDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs> _instance;
+} _MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_default_instance_;
+class MandelbrotConfig_MandelbrotRunArgsDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DodgyColorScheme> _instance;
-} _DodgyColorScheme_default_instance_;
-class ColorConfigDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MandelbrotConfig_MandelbrotRunArgs> _instance;
+  const ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* single_color_scheme_args_;
+} _MandelbrotConfig_MandelbrotRunArgs_default_instance_;
+class MandelbrotConfigDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ColorConfig> _instance;
-  const ::bmp_grapher_proto::SingleColorScheme* single_color_scheme_;
-  const ::bmp_grapher_proto::DodgyColorScheme* dodgy_color_scheme_;
-} _ColorConfig_default_instance_;
-class MandelbrotCalcDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MandelbrotCalc> _instance;
-} _MandelbrotCalc_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MandelbrotConfig> _instance;
+} _MandelbrotConfig_default_instance_;
 class BmpGrapherDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<BmpGrapher> _instance;
-  const ::bmp_grapher_proto::MandelbrotCalc* mandelbrot_calc_;
+  const ::bmp_grapher_proto::MandelbrotConfig* mandelbrot_config_;
 } _BmpGrapher_default_instance_;
 class BmpGrapherFactoryDefaultTypeInternal {
  public:
@@ -64,10 +58,9 @@ static void InitDefaultsscc_info_BmpGrapher_bmp_5fgrapher_2eproto() {
   ::bmp_grapher_proto::BmpGrapher::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_BmpGrapher_bmp_5fgrapher_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_BmpGrapher_bmp_5fgrapher_2eproto}, {
-      &scc_info_MandelbrotCalc_bmp_5fgrapher_2eproto.base,
-      &scc_info_ColorConfig_bmp_5fgrapher_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_BmpGrapher_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BmpGrapher_bmp_5fgrapher_2eproto}, {
+      &scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base,}};
 
 static void InitDefaultsscc_info_BmpGrapherFactory_bmp_5fgrapher_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -84,50 +77,50 @@ static void InitDefaultsscc_info_BmpGrapherFactory_bmp_5fgrapher_2eproto() {
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_BmpGrapherFactory_bmp_5fgrapher_2eproto}, {
       &scc_info_BmpGrapher_bmp_5fgrapher_2eproto.base,}};
 
-static void InitDefaultsscc_info_ColorConfig_bmp_5fgrapher_2eproto() {
+static void InitDefaultsscc_info_MandelbrotConfig_bmp_5fgrapher_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::bmp_grapher_proto::_ColorConfig_default_instance_;
-    new (ptr) ::bmp_grapher_proto::ColorConfig();
+    void* ptr = &::bmp_grapher_proto::_MandelbrotConfig_default_instance_;
+    new (ptr) ::bmp_grapher_proto::MandelbrotConfig();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::bmp_grapher_proto::ColorConfig::InitAsDefaultInstance();
+  ::bmp_grapher_proto::MandelbrotConfig::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ColorConfig_bmp_5fgrapher_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ColorConfig_bmp_5fgrapher_2eproto}, {
-      &scc_info_SingleColorScheme_bmp_5fgrapher_2eproto.base,
-      &scc_info_DodgyColorScheme_bmp_5fgrapher_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_MandelbrotConfig_bmp_5fgrapher_2eproto}, {
+      &scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto.base,}};
 
-static void InitDefaultsscc_info_DodgyColorScheme_bmp_5fgrapher_2eproto() {
+static void InitDefaultsscc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::bmp_grapher_proto::_DodgyColorScheme_default_instance_;
-    new (ptr) ::bmp_grapher_proto::DodgyColorScheme();
+    void* ptr = &::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_default_instance_;
+    new (ptr) ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::bmp_grapher_proto::DodgyColorScheme::InitAsDefaultInstance();
+  ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DodgyColorScheme_bmp_5fgrapher_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_DodgyColorScheme_bmp_5fgrapher_2eproto}, {
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto}, {
+      &scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto.base,}};
+
+static void InitDefaultsscc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_default_instance_;
+    new (ptr) ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto}, {
       &scc_info_RGB_bmp_5fgrapher_2eproto.base,}};
-
-static void InitDefaultsscc_info_MandelbrotCalc_bmp_5fgrapher_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::bmp_grapher_proto::_MandelbrotCalc_default_instance_;
-    new (ptr) ::bmp_grapher_proto::MandelbrotCalc();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::bmp_grapher_proto::MandelbrotCalc::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MandelbrotCalc_bmp_5fgrapher_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_MandelbrotCalc_bmp_5fgrapher_2eproto}, {}};
 
 static void InitDefaultsscc_info_RGB_bmp_5fgrapher_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -143,23 +136,8 @@ static void InitDefaultsscc_info_RGB_bmp_5fgrapher_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RGB_bmp_5fgrapher_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RGB_bmp_5fgrapher_2eproto}, {}};
 
-static void InitDefaultsscc_info_SingleColorScheme_bmp_5fgrapher_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::bmp_grapher_proto::_SingleColorScheme_default_instance_;
-    new (ptr) ::bmp_grapher_proto::SingleColorScheme();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::bmp_grapher_proto::SingleColorScheme::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SingleColorScheme_bmp_5fgrapher_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SingleColorScheme_bmp_5fgrapher_2eproto}, {
-      &scc_info_RGB_bmp_5fgrapher_2eproto.base,}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bmp_5fgrapher_2eproto[7];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_bmp_5fgrapher_2eproto = nullptr;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_bmp_5fgrapher_2eproto[6];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_bmp_5fgrapher_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_bmp_5fgrapher_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -172,34 +150,28 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::RGB, green_),
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::RGB, blue_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::SingleColorScheme, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::SingleColorScheme, scaling_denominator_),
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::SingleColorScheme, hundred_per_cent_color_),
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::SingleColorScheme, scaling_base_color_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs, mandelbrot_color_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs, base_color_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::DodgyColorScheme, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs, _internal_metadata_),
+  ~0u,  // no _extensions_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs, out_filename_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs, color_scheme_),
+  offsetof(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgsDefaultTypeInternal, single_color_scheme_args_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs, color_scheme_args_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::DodgyColorScheme, solid_color_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::ColorConfig, _internal_metadata_),
-  ~0u,  // no _extensions_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::ColorConfig, _oneof_case_[0]),
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::ColorConfig, out_filename_),
-  offsetof(::bmp_grapher_proto::ColorConfigDefaultTypeInternal, single_color_scheme_),
-  offsetof(::bmp_grapher_proto::ColorConfigDefaultTypeInternal, dodgy_color_scheme_),
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::ColorConfig, color_scheme_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotCalc, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotCalc, max_iterations_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig, max_iterations_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::MandelbrotConfig, run_args_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -210,9 +182,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, x_domain_width_),
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, pixel_width_),
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, pixel_height_),
-  offsetof(::bmp_grapher_proto::BmpGrapherDefaultTypeInternal, mandelbrot_calc_),
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, color_configs_),
-  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, pixel_score_calculator_),
+  offsetof(::bmp_grapher_proto::BmpGrapherDefaultTypeInternal, mandelbrot_config_),
+  PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapher, bmp_grapher_config_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::bmp_grapher_proto::BmpGrapherFactory, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -222,20 +193,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_bmp_5fgrapher_2eproto::offsets
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::bmp_grapher_proto::RGB)},
-  { 8, -1, sizeof(::bmp_grapher_proto::SingleColorScheme)},
-  { 16, -1, sizeof(::bmp_grapher_proto::DodgyColorScheme)},
-  { 22, -1, sizeof(::bmp_grapher_proto::ColorConfig)},
-  { 31, -1, sizeof(::bmp_grapher_proto::MandelbrotCalc)},
-  { 37, -1, sizeof(::bmp_grapher_proto::BmpGrapher)},
-  { 50, -1, sizeof(::bmp_grapher_proto::BmpGrapherFactory)},
+  { 8, -1, sizeof(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs)},
+  { 15, -1, sizeof(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs)},
+  { 24, -1, sizeof(::bmp_grapher_proto::MandelbrotConfig)},
+  { 31, -1, sizeof(::bmp_grapher_proto::BmpGrapher)},
+  { 43, -1, sizeof(::bmp_grapher_proto::BmpGrapherFactory)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_RGB_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_SingleColorScheme_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_DodgyColorScheme_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_ColorConfig_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotCalc_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_MandelbrotConfig_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_BmpGrapher_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::bmp_grapher_proto::_BmpGrapherFactory_default_instance_),
 };
@@ -243,51 +212,70 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_bmp_5fgrapher_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\021bmp_grapher.proto\022\021bmp_grapher_proto\"/"
   "\n\003RGB\022\013\n\003red\030\001 \001(\005\022\r\n\005green\030\002 \001(\005\022\014\n\004blu"
-  "e\030\003 \001(\005\"\234\001\n\021SingleColorScheme\022\033\n\023scaling"
-  "_denominator\030\001 \001(\005\0226\n\026hundred_per_cent_c"
-  "olor\030\002 \001(\0132\026.bmp_grapher_proto.RGB\0222\n\022sc"
-  "aling_base_color\030\003 \001(\0132\026.bmp_grapher_pro"
-  "to.RGB\"\?\n\020DodgyColorScheme\022+\n\013solid_colo"
-  "r\030\001 \001(\0132\026.bmp_grapher_proto.RGB\"\273\001\n\013Colo"
-  "rConfig\022\024\n\014out_filename\030\001 \001(\t\022C\n\023single_"
-  "color_scheme\030\002 \001(\0132$.bmp_grapher_proto.S"
-  "ingleColorSchemeH\000\022A\n\022dodgy_color_scheme"
-  "\030\003 \001(\0132#.bmp_grapher_proto.DodgyColorSch"
-  "emeH\000B\016\n\014color_scheme\"(\n\016MandelbrotCalc\022"
-  "\026\n\016max_iterations\030\001 \001(\005\"\202\002\n\nBmpGrapher\022\020"
-  "\n\010x_center\030\001 \001(\001\022\020\n\010y_center\030\002 \001(\001\022\026\n\016x_"
-  "domain_width\030\003 \001(\001\022\023\n\013pixel_width\030\004 \001(\005\022"
-  "\024\n\014pixel_height\030\005 \001(\005\022<\n\017mandelbrot_calc"
-  "\030\006 \001(\0132!.bmp_grapher_proto.MandelbrotCal"
-  "cH\000\0225\n\rcolor_configs\030\007 \003(\0132\036.bmp_grapher"
-  "_proto.ColorConfigB\030\n\026pixel_score_calcul"
-  "ator\"C\n\021BmpGrapherFactory\022.\n\007bitmaps\030\001 \003"
+  "e\030\003 \001(\005\"\244\004\n\020MandelbrotConfig\022\026\n\016max_iter"
+  "ations\030\001 \001(\005\022G\n\010run_args\030\002 \003(\01325.bmp_gra"
+  "pher_proto.MandelbrotConfig.MandelbrotRu"
+  "nArgs\032\256\003\n\021MandelbrotRunArgs\022\024\n\014out_filen"
+  "ame\030\001 \001(\t\022a\n\014color_scheme\030\002 \001(\0162K.bmp_gr"
+  "apher_proto.MandelbrotConfig.MandelbrotR"
+  "unArgs.MandelbrotColorScheme\022o\n\030single_c"
+  "olor_scheme_args\030\003 \001(\0132K.bmp_grapher_pro"
+  "to.MandelbrotConfig.MandelbrotRunArgs.Si"
+  "ngleColorSchemeArgsH\000\032u\n\025SingleColorSche"
+  "meArgs\0220\n\020mandelbrot_color\030\001 \001(\0132\026.bmp_g"
+  "rapher_proto.RGB\022*\n\nbase_color\030\002 \001(\0132\026.b"
+  "mp_grapher_proto.RGB\"#\n\025MandelbrotColorS"
+  "cheme\022\n\n\006SINGLE\020\000B\023\n\021color_scheme_args\"\313"
+  "\001\n\nBmpGrapher\022\020\n\010x_center\030\001 \001(\001\022\020\n\010y_cen"
+  "ter\030\002 \001(\001\022\026\n\016x_domain_width\030\003 \001(\001\022\023\n\013pix"
+  "el_width\030\004 \001(\005\022\024\n\014pixel_height\030\005 \001(\005\022@\n\021"
+  "mandelbrot_config\030\006 \001(\0132#.bmp_grapher_pr"
+  "oto.MandelbrotConfigH\000B\024\n\022bmp_grapher_co"
+  "nfig\"C\n\021BmpGrapherFactory\022.\n\007bitmaps\030\001 \003"
   "(\0132\035.bmp_grapher_proto.BmpGrapherb\006proto"
   "3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_bmp_5fgrapher_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bmp_5fgrapher_2eproto_sccs[7] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_bmp_5fgrapher_2eproto_sccs[6] = {
   &scc_info_BmpGrapher_bmp_5fgrapher_2eproto.base,
   &scc_info_BmpGrapherFactory_bmp_5fgrapher_2eproto.base,
-  &scc_info_ColorConfig_bmp_5fgrapher_2eproto.base,
-  &scc_info_DodgyColorScheme_bmp_5fgrapher_2eproto.base,
-  &scc_info_MandelbrotCalc_bmp_5fgrapher_2eproto.base,
+  &scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base,
+  &scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto.base,
+  &scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto.base,
   &scc_info_RGB_bmp_5fgrapher_2eproto.base,
-  &scc_info_SingleColorScheme_bmp_5fgrapher_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_bmp_5fgrapher_2eproto_once;
 static bool descriptor_table_bmp_5fgrapher_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_bmp_5fgrapher_2eproto = {
-  &descriptor_table_bmp_5fgrapher_2eproto_initialized, descriptor_table_protodef_bmp_5fgrapher_2eproto, "bmp_grapher.proto", 881,
-  &descriptor_table_bmp_5fgrapher_2eproto_once, descriptor_table_bmp_5fgrapher_2eproto_sccs, descriptor_table_bmp_5fgrapher_2eproto_deps, 7, 0,
+  &descriptor_table_bmp_5fgrapher_2eproto_initialized, descriptor_table_protodef_bmp_5fgrapher_2eproto, "bmp_grapher.proto", 921,
+  &descriptor_table_bmp_5fgrapher_2eproto_once, descriptor_table_bmp_5fgrapher_2eproto_sccs, descriptor_table_bmp_5fgrapher_2eproto_deps, 6, 0,
   schemas, file_default_instances, TableStruct_bmp_5fgrapher_2eproto::offsets,
-  file_level_metadata_bmp_5fgrapher_2eproto, 7, file_level_enum_descriptors_bmp_5fgrapher_2eproto, file_level_service_descriptors_bmp_5fgrapher_2eproto,
+  file_level_metadata_bmp_5fgrapher_2eproto, 6, file_level_enum_descriptors_bmp_5fgrapher_2eproto, file_level_service_descriptors_bmp_5fgrapher_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_bmp_5fgrapher_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_bmp_5fgrapher_2eproto)), true);
 namespace bmp_grapher_proto {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_bmp_5fgrapher_2eproto);
+  return file_level_enum_descriptors_bmp_5fgrapher_2eproto[0];
+}
+bool MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme_IsValid(int value) {
+  switch (value) {
+    case 0:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+constexpr MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme MandelbrotConfig_MandelbrotRunArgs::SINGLE;
+constexpr MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme MandelbrotConfig_MandelbrotRunArgs::MandelbrotColorScheme_MIN;
+constexpr MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme MandelbrotConfig_MandelbrotRunArgs::MandelbrotColorScheme_MAX;
+constexpr int MandelbrotConfig_MandelbrotRunArgs::MandelbrotColorScheme_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 
 // ===================================================================
 
@@ -531,358 +519,109 @@ void RGB::InternalSwap(RGB* other) {
 
 // ===================================================================
 
-void SingleColorScheme::InitAsDefaultInstance() {
-  ::bmp_grapher_proto::_SingleColorScheme_default_instance_._instance.get_mutable()->hundred_per_cent_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::InitAsDefaultInstance() {
+  ::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_default_instance_._instance.get_mutable()->mandelbrot_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
       ::bmp_grapher_proto::RGB::internal_default_instance());
-  ::bmp_grapher_proto::_SingleColorScheme_default_instance_._instance.get_mutable()->scaling_base_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
+  ::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_default_instance_._instance.get_mutable()->base_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
       ::bmp_grapher_proto::RGB::internal_default_instance());
 }
-class SingleColorScheme::_Internal {
+class MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::_Internal {
  public:
-  static const ::bmp_grapher_proto::RGB& hundred_per_cent_color(const SingleColorScheme* msg);
-  static const ::bmp_grapher_proto::RGB& scaling_base_color(const SingleColorScheme* msg);
+  static const ::bmp_grapher_proto::RGB& mandelbrot_color(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* msg);
+  static const ::bmp_grapher_proto::RGB& base_color(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* msg);
 };
 
 const ::bmp_grapher_proto::RGB&
-SingleColorScheme::_Internal::hundred_per_cent_color(const SingleColorScheme* msg) {
-  return *msg->hundred_per_cent_color_;
+MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::_Internal::mandelbrot_color(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* msg) {
+  return *msg->mandelbrot_color_;
 }
 const ::bmp_grapher_proto::RGB&
-SingleColorScheme::_Internal::scaling_base_color(const SingleColorScheme* msg) {
-  return *msg->scaling_base_color_;
+MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::_Internal::base_color(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* msg) {
+  return *msg->base_color_;
 }
-SingleColorScheme::SingleColorScheme()
+MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:bmp_grapher_proto.SingleColorScheme)
+  // @@protoc_insertion_point(constructor:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
 }
-SingleColorScheme::SingleColorScheme(const SingleColorScheme& from)
+MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from._internal_has_hundred_per_cent_color()) {
-    hundred_per_cent_color_ = new ::bmp_grapher_proto::RGB(*from.hundred_per_cent_color_);
+  if (from._internal_has_mandelbrot_color()) {
+    mandelbrot_color_ = new ::bmp_grapher_proto::RGB(*from.mandelbrot_color_);
   } else {
-    hundred_per_cent_color_ = nullptr;
+    mandelbrot_color_ = nullptr;
   }
-  if (from._internal_has_scaling_base_color()) {
-    scaling_base_color_ = new ::bmp_grapher_proto::RGB(*from.scaling_base_color_);
+  if (from._internal_has_base_color()) {
+    base_color_ = new ::bmp_grapher_proto::RGB(*from.base_color_);
   } else {
-    scaling_base_color_ = nullptr;
+    base_color_ = nullptr;
   }
-  scaling_denominator_ = from.scaling_denominator_;
-  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.SingleColorScheme)
+  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
 }
 
-void SingleColorScheme::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SingleColorScheme_bmp_5fgrapher_2eproto.base);
-  ::memset(&hundred_per_cent_color_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&scaling_denominator_) -
-      reinterpret_cast<char*>(&hundred_per_cent_color_)) + sizeof(scaling_denominator_));
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto.base);
+  ::memset(&mandelbrot_color_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&base_color_) -
+      reinterpret_cast<char*>(&mandelbrot_color_)) + sizeof(base_color_));
 }
 
-SingleColorScheme::~SingleColorScheme() {
-  // @@protoc_insertion_point(destructor:bmp_grapher_proto.SingleColorScheme)
+MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::~MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs() {
+  // @@protoc_insertion_point(destructor:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   SharedDtor();
 }
 
-void SingleColorScheme::SharedDtor() {
-  if (this != internal_default_instance()) delete hundred_per_cent_color_;
-  if (this != internal_default_instance()) delete scaling_base_color_;
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::SharedDtor() {
+  if (this != internal_default_instance()) delete mandelbrot_color_;
+  if (this != internal_default_instance()) delete base_color_;
 }
 
-void SingleColorScheme::SetCachedSize(int size) const {
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const SingleColorScheme& SingleColorScheme::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SingleColorScheme_bmp_5fgrapher_2eproto.base);
+const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs& MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs_bmp_5fgrapher_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void SingleColorScheme::Clear() {
-// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.SingleColorScheme)
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::Clear() {
+// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaNoVirtual() == nullptr && hundred_per_cent_color_ != nullptr) {
-    delete hundred_per_cent_color_;
+  if (GetArenaNoVirtual() == nullptr && mandelbrot_color_ != nullptr) {
+    delete mandelbrot_color_;
   }
-  hundred_per_cent_color_ = nullptr;
-  if (GetArenaNoVirtual() == nullptr && scaling_base_color_ != nullptr) {
-    delete scaling_base_color_;
+  mandelbrot_color_ = nullptr;
+  if (GetArenaNoVirtual() == nullptr && base_color_ != nullptr) {
+    delete base_color_;
   }
-  scaling_base_color_ = nullptr;
-  scaling_denominator_ = 0;
+  base_color_ = nullptr;
   _internal_metadata_.Clear();
 }
 
-const char* SingleColorScheme::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // int32 scaling_denominator = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          scaling_denominator_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .bmp_grapher_proto.RGB hundred_per_cent_color = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_hundred_per_cent_color(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // .bmp_grapher_proto.RGB scaling_base_color = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_scaling_base_color(), ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* SingleColorScheme::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.SingleColorScheme)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // int32 scaling_denominator = 1;
-  if (this->scaling_denominator() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_scaling_denominator(), target);
-  }
-
-  // .bmp_grapher_proto.RGB hundred_per_cent_color = 2;
-  if (this->has_hundred_per_cent_color()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::hundred_per_cent_color(this), target, stream);
-  }
-
-  // .bmp_grapher_proto.RGB scaling_base_color = 3;
-  if (this->has_scaling_base_color()) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        3, _Internal::scaling_base_color(this), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields(), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.SingleColorScheme)
-  return target;
-}
-
-size_t SingleColorScheme::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.SingleColorScheme)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // .bmp_grapher_proto.RGB hundred_per_cent_color = 2;
-  if (this->has_hundred_per_cent_color()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *hundred_per_cent_color_);
-  }
-
-  // .bmp_grapher_proto.RGB scaling_base_color = 3;
-  if (this->has_scaling_base_color()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *scaling_base_color_);
-  }
-
-  // int32 scaling_denominator = 1;
-  if (this->scaling_denominator() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_scaling_denominator());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void SingleColorScheme::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.SingleColorScheme)
-  GOOGLE_DCHECK_NE(&from, this);
-  const SingleColorScheme* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SingleColorScheme>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.SingleColorScheme)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.SingleColorScheme)
-    MergeFrom(*source);
-  }
-}
-
-void SingleColorScheme::MergeFrom(const SingleColorScheme& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.SingleColorScheme)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.has_hundred_per_cent_color()) {
-    _internal_mutable_hundred_per_cent_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_hundred_per_cent_color());
-  }
-  if (from.has_scaling_base_color()) {
-    _internal_mutable_scaling_base_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_scaling_base_color());
-  }
-  if (from.scaling_denominator() != 0) {
-    _internal_set_scaling_denominator(from._internal_scaling_denominator());
-  }
-}
-
-void SingleColorScheme::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.SingleColorScheme)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void SingleColorScheme::CopyFrom(const SingleColorScheme& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.SingleColorScheme)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool SingleColorScheme::IsInitialized() const {
-  return true;
-}
-
-void SingleColorScheme::InternalSwap(SingleColorScheme* other) {
-  using std::swap;
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(hundred_per_cent_color_, other->hundred_per_cent_color_);
-  swap(scaling_base_color_, other->scaling_base_color_);
-  swap(scaling_denominator_, other->scaling_denominator_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata SingleColorScheme::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void DodgyColorScheme::InitAsDefaultInstance() {
-  ::bmp_grapher_proto::_DodgyColorScheme_default_instance_._instance.get_mutable()->solid_color_ = const_cast< ::bmp_grapher_proto::RGB*>(
-      ::bmp_grapher_proto::RGB::internal_default_instance());
-}
-class DodgyColorScheme::_Internal {
- public:
-  static const ::bmp_grapher_proto::RGB& solid_color(const DodgyColorScheme* msg);
-};
-
-const ::bmp_grapher_proto::RGB&
-DodgyColorScheme::_Internal::solid_color(const DodgyColorScheme* msg) {
-  return *msg->solid_color_;
-}
-DodgyColorScheme::DodgyColorScheme()
-  : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:bmp_grapher_proto.DodgyColorScheme)
-}
-DodgyColorScheme::DodgyColorScheme(const DodgyColorScheme& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from._internal_has_solid_color()) {
-    solid_color_ = new ::bmp_grapher_proto::RGB(*from.solid_color_);
-  } else {
-    solid_color_ = nullptr;
-  }
-  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.DodgyColorScheme)
-}
-
-void DodgyColorScheme::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DodgyColorScheme_bmp_5fgrapher_2eproto.base);
-  solid_color_ = nullptr;
-}
-
-DodgyColorScheme::~DodgyColorScheme() {
-  // @@protoc_insertion_point(destructor:bmp_grapher_proto.DodgyColorScheme)
-  SharedDtor();
-}
-
-void DodgyColorScheme::SharedDtor() {
-  if (this != internal_default_instance()) delete solid_color_;
-}
-
-void DodgyColorScheme::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DodgyColorScheme& DodgyColorScheme::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DodgyColorScheme_bmp_5fgrapher_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void DodgyColorScheme::Clear() {
-// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.DodgyColorScheme)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  if (GetArenaNoVirtual() == nullptr && solid_color_ != nullptr) {
-    delete solid_color_;
-  }
-  solid_color_ = nullptr;
-  _internal_metadata_.Clear();
-}
-
-const char* DodgyColorScheme::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // .bmp_grapher_proto.RGB solid_color = 1;
+      // .bmp_grapher_proto.RGB mandelbrot_color = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr = ctx->ParseMessage(_internal_mutable_solid_color(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_mandelbrot_color(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .bmp_grapher_proto.RGB base_color = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ctx->ParseMessage(_internal_mutable_base_color(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -906,41 +645,56 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DodgyColorScheme::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.DodgyColorScheme)
+  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .bmp_grapher_proto.RGB solid_color = 1;
-  if (this->has_solid_color()) {
+  // .bmp_grapher_proto.RGB mandelbrot_color = 1;
+  if (this->has_mandelbrot_color()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        1, _Internal::solid_color(this), target, stream);
+        1, _Internal::mandelbrot_color(this), target, stream);
+  }
+
+  // .bmp_grapher_proto.RGB base_color = 2;
+  if (this->has_base_color()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        2, _Internal::base_color(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.DodgyColorScheme)
+  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   return target;
 }
 
-size_t DodgyColorScheme::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.DodgyColorScheme)
+size_t MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // .bmp_grapher_proto.RGB solid_color = 1;
-  if (this->has_solid_color()) {
+  // .bmp_grapher_proto.RGB mandelbrot_color = 1;
+  if (this->has_mandelbrot_color()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *solid_color_);
+        *mandelbrot_color_);
+  }
+
+  // .bmp_grapher_proto.RGB base_color = 2;
+  if (this->has_base_color()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *base_color_);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -952,118 +706,101 @@ size_t DodgyColorScheme::ByteSizeLong() const {
   return total_size;
 }
 
-void DodgyColorScheme::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.DodgyColorScheme)
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   GOOGLE_DCHECK_NE(&from, this);
-  const DodgyColorScheme* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DodgyColorScheme>(
+  const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.DodgyColorScheme)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.DodgyColorScheme)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
     MergeFrom(*source);
   }
 }
 
-void DodgyColorScheme::MergeFrom(const DodgyColorScheme& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.DodgyColorScheme)
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::MergeFrom(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_solid_color()) {
-    _internal_mutable_solid_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_solid_color());
+  if (from.has_mandelbrot_color()) {
+    _internal_mutable_mandelbrot_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_mandelbrot_color());
+  }
+  if (from.has_base_color()) {
+    _internal_mutable_base_color()->::bmp_grapher_proto::RGB::MergeFrom(from._internal_base_color());
   }
 }
 
-void DodgyColorScheme::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.DodgyColorScheme)
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DodgyColorScheme::CopyFrom(const DodgyColorScheme& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.DodgyColorScheme)
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::CopyFrom(const MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DodgyColorScheme::IsInitialized() const {
+bool MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::IsInitialized() const {
   return true;
 }
 
-void DodgyColorScheme::InternalSwap(DodgyColorScheme* other) {
+void MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::InternalSwap(MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(solid_color_, other->solid_color_);
+  swap(mandelbrot_color_, other->mandelbrot_color_);
+  swap(base_color_, other->base_color_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata DodgyColorScheme::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void ColorConfig::InitAsDefaultInstance() {
-  ::bmp_grapher_proto::_ColorConfig_default_instance_.single_color_scheme_ = const_cast< ::bmp_grapher_proto::SingleColorScheme*>(
-      ::bmp_grapher_proto::SingleColorScheme::internal_default_instance());
-  ::bmp_grapher_proto::_ColorConfig_default_instance_.dodgy_color_scheme_ = const_cast< ::bmp_grapher_proto::DodgyColorScheme*>(
-      ::bmp_grapher_proto::DodgyColorScheme::internal_default_instance());
+void MandelbrotConfig_MandelbrotRunArgs::InitAsDefaultInstance() {
+  ::bmp_grapher_proto::_MandelbrotConfig_MandelbrotRunArgs_default_instance_.single_color_scheme_args_ = const_cast< ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs*>(
+      ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::internal_default_instance());
 }
-class ColorConfig::_Internal {
+class MandelbrotConfig_MandelbrotRunArgs::_Internal {
  public:
-  static const ::bmp_grapher_proto::SingleColorScheme& single_color_scheme(const ColorConfig* msg);
-  static const ::bmp_grapher_proto::DodgyColorScheme& dodgy_color_scheme(const ColorConfig* msg);
+  static const ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs& single_color_scheme_args(const MandelbrotConfig_MandelbrotRunArgs* msg);
 };
 
-const ::bmp_grapher_proto::SingleColorScheme&
-ColorConfig::_Internal::single_color_scheme(const ColorConfig* msg) {
-  return *msg->color_scheme_.single_color_scheme_;
+const ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs&
+MandelbrotConfig_MandelbrotRunArgs::_Internal::single_color_scheme_args(const MandelbrotConfig_MandelbrotRunArgs* msg) {
+  return *msg->color_scheme_args_.single_color_scheme_args_;
 }
-const ::bmp_grapher_proto::DodgyColorScheme&
-ColorConfig::_Internal::dodgy_color_scheme(const ColorConfig* msg) {
-  return *msg->color_scheme_.dodgy_color_scheme_;
-}
-void ColorConfig::set_allocated_single_color_scheme(::bmp_grapher_proto::SingleColorScheme* single_color_scheme) {
+void MandelbrotConfig_MandelbrotRunArgs::set_allocated_single_color_scheme_args(::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* single_color_scheme_args) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  clear_color_scheme();
-  if (single_color_scheme) {
+  clear_color_scheme_args();
+  if (single_color_scheme_args) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
     if (message_arena != submessage_arena) {
-      single_color_scheme = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, single_color_scheme, submessage_arena);
+      single_color_scheme_args = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, single_color_scheme_args, submessage_arena);
     }
-    set_has_single_color_scheme();
-    color_scheme_.single_color_scheme_ = single_color_scheme;
+    set_has_single_color_scheme_args();
+    color_scheme_args_.single_color_scheme_args_ = single_color_scheme_args;
   }
-  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.ColorConfig.single_color_scheme)
+  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.single_color_scheme_args)
 }
-void ColorConfig::set_allocated_dodgy_color_scheme(::bmp_grapher_proto::DodgyColorScheme* dodgy_color_scheme) {
-  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  clear_color_scheme();
-  if (dodgy_color_scheme) {
-    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
-    if (message_arena != submessage_arena) {
-      dodgy_color_scheme = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, dodgy_color_scheme, submessage_arena);
-    }
-    set_has_dodgy_color_scheme();
-    color_scheme_.dodgy_color_scheme_ = dodgy_color_scheme;
-  }
-  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.ColorConfig.dodgy_color_scheme)
-}
-ColorConfig::ColorConfig()
+MandelbrotConfig_MandelbrotRunArgs::MandelbrotConfig_MandelbrotRunArgs()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:bmp_grapher_proto.ColorConfig)
+  // @@protoc_insertion_point(constructor:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
 }
-ColorConfig::ColorConfig(const ColorConfig& from)
+MandelbrotConfig_MandelbrotRunArgs::MandelbrotConfig_MandelbrotRunArgs(const MandelbrotConfig_MandelbrotRunArgs& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
@@ -1071,81 +808,76 @@ ColorConfig::ColorConfig(const ColorConfig& from)
   if (!from._internal_out_filename().empty()) {
     out_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.out_filename_);
   }
-  clear_has_color_scheme();
-  switch (from.color_scheme_case()) {
-    case kSingleColorScheme: {
-      _internal_mutable_single_color_scheme()->::bmp_grapher_proto::SingleColorScheme::MergeFrom(from._internal_single_color_scheme());
+  color_scheme_ = from.color_scheme_;
+  clear_has_color_scheme_args();
+  switch (from.color_scheme_args_case()) {
+    case kSingleColorSchemeArgs: {
+      _internal_mutable_single_color_scheme_args()->::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::MergeFrom(from._internal_single_color_scheme_args());
       break;
     }
-    case kDodgyColorScheme: {
-      _internal_mutable_dodgy_color_scheme()->::bmp_grapher_proto::DodgyColorScheme::MergeFrom(from._internal_dodgy_color_scheme());
-      break;
-    }
-    case COLOR_SCHEME_NOT_SET: {
+    case COLOR_SCHEME_ARGS_NOT_SET: {
       break;
     }
   }
-  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.ColorConfig)
+  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
 }
 
-void ColorConfig::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ColorConfig_bmp_5fgrapher_2eproto.base);
+void MandelbrotConfig_MandelbrotRunArgs::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto.base);
   out_filename_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  clear_has_color_scheme();
+  color_scheme_ = 0;
+  clear_has_color_scheme_args();
 }
 
-ColorConfig::~ColorConfig() {
-  // @@protoc_insertion_point(destructor:bmp_grapher_proto.ColorConfig)
+MandelbrotConfig_MandelbrotRunArgs::~MandelbrotConfig_MandelbrotRunArgs() {
+  // @@protoc_insertion_point(destructor:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   SharedDtor();
 }
 
-void ColorConfig::SharedDtor() {
+void MandelbrotConfig_MandelbrotRunArgs::SharedDtor() {
   out_filename_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (has_color_scheme()) {
-    clear_color_scheme();
+  if (has_color_scheme_args()) {
+    clear_color_scheme_args();
   }
 }
 
-void ColorConfig::SetCachedSize(int size) const {
+void MandelbrotConfig_MandelbrotRunArgs::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ColorConfig& ColorConfig::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ColorConfig_bmp_5fgrapher_2eproto.base);
+const MandelbrotConfig_MandelbrotRunArgs& MandelbrotConfig_MandelbrotRunArgs::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MandelbrotConfig_MandelbrotRunArgs_bmp_5fgrapher_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void ColorConfig::clear_color_scheme() {
-// @@protoc_insertion_point(one_of_clear_start:bmp_grapher_proto.ColorConfig)
-  switch (color_scheme_case()) {
-    case kSingleColorScheme: {
-      delete color_scheme_.single_color_scheme_;
+void MandelbrotConfig_MandelbrotRunArgs::clear_color_scheme_args() {
+// @@protoc_insertion_point(one_of_clear_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
+  switch (color_scheme_args_case()) {
+    case kSingleColorSchemeArgs: {
+      delete color_scheme_args_.single_color_scheme_args_;
       break;
     }
-    case kDodgyColorScheme: {
-      delete color_scheme_.dodgy_color_scheme_;
-      break;
-    }
-    case COLOR_SCHEME_NOT_SET: {
+    case COLOR_SCHEME_ARGS_NOT_SET: {
       break;
     }
   }
-  _oneof_case_[0] = COLOR_SCHEME_NOT_SET;
+  _oneof_case_[0] = COLOR_SCHEME_ARGS_NOT_SET;
 }
 
 
-void ColorConfig::Clear() {
-// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.ColorConfig)
+void MandelbrotConfig_MandelbrotRunArgs::Clear() {
+// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   out_filename_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  clear_color_scheme();
+  color_scheme_ = 0;
+  clear_color_scheme_args();
   _internal_metadata_.Clear();
 }
 
-const char* ColorConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MandelbrotConfig_MandelbrotRunArgs::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -1157,21 +889,22 @@ const char* ColorConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_out_filename();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "bmp_grapher_proto.ColorConfig.out_filename"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.out_filename"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .bmp_grapher_proto.SingleColorScheme single_color_scheme = 2;
+      // .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.MandelbrotColorScheme color_scheme = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ctx->ParseMessage(_internal_mutable_single_color_scheme(), ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+          _internal_set_color_scheme(static_cast<::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_MandelbrotColorScheme>(val));
         } else goto handle_unusual;
         continue;
-      // .bmp_grapher_proto.DodgyColorScheme dodgy_color_scheme = 3;
+      // .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs single_color_scheme_args = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          ptr = ctx->ParseMessage(_internal_mutable_dodgy_color_scheme(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_single_color_scheme_args(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1195,9 +928,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ColorConfig::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* MandelbrotConfig_MandelbrotRunArgs::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.ColorConfig)
+  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1206,37 +939,36 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_out_filename().data(), static_cast<int>(this->_internal_out_filename().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "bmp_grapher_proto.ColorConfig.out_filename");
+      "bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.out_filename");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_out_filename(), target);
   }
 
-  // .bmp_grapher_proto.SingleColorScheme single_color_scheme = 2;
-  if (_internal_has_single_color_scheme()) {
+  // .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.MandelbrotColorScheme color_scheme = 2;
+  if (this->color_scheme() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::single_color_scheme(this), target, stream);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_color_scheme(), target);
   }
 
-  // .bmp_grapher_proto.DodgyColorScheme dodgy_color_scheme = 3;
-  if (_internal_has_dodgy_color_scheme()) {
+  // .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs single_color_scheme_args = 3;
+  if (_internal_has_single_color_scheme_args()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        3, _Internal::dodgy_color_scheme(this), target, stream);
+        3, _Internal::single_color_scheme_args(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.ColorConfig)
+  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   return target;
 }
 
-size_t ColorConfig::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.ColorConfig)
+size_t MandelbrotConfig_MandelbrotRunArgs::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1250,22 +982,21 @@ size_t ColorConfig::ByteSizeLong() const {
         this->_internal_out_filename());
   }
 
-  switch (color_scheme_case()) {
-    // .bmp_grapher_proto.SingleColorScheme single_color_scheme = 2;
-    case kSingleColorScheme: {
+  // .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.MandelbrotColorScheme color_scheme = 2;
+  if (this->color_scheme() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_color_scheme());
+  }
+
+  switch (color_scheme_args_case()) {
+    // .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs.SingleColorSchemeArgs single_color_scheme_args = 3;
+    case kSingleColorSchemeArgs: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *color_scheme_.single_color_scheme_);
+          *color_scheme_args_.single_color_scheme_args_);
       break;
     }
-    // .bmp_grapher_proto.DodgyColorScheme dodgy_color_scheme = 3;
-    case kDodgyColorScheme: {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *color_scheme_.dodgy_color_scheme_);
-      break;
-    }
-    case COLOR_SCHEME_NOT_SET: {
+    case COLOR_SCHEME_ARGS_NOT_SET: {
       break;
     }
   }
@@ -1278,23 +1009,23 @@ size_t ColorConfig::ByteSizeLong() const {
   return total_size;
 }
 
-void ColorConfig::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.ColorConfig)
+void MandelbrotConfig_MandelbrotRunArgs::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   GOOGLE_DCHECK_NE(&from, this);
-  const ColorConfig* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ColorConfig>(
+  const MandelbrotConfig_MandelbrotRunArgs* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MandelbrotConfig_MandelbrotRunArgs>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.ColorConfig)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.ColorConfig)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
     MergeFrom(*source);
   }
 }
 
-void ColorConfig::MergeFrom(const ColorConfig& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.ColorConfig)
+void MandelbrotConfig_MandelbrotRunArgs::MergeFrom(const MandelbrotConfig_MandelbrotRunArgs& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1304,106 +1035,109 @@ void ColorConfig::MergeFrom(const ColorConfig& from) {
 
     out_filename_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.out_filename_);
   }
-  switch (from.color_scheme_case()) {
-    case kSingleColorScheme: {
-      _internal_mutable_single_color_scheme()->::bmp_grapher_proto::SingleColorScheme::MergeFrom(from._internal_single_color_scheme());
+  if (from.color_scheme() != 0) {
+    _internal_set_color_scheme(from._internal_color_scheme());
+  }
+  switch (from.color_scheme_args_case()) {
+    case kSingleColorSchemeArgs: {
+      _internal_mutable_single_color_scheme_args()->::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs::MergeFrom(from._internal_single_color_scheme_args());
       break;
     }
-    case kDodgyColorScheme: {
-      _internal_mutable_dodgy_color_scheme()->::bmp_grapher_proto::DodgyColorScheme::MergeFrom(from._internal_dodgy_color_scheme());
-      break;
-    }
-    case COLOR_SCHEME_NOT_SET: {
+    case COLOR_SCHEME_ARGS_NOT_SET: {
       break;
     }
   }
 }
 
-void ColorConfig::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.ColorConfig)
+void MandelbrotConfig_MandelbrotRunArgs::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ColorConfig::CopyFrom(const ColorConfig& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.ColorConfig)
+void MandelbrotConfig_MandelbrotRunArgs::CopyFrom(const MandelbrotConfig_MandelbrotRunArgs& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ColorConfig::IsInitialized() const {
+bool MandelbrotConfig_MandelbrotRunArgs::IsInitialized() const {
   return true;
 }
 
-void ColorConfig::InternalSwap(ColorConfig* other) {
+void MandelbrotConfig_MandelbrotRunArgs::InternalSwap(MandelbrotConfig_MandelbrotRunArgs* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   out_filename_.Swap(&other->out_filename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
   swap(color_scheme_, other->color_scheme_);
+  swap(color_scheme_args_, other->color_scheme_args_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ColorConfig::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata MandelbrotConfig_MandelbrotRunArgs::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void MandelbrotCalc::InitAsDefaultInstance() {
+void MandelbrotConfig::InitAsDefaultInstance() {
 }
-class MandelbrotCalc::_Internal {
+class MandelbrotConfig::_Internal {
  public:
 };
 
-MandelbrotCalc::MandelbrotCalc()
+MandelbrotConfig::MandelbrotConfig()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:bmp_grapher_proto.MandelbrotCalc)
+  // @@protoc_insertion_point(constructor:bmp_grapher_proto.MandelbrotConfig)
 }
-MandelbrotCalc::MandelbrotCalc(const MandelbrotCalc& from)
+MandelbrotConfig::MandelbrotConfig(const MandelbrotConfig& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      run_args_(from.run_args_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   max_iterations_ = from.max_iterations_;
-  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.MandelbrotCalc)
+  // @@protoc_insertion_point(copy_constructor:bmp_grapher_proto.MandelbrotConfig)
 }
 
-void MandelbrotCalc::SharedCtor() {
+void MandelbrotConfig::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base);
   max_iterations_ = 0;
 }
 
-MandelbrotCalc::~MandelbrotCalc() {
-  // @@protoc_insertion_point(destructor:bmp_grapher_proto.MandelbrotCalc)
+MandelbrotConfig::~MandelbrotConfig() {
+  // @@protoc_insertion_point(destructor:bmp_grapher_proto.MandelbrotConfig)
   SharedDtor();
 }
 
-void MandelbrotCalc::SharedDtor() {
+void MandelbrotConfig::SharedDtor() {
 }
 
-void MandelbrotCalc::SetCachedSize(int size) const {
+void MandelbrotConfig::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const MandelbrotCalc& MandelbrotCalc::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MandelbrotCalc_bmp_5fgrapher_2eproto.base);
+const MandelbrotConfig& MandelbrotConfig::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MandelbrotConfig_bmp_5fgrapher_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void MandelbrotCalc::Clear() {
-// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.MandelbrotCalc)
+void MandelbrotConfig::Clear() {
+// @@protoc_insertion_point(message_clear_start:bmp_grapher_proto.MandelbrotConfig)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  run_args_.Clear();
   max_iterations_ = 0;
   _internal_metadata_.Clear();
 }
 
-const char* MandelbrotCalc::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MandelbrotConfig::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -1415,6 +1149,18 @@ const char* MandelbrotCalc::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           max_iterations_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs run_args = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_run_args(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1437,9 +1183,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* MandelbrotCalc::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* MandelbrotConfig::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.MandelbrotCalc)
+  // @@protoc_insertion_point(serialize_to_array_start:bmp_grapher_proto.MandelbrotConfig)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1449,21 +1195,36 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_max_iterations(), target);
   }
 
+  // repeated .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs run_args = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_run_args_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_run_args(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.MandelbrotCalc)
+  // @@protoc_insertion_point(serialize_to_array_end:bmp_grapher_proto.MandelbrotConfig)
   return target;
 }
 
-size_t MandelbrotCalc::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.MandelbrotCalc)
+size_t MandelbrotConfig::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:bmp_grapher_proto.MandelbrotConfig)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .bmp_grapher_proto.MandelbrotConfig.MandelbrotRunArgs run_args = 2;
+  total_size += 1UL * this->_internal_run_args_size();
+  for (const auto& msg : this->run_args_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
 
   // int32 max_iterations = 1;
   if (this->max_iterations() != 0) {
@@ -1481,58 +1242,60 @@ size_t MandelbrotCalc::ByteSizeLong() const {
   return total_size;
 }
 
-void MandelbrotCalc::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.MandelbrotCalc)
+void MandelbrotConfig::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:bmp_grapher_proto.MandelbrotConfig)
   GOOGLE_DCHECK_NE(&from, this);
-  const MandelbrotCalc* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MandelbrotCalc>(
+  const MandelbrotConfig* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MandelbrotConfig>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.MandelbrotCalc)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:bmp_grapher_proto.MandelbrotConfig)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.MandelbrotCalc)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:bmp_grapher_proto.MandelbrotConfig)
     MergeFrom(*source);
   }
 }
 
-void MandelbrotCalc::MergeFrom(const MandelbrotCalc& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.MandelbrotCalc)
+void MandelbrotConfig::MergeFrom(const MandelbrotConfig& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:bmp_grapher_proto.MandelbrotConfig)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  run_args_.MergeFrom(from.run_args_);
   if (from.max_iterations() != 0) {
     _internal_set_max_iterations(from._internal_max_iterations());
   }
 }
 
-void MandelbrotCalc::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.MandelbrotCalc)
+void MandelbrotConfig::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:bmp_grapher_proto.MandelbrotConfig)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void MandelbrotCalc::CopyFrom(const MandelbrotCalc& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.MandelbrotCalc)
+void MandelbrotConfig::CopyFrom(const MandelbrotConfig& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:bmp_grapher_proto.MandelbrotConfig)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool MandelbrotCalc::IsInitialized() const {
+bool MandelbrotConfig::IsInitialized() const {
   return true;
 }
 
-void MandelbrotCalc::InternalSwap(MandelbrotCalc* other) {
+void MandelbrotConfig::InternalSwap(MandelbrotConfig* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  run_args_.InternalSwap(&other->run_args_);
   swap(max_iterations_, other->max_iterations_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata MandelbrotCalc::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata MandelbrotConfig::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1540,31 +1303,31 @@ void MandelbrotCalc::InternalSwap(MandelbrotCalc* other) {
 // ===================================================================
 
 void BmpGrapher::InitAsDefaultInstance() {
-  ::bmp_grapher_proto::_BmpGrapher_default_instance_.mandelbrot_calc_ = const_cast< ::bmp_grapher_proto::MandelbrotCalc*>(
-      ::bmp_grapher_proto::MandelbrotCalc::internal_default_instance());
+  ::bmp_grapher_proto::_BmpGrapher_default_instance_.mandelbrot_config_ = const_cast< ::bmp_grapher_proto::MandelbrotConfig*>(
+      ::bmp_grapher_proto::MandelbrotConfig::internal_default_instance());
 }
 class BmpGrapher::_Internal {
  public:
-  static const ::bmp_grapher_proto::MandelbrotCalc& mandelbrot_calc(const BmpGrapher* msg);
+  static const ::bmp_grapher_proto::MandelbrotConfig& mandelbrot_config(const BmpGrapher* msg);
 };
 
-const ::bmp_grapher_proto::MandelbrotCalc&
-BmpGrapher::_Internal::mandelbrot_calc(const BmpGrapher* msg) {
-  return *msg->pixel_score_calculator_.mandelbrot_calc_;
+const ::bmp_grapher_proto::MandelbrotConfig&
+BmpGrapher::_Internal::mandelbrot_config(const BmpGrapher* msg) {
+  return *msg->bmp_grapher_config_.mandelbrot_config_;
 }
-void BmpGrapher::set_allocated_mandelbrot_calc(::bmp_grapher_proto::MandelbrotCalc* mandelbrot_calc) {
+void BmpGrapher::set_allocated_mandelbrot_config(::bmp_grapher_proto::MandelbrotConfig* mandelbrot_config) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
-  clear_pixel_score_calculator();
-  if (mandelbrot_calc) {
+  clear_bmp_grapher_config();
+  if (mandelbrot_config) {
     ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
     if (message_arena != submessage_arena) {
-      mandelbrot_calc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
-          message_arena, mandelbrot_calc, submessage_arena);
+      mandelbrot_config = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, mandelbrot_config, submessage_arena);
     }
-    set_has_mandelbrot_calc();
-    pixel_score_calculator_.mandelbrot_calc_ = mandelbrot_calc;
+    set_has_mandelbrot_config();
+    bmp_grapher_config_.mandelbrot_config_ = mandelbrot_config;
   }
-  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.BmpGrapher.mandelbrot_calc)
+  // @@protoc_insertion_point(field_set_allocated:bmp_grapher_proto.BmpGrapher.mandelbrot_config)
 }
 BmpGrapher::BmpGrapher()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
@@ -1573,19 +1336,18 @@ BmpGrapher::BmpGrapher()
 }
 BmpGrapher::BmpGrapher(const BmpGrapher& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr),
-      color_configs_(from.color_configs_) {
+      _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&x_center_, &from.x_center_,
     static_cast<size_t>(reinterpret_cast<char*>(&pixel_height_) -
     reinterpret_cast<char*>(&x_center_)) + sizeof(pixel_height_));
-  clear_has_pixel_score_calculator();
-  switch (from.pixel_score_calculator_case()) {
-    case kMandelbrotCalc: {
-      _internal_mutable_mandelbrot_calc()->::bmp_grapher_proto::MandelbrotCalc::MergeFrom(from._internal_mandelbrot_calc());
+  clear_has_bmp_grapher_config();
+  switch (from.bmp_grapher_config_case()) {
+    case kMandelbrotConfig: {
+      _internal_mutable_mandelbrot_config()->::bmp_grapher_proto::MandelbrotConfig::MergeFrom(from._internal_mandelbrot_config());
       break;
     }
-    case PIXEL_SCORE_CALCULATOR_NOT_SET: {
+    case BMP_GRAPHER_CONFIG_NOT_SET: {
       break;
     }
   }
@@ -1597,7 +1359,7 @@ void BmpGrapher::SharedCtor() {
   ::memset(&x_center_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&pixel_height_) -
       reinterpret_cast<char*>(&x_center_)) + sizeof(pixel_height_));
-  clear_has_pixel_score_calculator();
+  clear_has_bmp_grapher_config();
 }
 
 BmpGrapher::~BmpGrapher() {
@@ -1606,8 +1368,8 @@ BmpGrapher::~BmpGrapher() {
 }
 
 void BmpGrapher::SharedDtor() {
-  if (has_pixel_score_calculator()) {
-    clear_pixel_score_calculator();
+  if (has_bmp_grapher_config()) {
+    clear_bmp_grapher_config();
   }
 }
 
@@ -1620,18 +1382,18 @@ const BmpGrapher& BmpGrapher::default_instance() {
 }
 
 
-void BmpGrapher::clear_pixel_score_calculator() {
+void BmpGrapher::clear_bmp_grapher_config() {
 // @@protoc_insertion_point(one_of_clear_start:bmp_grapher_proto.BmpGrapher)
-  switch (pixel_score_calculator_case()) {
-    case kMandelbrotCalc: {
-      delete pixel_score_calculator_.mandelbrot_calc_;
+  switch (bmp_grapher_config_case()) {
+    case kMandelbrotConfig: {
+      delete bmp_grapher_config_.mandelbrot_config_;
       break;
     }
-    case PIXEL_SCORE_CALCULATOR_NOT_SET: {
+    case BMP_GRAPHER_CONFIG_NOT_SET: {
       break;
     }
   }
-  _oneof_case_[0] = PIXEL_SCORE_CALCULATOR_NOT_SET;
+  _oneof_case_[0] = BMP_GRAPHER_CONFIG_NOT_SET;
 }
 
 
@@ -1641,11 +1403,10 @@ void BmpGrapher::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  color_configs_.Clear();
   ::memset(&x_center_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&pixel_height_) -
       reinterpret_cast<char*>(&x_center_)) + sizeof(pixel_height_));
-  clear_pixel_score_calculator();
+  clear_bmp_grapher_config();
   _internal_metadata_.Clear();
 }
 
@@ -1691,23 +1452,11 @@ const char* BmpGrapher::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID:
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // .bmp_grapher_proto.MandelbrotCalc mandelbrot_calc = 6;
+      // .bmp_grapher_proto.MandelbrotConfig mandelbrot_config = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
-          ptr = ctx->ParseMessage(_internal_mutable_mandelbrot_calc(), ptr);
+          ptr = ctx->ParseMessage(_internal_mutable_mandelbrot_config(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // repeated .bmp_grapher_proto.ColorConfig color_configs = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_color_configs(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1766,20 +1515,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_pixel_height(), target);
   }
 
-  // .bmp_grapher_proto.MandelbrotCalc mandelbrot_calc = 6;
-  if (_internal_has_mandelbrot_calc()) {
+  // .bmp_grapher_proto.MandelbrotConfig mandelbrot_config = 6;
+  if (_internal_has_mandelbrot_config()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
-        6, _Internal::mandelbrot_calc(this), target, stream);
-  }
-
-  // repeated .bmp_grapher_proto.ColorConfig color_configs = 7;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_color_configs_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, this->_internal_color_configs(i), target, stream);
+        6, _Internal::mandelbrot_config(this), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1797,13 +1538,6 @@ size_t BmpGrapher::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
-
-  // repeated .bmp_grapher_proto.ColorConfig color_configs = 7;
-  total_size += 1UL * this->_internal_color_configs_size();
-  for (const auto& msg : this->color_configs_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
 
   // double x_center = 1;
   if (!(this->x_center() <= 0 && this->x_center() >= 0)) {
@@ -1834,15 +1568,15 @@ size_t BmpGrapher::ByteSizeLong() const {
         this->_internal_pixel_height());
   }
 
-  switch (pixel_score_calculator_case()) {
-    // .bmp_grapher_proto.MandelbrotCalc mandelbrot_calc = 6;
-    case kMandelbrotCalc: {
+  switch (bmp_grapher_config_case()) {
+    // .bmp_grapher_proto.MandelbrotConfig mandelbrot_config = 6;
+    case kMandelbrotConfig: {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-          *pixel_score_calculator_.mandelbrot_calc_);
+          *bmp_grapher_config_.mandelbrot_config_);
       break;
     }
-    case PIXEL_SCORE_CALCULATOR_NOT_SET: {
+    case BMP_GRAPHER_CONFIG_NOT_SET: {
       break;
     }
   }
@@ -1877,7 +1611,6 @@ void BmpGrapher::MergeFrom(const BmpGrapher& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  color_configs_.MergeFrom(from.color_configs_);
   if (!(from.x_center() <= 0 && from.x_center() >= 0)) {
     _internal_set_x_center(from._internal_x_center());
   }
@@ -1893,12 +1626,12 @@ void BmpGrapher::MergeFrom(const BmpGrapher& from) {
   if (from.pixel_height() != 0) {
     _internal_set_pixel_height(from._internal_pixel_height());
   }
-  switch (from.pixel_score_calculator_case()) {
-    case kMandelbrotCalc: {
-      _internal_mutable_mandelbrot_calc()->::bmp_grapher_proto::MandelbrotCalc::MergeFrom(from._internal_mandelbrot_calc());
+  switch (from.bmp_grapher_config_case()) {
+    case kMandelbrotConfig: {
+      _internal_mutable_mandelbrot_config()->::bmp_grapher_proto::MandelbrotConfig::MergeFrom(from._internal_mandelbrot_config());
       break;
     }
-    case PIXEL_SCORE_CALCULATOR_NOT_SET: {
+    case BMP_GRAPHER_CONFIG_NOT_SET: {
       break;
     }
   }
@@ -1925,13 +1658,12 @@ bool BmpGrapher::IsInitialized() const {
 void BmpGrapher::InternalSwap(BmpGrapher* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  color_configs_.InternalSwap(&other->color_configs_);
   swap(x_center_, other->x_center_);
   swap(y_center_, other->y_center_);
   swap(x_domain_width_, other->x_domain_width_);
   swap(pixel_width_, other->pixel_width_);
   swap(pixel_height_, other->pixel_height_);
-  swap(pixel_score_calculator_, other->pixel_score_calculator_);
+  swap(bmp_grapher_config_, other->bmp_grapher_config_);
   swap(_oneof_case_[0], other->_oneof_case_[0]);
 }
 
@@ -2137,17 +1869,14 @@ PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::RGB* Arena::CreateMaybeMessage< ::bmp_grapher_proto::RGB >(Arena* arena) {
   return Arena::CreateInternal< ::bmp_grapher_proto::RGB >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::SingleColorScheme* Arena::CreateMaybeMessage< ::bmp_grapher_proto::SingleColorScheme >(Arena* arena) {
-  return Arena::CreateInternal< ::bmp_grapher_proto::SingleColorScheme >(arena);
+template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs* Arena::CreateMaybeMessage< ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs >(Arena* arena) {
+  return Arena::CreateInternal< ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs_SingleColorSchemeArgs >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::DodgyColorScheme* Arena::CreateMaybeMessage< ::bmp_grapher_proto::DodgyColorScheme >(Arena* arena) {
-  return Arena::CreateInternal< ::bmp_grapher_proto::DodgyColorScheme >(arena);
+template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs* Arena::CreateMaybeMessage< ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs >(Arena* arena) {
+  return Arena::CreateInternal< ::bmp_grapher_proto::MandelbrotConfig_MandelbrotRunArgs >(arena);
 }
-template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::ColorConfig* Arena::CreateMaybeMessage< ::bmp_grapher_proto::ColorConfig >(Arena* arena) {
-  return Arena::CreateInternal< ::bmp_grapher_proto::ColorConfig >(arena);
-}
-template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::MandelbrotCalc* Arena::CreateMaybeMessage< ::bmp_grapher_proto::MandelbrotCalc >(Arena* arena) {
-  return Arena::CreateInternal< ::bmp_grapher_proto::MandelbrotCalc >(arena);
+template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::MandelbrotConfig* Arena::CreateMaybeMessage< ::bmp_grapher_proto::MandelbrotConfig >(Arena* arena) {
+  return Arena::CreateInternal< ::bmp_grapher_proto::MandelbrotConfig >(arena);
 }
 template<> PROTOBUF_NOINLINE ::bmp_grapher_proto::BmpGrapher* Arena::CreateMaybeMessage< ::bmp_grapher_proto::BmpGrapher >(Arena* arena) {
   return Arena::CreateInternal< ::bmp_grapher_proto::BmpGrapher >(arena);

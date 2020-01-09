@@ -1,11 +1,22 @@
 #pragma once
 
 #include <advanced_cxx/bmp_grapher.h>
+#include <advanced_cxx/graphers/color_utils.h>
 
 namespace mabz { namespace graphers {
 
 class MandelbrotCalc : public BmpGrapher
 {
+public:
+	class MandelbrotColorizer
+	{
+	public:
+		virtual ~MandelbrotColorizer() {}
+		virtual mabz::color::RGB GetColor(int) const = 0;
+	};
+
+	class SingleColorScheme;
+
 private:
 	struct Cmplx {
 		double Re{0};
@@ -52,42 +63,59 @@ public:
 		int pixelHeight,
 		int maxIterations);
 
+	struct RunArgs;
 
-	#define ui8 std::uint8_t
-	struct RunSingleColorSchemeArgs : public BmpGrapher::RunArgs
-	{
-		std::string mOutFilename;
-		ui8 mHundredPerCentRed;
-		ui8 mHundredPerCentGreen;
-		ui8 mHundredPerCentBlue;
-		ui8 mScalingBaseRed;
-		ui8 mScalingBaseGreen;
-		ui8 mScalingBaseBlue;
-
-		RunSingleColorSchemeArgs::RunSingleColorSchemeArgs(
-			std::string OutFilename,
-			ui8 HundredPerCentRed,
-			ui8 HundredPerCentGreen,
-			ui8 HundredPerCentBlue,
-			ui8 ScalingBaseRed,
-			ui8 ScalingBaseGreen,
-			ui8 ScalingBaseBlue)
-
-			: mOutFilename(OutFilename)
-			, mHundredPerCentRed(HundredPerCentRed)
-			, mHundredPerCentGreen(HundredPerCentGreen)
-			, mHundredPerCentBlue(HundredPerCentBlue)
-			, mScalingBaseRed(ScalingBaseRed)
-			, mScalingBaseGreen(ScalingBaseGreen)
-			, mScalingBaseBlue(ScalingBaseBlue)
-		{}
-
-	};
-	#undef ui8
-
-	virtual void Run(const BmpGrapher::RunArgs*) override;
-
+	virtual void Run(std::shared_ptr<const BmpGrapher::RunArgs>) override;
 };
+
+enum MandelbrotColorScheme
+{
+	SINGLE
+};
+
+struct MandelbrotCalc::RunArgs : public BmpGrapher::RunArgs
+{
+	std::string mOutFilename;
+	MandelbrotColorScheme mColorScheme{SINGLE};
+	std::shared_ptr<const BmpGrapher::RunArgs> mColorSchemeArgs{nullptr};
+	RunArgs(std::string a, MandelbrotColorScheme b, std::shared_ptr<const BmpGrapher::RunArgs> c)
+		: mOutFilename(a), mColorScheme(b), mColorSchemeArgs(c)
+	{}
+	RunArgs(RunArgs&&) = default;
+};
+
+#define ui8 std::uint8_t
+class MandelbrotCalc::SingleColorScheme : MandelbrotCalc::MandelbrotColorizer
+{
+private:
+	int mMaxIterations;
+	mabz::color::RGB mMandelbrotColor;
+	mabz::color::HSV mBaseColor;
+
+public:
+	
+	struct ConstructorArgs;
+
+	// mScalingDenominator, RGB of mMandelbrotColor, RGB of mBaseColor.
+	SingleColorScheme(int maxIterations, const ConstructorArgs&);
+	
+	virtual mabz::color::RGB GetColor(int iterations) const override;
+};
+
+struct MandelbrotCalc::SingleColorScheme::ConstructorArgs : public BmpGrapher::RunArgs
+{
+	ui8 mMandelbrotRed;
+	ui8 mMandelbrotGreen;
+	ui8 mMandelbrotBlue;
+	ui8 mBaseRed;
+	ui8 mBaseGreen;
+	ui8 mBaseBlue;
+
+	ConstructorArgs(ui8 a, ui8 b, ui8 c, ui8 d, ui8 e, ui8 f)
+		: mMandelbrotRed(a), mMandelbrotGreen(b), mMandelbrotBlue(c), mBaseRed(d), mBaseGreen(e), mBaseBlue(f)
+	{}
+};
+#undef ui8
 
 } /* namespace graphers */
 } /* namespace mabz */

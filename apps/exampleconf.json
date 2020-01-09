@@ -6,38 +6,38 @@
    "x_domain_width": 3,
    "pixel_width": 800,
    "pixel_height": 600,
-   "mandelbrot_calc": {
-    "max_iterations": 1000
-   },
-   "color_configs": [
-    {
-     "out_filename": "red_and_blue.bmp",
-     "single_color_scheme": {
-      "scaling_denominator": 1000,
-      "hundred_per_cent_color": {
-        "red": 0,
-        "green": 0,
-        "blue": 40
+   "mandelbrot_config": {
+    "max_iterations": 1000,
+    "run_args": [
+     {
+      "out_filename": "red_and_blue.bmp",
+      "color_scheme": 0,
+      "single_color_scheme_args": {
+       "mandelbrot_color": {
+         "red": 0,
+         "green": 0,
+         "blue": 40
        },
-       "scaling_base_color": {
-        "red": 240,
-        "green": 0,
-        "blue": 30
+       "base_color": {
+         "red": 240,
+         "green": 0,
+         "blue": 30
        }
       }
-    },
-    {
-     "out_filename": "black_and_white.bmp",
-     "single_color_scheme": {
-      "scaling_denominator": 1000,
-       "scaling_base_color": {
-        "red": 240,
-        "green": 240,
-        "blue": 240
+     },
+     {
+      "out_filename": "black_and_white.bmp",
+      "color_scheme": 0,
+      "single_color_scheme_args": {
+       "base_color": {
+         "red": 240,
+         "green": 240,
+         "blue": 240
        }
       }
-    }
-   ]
+     }
+    ]
+   }
   },
   {
    "x_center": -0.5,
@@ -45,38 +45,38 @@
    "x_domain_width": 1,
    "pixel_width": 600,
    "pixel_height": 800,
-   "mandelbrot_calc": {
-    "max_iterations": 750
-   },
-   "color_configs": [
-    {
-     "out_filename": "red_and_blue_2.bmp",
-     "single_color_scheme": {
-      "scaling_denominator": 750,
-      "hundred_per_cent_color": {
-        "red": 0,
-        "green": 0,
-        "blue": 40
+   "mandelbrot_config": {
+    "max_iterations": 750,
+    "run_args": [
+     {
+      "out_filename": "red_and_blue_2.bmp",
+      "color_scheme": 0,
+      "single_color_scheme_args": {
+       "mandelbrot_color": {
+         "red": 0,
+         "green": 0,
+         "blue": 40
        },
-       "scaling_base_color": {
-        "red": 240,
-        "green": 0,
-        "blue": 30
+       "base_color": {
+         "red": 240,
+         "green": 0,
+         "blue": 30
        }
       }
-    },
-    {
-     "out_filename": "black_and_white_2.bmp",
-     "single_color_scheme": {
-      "scaling_denominator": 750,
-       "scaling_base_color": {
-        "red": 240,
-        "green": 240,
-        "blue": 240
+     },
+     {
+      "out_filename": "black_and_white_2.bmp",
+      "color_scheme": 0,
+      "single_color_scheme_args": {
+       "base_color": {
+         "red": 240,
+         "green": 240,
+         "blue": 240
        }
       }
-    }
-   ]
+     }
+    ]
+   }
   }
  ]
 }

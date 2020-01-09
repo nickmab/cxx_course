@@ -4,7 +4,7 @@
 #include <cmath>
 #include <utility>
 
-namespace mabz { namespace color {
+namespace mabz { namespace graphers { namespace color {
 
 #define ui8 std::uint8_t
 
@@ -158,4 +158,5 @@ RGB HSV::ToRGB() const
 #undef ui8
 
 } /* namespace color */
+} /* namespace graphers */
 } /* namespace mabz */

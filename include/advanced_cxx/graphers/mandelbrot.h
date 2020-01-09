@@ -3,20 +3,19 @@
 #include <advanced_cxx/bmp_grapher.h>
 #include <advanced_cxx/graphers/color_utils.h>
 
-namespace mabz { namespace graphers {
+namespace mabz { namespace graphers { namespace mandelbrot {
+
+namespace color = mabz::graphers::color;
+
+class MandelbrotColorizer
+{
+public:
+	virtual ~MandelbrotColorizer() {}
+	virtual color::RGB GetColor(int) const = 0;
+};
 
 class MandelbrotCalc : public BmpGrapher
 {
-public:
-	class MandelbrotColorizer
-	{
-	public:
-		virtual ~MandelbrotColorizer() {}
-		virtual mabz::color::RGB GetColor(int) const = 0;
-	};
-
-	class SingleColorScheme;
-
 private:
 	struct Cmplx {
 		double Re{0};
@@ -37,23 +36,7 @@ private:
 	// "out" variable indicates the number of iterations done until it crossed through the 2 barrier.
 	void CalcPixelIterations(int& outResult, const double x, const double y);
 	void CacheAllPixelIterations();
-	
-	template <typename Colorizer, typename... Args>
-	void Colorize(Args... colorizerConstructorArgs)
-	{
-		std::cout << "I am here!" << std::endl;
-		Colorizer c(colorizerConstructorArgs...);
-		const int width = mBmp.Width();
-		const int height = mBmp.Height();
-		for (int x = 0; x < width; ++x)
-		{
-			for (int y = 0; y < height; ++y)
-			{
-				const mabz::color::RGB rgb = c.GetColor(mIterations[y*width + x]);
-				mBmp.SetRGBPixel(x, y, rgb.mRed, rgb.mGreen, rgb.mBlue);
-			}
-		}
-	}
+	void Colorize(const MandelbrotColorizer&);
 
 public:
 	MandelbrotCalc(double xCenter, 
@@ -63,34 +46,32 @@ public:
 		int pixelHeight,
 		int maxIterations);
 
-	struct RunArgs;
-
 	virtual void Run(std::shared_ptr<const BmpGrapher::RunArgs>) override;
 };
 
-enum MandelbrotColorScheme
+enum ColorScheme
 {
 	SINGLE
 };
 
-struct MandelbrotCalc::RunArgs : public BmpGrapher::RunArgs
+struct RunArgs : public BmpGrapher::RunArgs
 {
-	std::string mOutFilename;
-	MandelbrotColorScheme mColorScheme{SINGLE};
+	std::string mOutFilename{""};
+	ColorScheme mColorScheme{ColorScheme::SINGLE};
 	std::shared_ptr<const BmpGrapher::RunArgs> mColorSchemeArgs{nullptr};
-	RunArgs(std::string a, MandelbrotColorScheme b, std::shared_ptr<const BmpGrapher::RunArgs> c)
+	
+	RunArgs(std::string a, ColorScheme b, std::shared_ptr<const BmpGrapher::RunArgs> c)
 		: mOutFilename(a), mColorScheme(b), mColorSchemeArgs(c)
 	{}
 	RunArgs(RunArgs&&) = default;
 };
 
-#define ui8 std::uint8_t
-class MandelbrotCalc::SingleColorScheme : MandelbrotCalc::MandelbrotColorizer
+class SingleColorScheme : public MandelbrotColorizer
 {
 private:
 	int mMaxIterations;
-	mabz::color::RGB mMandelbrotColor;
-	mabz::color::HSV mBaseColor;
+	color::RGB mMandelbrotColor;
+	color::HSV mBaseColor;
 
 public:
 	
@@ -99,10 +80,11 @@ public:
 	// mScalingDenominator, RGB of mMandelbrotColor, RGB of mBaseColor.
 	SingleColorScheme(int maxIterations, const ConstructorArgs&);
 	
-	virtual mabz::color::RGB GetColor(int iterations) const override;
+	virtual color::RGB GetColor(int iterations) const override;
 };
 
-struct MandelbrotCalc::SingleColorScheme::ConstructorArgs : public BmpGrapher::RunArgs
+#define ui8 std::uint8_t
+struct SingleColorScheme::ConstructorArgs : public BmpGrapher::RunArgs
 {
 	ui8 mMandelbrotRed;
 	ui8 mMandelbrotGreen;
@@ -117,5 +99,6 @@ struct MandelbrotCalc::SingleColorScheme::ConstructorArgs : public BmpGrapher::R
 };
 #undef ui8
 
+} /* namespace mandelbrot */
 } /* namespace graphers */
 } /* namespace mabz */

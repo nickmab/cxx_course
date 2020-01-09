@@ -13,6 +13,8 @@
 
 namespace mabz { namespace graphers {
 
+namespace nsmandel = mabz::graphers::mandelbrot;
+
 bool BmpGrapher::WriteToFile(const char* filename) const
 {
 	return mBmp.WriteToFile(filename);
@@ -60,11 +62,11 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 			{
 				const bmp_grapher_proto::BmpGrapher& bmpConfig = config.bitmaps(i);
 				std::shared_ptr<BmpGrapher> bmpGrapher{nullptr};
-				mabz::graphers::MandelbrotColorScheme colorSchemeName{SINGLE};
+				nsmandel::ColorScheme colorSchemeName;
 
 				if (bmpConfig.has_mandelbrot_config())
 				{
-					bmpGrapher.reset(new mabz::graphers::MandelbrotCalc(
+					bmpGrapher.reset(new nsmandel::MandelbrotCalc(
 						bmpConfig.x_center(),
 						bmpConfig.y_center(),
 						bmpConfig.x_domain_width(),
@@ -80,10 +82,10 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 						std::shared_ptr<const BmpGrapher::RunArgs> colorRunArgs{nullptr};
 						if (runConfig.has_single_color_scheme_args())
 						{
-							colorSchemeName = mabz::graphers::MandelbrotColorScheme::SINGLE;
+							colorSchemeName = nsmandel::ColorScheme::SINGLE;
 							
 							auto csdata = runConfig.single_color_scheme_args();
-							colorRunArgs.reset(new mabz::graphers::MandelbrotCalc::SingleColorScheme::ConstructorArgs(
+							colorRunArgs.reset(new nsmandel::SingleColorScheme::ConstructorArgs(
 								csdata.mandelbrot_color().red(),
 								csdata.mandelbrot_color().green(),
 								csdata.mandelbrot_color().blue(),
@@ -98,7 +100,7 @@ BmpGrapherFactory* BmpGrapherFactory::NewFromPbufJsonFile(const char* filename, 
 							return nullptr;
 						}
 
-						bmpRunArgs.reset(new mabz::graphers::MandelbrotCalc::RunArgs(
+						bmpRunArgs.reset(new nsmandel::RunArgs(
 							std::string(runConfig.out_filename()),
 							colorSchemeName,
 							colorRunArgs));

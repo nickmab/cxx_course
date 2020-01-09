@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-namespace mabz { namespace color {
+namespace mabz { namespace graphers { namespace color {
 
 #define ui8 std::uint8_t
 
@@ -41,4 +41,5 @@ struct HSV
 #undef ui8
 
 } /* namespace color */
+} /* namespace graphers */
 } /* namespace mabz */

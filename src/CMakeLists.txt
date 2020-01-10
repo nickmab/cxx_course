@@ -15,6 +15,10 @@ find_package(Protobuf REQUIRED)
 message("${Protobuf_LIBRARIES}")
 message("${Protobuf_INCLUDE_DIRS}")
 
+if(NOT Protobuf_FOUND)
+	message(FATAL_ERROR "Protobuf is required. Could not find it. Fail.")
+endif()
+
 # We need this directory, and users of our library will need it too
 target_include_directories(advanced_cxx_lib PUBLIC ../include "${Protobuf_INCLUDE_DIRS}")
 # target_include_directories(advanced_cxx_lib PUBLIC ../include)

@@ -1,6 +1,8 @@
 # CMake 3.12 or later:
 file(GLOB APP_LIST "./*.cpp")
 
+target_compile_options(advanced_cxx_lib PUBLIC /MT)
+
 foreach(FILE_NAME ${APP_LIST})
     get_filename_component(APP_NAME ${FILE_NAME} NAME_WLE)
 	add_executable(${APP_NAME} "${APP_NAME}.cpp")

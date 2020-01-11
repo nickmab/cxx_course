@@ -27,7 +27,7 @@ target_link_libraries(advanced_cxx_lib PUBLIC "${Protobuf_LIBRARIES}")
 
 # All users of this library will need at least C++17
 target_compile_features(advanced_cxx_lib PUBLIC cxx_std_17)
-target_compile_options(advanced_cxx_lib PUBLIC /MT)
+# target_compile_options(advanced_cxx_lib PUBLIC /MT)
 
 # IDEs should put the headers in a nice place
 source_group(TREE "${PROJECT_SOURCE_DIR}/include" PREFIX "Header Files" FILES ${HEADER_LIST})
